@@ -92,6 +92,154 @@ interface BookMeshProps {
   isMobile?: boolean
 }
 
+// function BookMesh({
+//   bookIndex,
+//   bookImage,
+//   isActive,
+//   position,
+//   rotationY,
+//   scale,
+//   onClick,
+//   onHoverActive,
+//   isMobile,
+// }: BookMeshProps) {
+//   const groupRef = useRef<Group>(null)
+//   const frontRef = useRef<Mesh>(null)
+//   const [hovered, setHovered] = useState(false)
+//   const [texture, setTexture] = useState<any>(null)
+//   const [textureError, setTextureError] = useState(false)
+
+//   const imagePath = bookImage || `/books/book-${bookIndex}.png`
+
+//   // Manually load texture with error handling
+//   useEffect(() => {
+//     const loader = new TextureLoader()
+//     loader.load(
+//       imagePath,
+//       (loadedTexture) => {
+//         loadedTexture.flipY = true
+//         loadedTexture.colorSpace = "srgb" as any
+//         loadedTexture.anisotropy = 8
+//         loadedTexture.generateMipmaps = true
+//         loadedTexture.needsUpdate = true
+//         setTexture(loadedTexture)
+//         setTextureError(false)
+//       },
+//       undefined,
+//       (error) => {
+//         console.warn(`Failed to load texture: ${imagePath}`, error)
+//         setTextureError(true)
+//         setTexture(null)
+//       }
+//     )
+//   }, [imagePath])
+
+//   /**
+//    * ✅ GSAP POSITION / ROTATION / SCALE
+//    */
+//   useEffect(() => {
+//     if (!groupRef.current) return
+
+//     gsap.to(groupRef.current.position, {
+//       x: position[0],
+//       y: 0,
+//       z: position[2],
+//       duration: 0.9,
+//       ease: "power4.out",
+//     })
+
+//     gsap.to(groupRef.current.rotation, {
+//       y: rotationY,
+//       duration: 0.9,
+//       ease: "power4.out",
+//     })
+
+//     gsap.to(groupRef.current.scale, {
+//       x: scale,
+//       y: scale,
+//       z: scale,
+//       duration: 0.9,
+//       ease: "power4.out",
+//     })
+//   }, [position, rotationY, scale])
+
+//   /**
+//    * ✅ HOVER + ACTIVE DEPTH EFFECT
+//    */
+//   useFrame(({ camera }) => {
+//     if (!groupRef.current) return
+
+//     groupRef.current.lookAt(camera.position)
+
+//     const lift = hovered || isActive ? 0.25 : 0
+//     const zPop = isActive ? 0.35 : 0
+//     const scaleBoost = hovered || isActive ? 1.12 : 1
+
+//     gsap.to(groupRef.current.position, {
+//       y: lift,
+//       z: position[2] + zPop,
+//       duration: 0.35,
+//       ease: "power2.out",
+//     })
+
+//     if (frontRef.current) {
+//       frontRef.current.scale.lerp(
+//         { x: scaleBoost, y: scaleBoost, z: scaleBoost } as any,
+//         0.12
+//       )
+//     }
+//   })
+
+//   return (
+//     <group
+//       ref={groupRef}
+//       onClick={onClick}
+//       onPointerOver={() => {
+//         setHovered(true)
+//         if (isActive) onHoverActive?.(true)
+//       }}
+//       onPointerOut={() => {
+//         setHovered(false)
+//         if (isActive) onHoverActive?.(false)
+//       }}
+//     >
+//       {/* FRONT COVER */}
+//       <mesh ref={frontRef}>
+//         <planeGeometry args={[2.1, 2.9]} />
+//         <meshStandardMaterial
+//           map={texture && !textureError ? texture : null}
+//           color={textureError || !texture ? new Color(0xffffff) : undefined}
+//           transparent={texture && !textureError}
+//           alphaTest={texture && !textureError ? 0.15 : 0}
+//           roughness={isActive ? 0.25 : 0.45}
+//           metalness={isActive ? 0.45 : 0.25}
+//           envMapIntensity={isActive ? 1.3 : 0.8}
+//         />
+//       </mesh>
+
+//       {/* SPINE */}
+//       <mesh position={[-1.05, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+//         <planeGeometry args={[0.16, 2.9]} />
+//         <meshStandardMaterial
+//           color="#111"
+//           roughness={0.6}
+//           metalness={0.35}
+//         />
+//       </mesh>
+
+//       {/* BACK */}
+//       <mesh position={[0, 0, -0.02]}>
+//         <planeGeometry args={[2.1, 2.9]} />
+//         <meshStandardMaterial
+//           color="#1f1f1f"
+//           roughness={0.85}
+//           metalness={0.15}
+//         />
+//       </mesh>
+//     </group>
+//   )
+// }
+
 function BookMesh({
   bookIndex,
   bookImage,
@@ -101,46 +249,44 @@ function BookMesh({
   scale,
   onClick,
   onHoverActive,
-  isMobile,
 }: BookMeshProps) {
-  const groupRef = useRef<Group>(null)
+  const baseRef = useRef<Group>(null)
+  const hoverRef = useRef<Group>(null)
   const frontRef = useRef<Mesh>(null)
+
   const [hovered, setHovered] = useState(false)
   const [texture, setTexture] = useState<any>(null)
   const [textureError, setTextureError] = useState(false)
 
   const imagePath = bookImage || `/books/book-${bookIndex}.png`
 
-  // Manually load texture with error handling
+  /* ================= TEXTURE LOAD ================= */
   useEffect(() => {
     const loader = new TextureLoader()
     loader.load(
       imagePath,
-      (loadedTexture) => {
-        loadedTexture.flipY = true
-        loadedTexture.colorSpace = "srgb" as any
-        loadedTexture.anisotropy = 8
-        loadedTexture.generateMipmaps = true
-        loadedTexture.needsUpdate = true
-        setTexture(loadedTexture)
+      (t) => {
+        t.flipY = true
+        t.colorSpace = "srgb" as any
+        t.anisotropy = 8
+        t.generateMipmaps = true
+        t.needsUpdate = true
+        setTexture(t)
         setTextureError(false)
       },
       undefined,
-      (error) => {
-        console.warn(`Failed to load texture: ${imagePath}`, error)
-        setTextureError(true)
+      () => {
         setTexture(null)
+        setTextureError(true)
       }
     )
   }, [imagePath])
 
-  /**
-   * ✅ GSAP POSITION / ROTATION / SCALE
-   */
+  /* ================= BASE CAROUSEL ANIMATION ================= */
   useEffect(() => {
-    if (!groupRef.current) return
+    if (!baseRef.current) return
 
-    gsap.to(groupRef.current.position, {
+    gsap.to(baseRef.current.position, {
       x: position[0],
       y: 0,
       z: position[2],
@@ -148,13 +294,13 @@ function BookMesh({
       ease: "power4.out",
     })
 
-    gsap.to(groupRef.current.rotation, {
+    gsap.to(baseRef.current.rotation, {
       y: rotationY,
       duration: 0.9,
       ease: "power4.out",
     })
 
-    gsap.to(groupRef.current.scale, {
+    gsap.to(baseRef.current.scale, {
       x: scale,
       y: scale,
       z: scale,
@@ -163,36 +309,39 @@ function BookMesh({
     })
   }, [position, rotationY, scale])
 
-  /**
-   * ✅ HOVER + ACTIVE DEPTH EFFECT
-   */
-  useFrame(({ camera }) => {
-    if (!groupRef.current) return
-
-    groupRef.current.lookAt(camera.position)
+  /* ================= HOVER / ACTIVE EFFECT ================= */
+  useEffect(() => {
+    if (!hoverRef.current) return
 
     const lift = hovered || isActive ? 0.25 : 0
     const zPop = isActive ? 0.35 : 0
-    const scaleBoost = hovered || isActive ? 1.12 : 1
+    const scaleBoost = hovered || isActive ? 1 : 1
 
-    gsap.to(groupRef.current.position, {
+    gsap.to(hoverRef.current.position, {
       y: lift,
-      z: position[2] + zPop,
+      z: zPop,
       duration: 0.35,
       ease: "power2.out",
     })
 
-    if (frontRef.current) {
-      frontRef.current.scale.lerp(
-        { x: scaleBoost, y: scaleBoost, z: scaleBoost } as any,
-        0.12
-      )
-    }
+    gsap.to(hoverRef.current.scale, {
+      x: scaleBoost,
+      y: scaleBoost,
+      z: scaleBoost,
+      duration: 0.35,
+      ease: "power2.out",
+    })
+  }, [hovered, isActive])
+
+  /* ================= CAMERA FACING ================= */
+  useFrame(({ camera }) => {
+    if (!baseRef.current) return
+    baseRef.current.lookAt(camera.position)
   })
 
   return (
     <group
-      ref={groupRef}
+      ref={baseRef}
       onClick={onClick}
       onPointerOver={() => {
         setHovered(true)
@@ -203,39 +352,33 @@ function BookMesh({
         if (isActive) onHoverActive?.(false)
       }}
     >
-      {/* FRONT COVER */}
-      <mesh ref={frontRef}>
-        <planeGeometry args={[2.1, 2.9]} />
-        <meshStandardMaterial
-          map={texture && !textureError ? texture : null}
-          color={textureError || !texture ? new Color(0xffffff) : undefined}
-          transparent={texture && !textureError}
-          alphaTest={texture && !textureError ? 0.15 : 0}
-          roughness={isActive ? 0.25 : 0.45}
-          metalness={isActive ? 0.45 : 0.25}
-          envMapIntensity={isActive ? 1.3 : 0.8}
-        />
-      </mesh>
+      <group ref={hoverRef}>
+        {/* FRONT */}
+        <mesh ref={frontRef}>
+          <planeGeometry args={[2.1, 2.9]} />
+          <meshStandardMaterial
+            map={texture && !textureError ? texture : null}
+            color={textureError || !texture ? new Color(0xffffff) : undefined}
+            transparent={!!texture && !textureError}
+            alphaTest={texture && !textureError ? 0.15 : 0}
+            roughness={isActive ? 0.25 : 0.45}
+            metalness={isActive ? 0.45 : 0.25}
+            envMapIntensity={isActive ? 1.3 : 0.8}
+          />
+        </mesh>
 
-      {/* SPINE */}
-      <mesh position={[-1.05, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
-        <planeGeometry args={[0.16, 2.9]} />
-        <meshStandardMaterial
-          color="#111"
-          roughness={0.6}
-          metalness={0.35}
-        />
-      </mesh>
+        {/* SPINE */}
+        <mesh position={[-1.05, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+          <planeGeometry args={[0.16, 2.9]} />
+          <meshStandardMaterial color="#111" roughness={0.6} metalness={0.35} />
+        </mesh>
 
-      {/* BACK */}
-      <mesh position={[0, 0, -0.02]}>
-        <planeGeometry args={[2.1, 2.9]} />
-        <meshStandardMaterial
-          color="#1f1f1f"
-          roughness={0.85}
-          metalness={0.15}
-        />
-      </mesh>
+        {/* BACK */}
+        <mesh position={[0, 0, -0.02]}>
+          <planeGeometry args={[2.1, 2.9]} />
+          <meshStandardMaterial color="#1f1f1f" roughness={0.85} metalness={0.15} />
+        </mesh>
+      </group>
     </group>
   )
 }

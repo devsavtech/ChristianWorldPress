@@ -2,30 +2,76 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { useTypingAnimation } from "@/hooks/useTypingAnimation"
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// Images 
+import Client1 from "../public/clients/client1.jpg"
+import Client2 from "../public/clients/client2.jpg"
+import Client3 from "../public/clients/client3.png"
+import Client4 from "../public/clients/client4.png"
+import Client5 from "../public/clients/client5.jpg"
+import Image from "next/image";
+
 
 const authors = [
   {
     id: 1,
-    name: "Dr. Samuel Lee",
-    description: "Biblical scholar with 30 years of ministry experience",
-    image: "/placeholder.svg?key=8uyny",
-  },
-  {
-    id: 2,
-    name: "Sarah Mitchell",
-    description: "Speaker and author passionate about faith and discipleship",
-    image: "/placeholder.svg?key=2mywd",
+    name: "Joey Jaymes",
+    image: Client1,
   },
   {
     id: 3,
-    name: "James Thompson",
-    description: "Theologian dedicated to contemporary Christian issues",
-    image: "/placeholder.svg?key=qk87b",
+    name: "Greg Pai",
+    image: Client3,
+  },
+  {
+    id: 2,
+    name: "Rebekah Davis",
+    image: Client4,
+  },
+  {
+    id: 3,
+    name: "Jimmy Evans",
+    image: Client5,
   },
 ]
 
 export function FeaturedAuthorsSection() {
   const { displayedText, isTyping, sectionRef } = useTypingAnimation("Featured Authors")
+
+  // Slider 
+  const featuredSlider = {
+    dots: false,
+    infinite: true,
+    arrows: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  }
 
   return (
     <section ref={sectionRef} id="authors" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card/20 border-y border-border relative overflow-hidden">
@@ -50,27 +96,29 @@ export function FeaturedAuthorsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-          {authors.map((author) => (
-            <Card
-              key={author.id}
-              className="bg-card border-border overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation"
-            >
-              <CardContent className="p-0">
-                <div className="h-48 sm:h-56 md:h-64 overflow-hidden bg-muted">
-                  <img
-                    src={author.image || "/placeholder.svg"}
-                    alt={author.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-4 sm:p-5 md:p-6 text-center space-y-2">
-                  <h3 className="font-serif font-bold text-base sm:text-lg md:text-xl text-foreground">{author.name}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground">{author.description}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
+          {/* <Slider {...featuredSlider}> */}
+            {authors.map((author) => (
+                <Card
+                  key={author.id}
+                  className="bg-card border-border !pt-0 overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation"
+                >
+                  <CardContent className="p-0">
+                    <div className="h-120 xl:h-60 overflow-hidden bg-muted">
+                      <Image
+                        src={author.image}
+                        alt={author.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 sm:p-5 md:p-4 !pb-0 text-center space-y-2">
+                      <h3 className="font-serif font-bold text-base sm:text-lg md:text-xl text-foreground">{author.name}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{author.description}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+            ))}
+          {/* </Slider> */}
         </div>
       </div>
     </section>

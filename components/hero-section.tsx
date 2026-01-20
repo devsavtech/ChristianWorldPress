@@ -22,15 +22,15 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
+        <div className="gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 sm:space-y-7 md:space-y-8 text-center md:text-left">
             <div className="space-y-3 sm:space-y-4">
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
-                Reliable Christian Publishing
+              <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight xl:w-9/12">
+                Spread the Gospels Worldwide Through Reliable Christian Publishing
               </h1>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto md:mx-0">
-                Spreading the Gospel to the World Through Trusted Distribution Partners.
+              <p className="text-base sm:text-sm md:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto md:mx-0">
+                Christian World Press is passionate about creating books that strengthen your faith. Our goal is to provide resources that help you grow spiritually and live out your faith with purpose. Each title we publish is a tool to help you on your faith journey.
               </p>
             </div>
 

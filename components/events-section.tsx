@@ -18,7 +18,7 @@ const events = [
     id: 2,
     title: "Author Workshop: Crafting Your Message",
     date: "June 8, 2024",
-    location: "Online",
+    location: "Central/North Texas",
     description:
       "Learn how to effectively communicate your faith-based message through powerful Christian literature.",
   },
@@ -39,7 +39,7 @@ export function EventsSection() {
     <section ref={sectionRef} id="events" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card/10 border-y border-border relative overflow-hidden">
       {/* Background image with overlay */}
       <div
-        className="absolute inset-0 opacity-50"
+        className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `url('/img/Partner Store Section Prompt.jpg')`,
           backgroundPosition: "center",
@@ -55,7 +55,7 @@ export function EventsSection() {
             {isTyping && <span className="animate-pulse">|</span>}
           </h2>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-2">
-            Connect with us and the Christian publishing community
+            Join us at industry-leading events where we gather together to discuss the latest trends, challenges, and innovations in Christian publishing. 
           </p>
         </div>
 
@@ -95,24 +95,13 @@ export function EventsSection() {
                       {event.title}
                     </h3>
 
-                    <div className="flex flex-col gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                        <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-                        <span>{event.date}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
-                        <span>{event.location}</span>
-                      </div>
-                    </div>
-
                     <p className="text-xs sm:text-sm text-muted-foreground pt-1 sm:pt-2">
                       {event.description}
                     </p>
                   </div>
 
                   {/* Button */}
-                  <Button
+                  {/* <Button
                     variant="outline"
                     className="
                       border-primary text-primary
@@ -128,7 +117,18 @@ export function EventsSection() {
                     "
                   >
                     LEARN MORE
-                  </Button>
+                  </Button> */}
+
+                  <div className="flex flex-col gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                        <span>{event.date}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0" />
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
                 </div>
               </CardContent>
             </Card>

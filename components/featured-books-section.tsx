@@ -102,7 +102,7 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
             {isTyping && <span className="animate-pulse">|</span>}
           </h2>
           <p className="text-xs sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-3 sm:px-2">
-            Discover our collection of inspiring and transformative Christian literature
+           See our featured collection and find the perfect book to deepen your faith and guide you in your walk with God.
           </p>
         </div>
 

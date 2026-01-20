@@ -7,14 +7,14 @@ import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/co
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "HOME", href: "#" },
-  { label: "ABOUT US", href: "#about" },
-  { label: "FEATURED AUTHORS", href: "#authors" },
-  { label: "OUR BOOKS", href: "#books" },
-  { label: "EXTENDED DISTRIBUTION", href: "#distribution" },
-  { label: "OUR PARTNERS", href: "#partners" },
-  { label: "EVENTS", href: "#events" },
-  { label: "CONTACT US", href: "#contact" },
+  { label: "HOME", href: "/" },
+  { label: "ABOUT US", href: "/#about" },
+  { label: "FEATURED AUTHORS", href: "/#authors" },
+  { label: "OUR BOOKS", href: "/#books" },
+  { label: "EXTENDED DISTRIBUTION", href: "/#distribution" },
+  { label: "OUR PARTNERS", href: "/#partners" },
+  { label: "EVENTS", href: "/#events" },
+  { label: "CONTACT US", href: "/#contact" },
 ]
 
 export function Navbar() {
@@ -55,13 +55,13 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center 2xl:gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setActiveLink(link.label)}
-                className={`px-2 xl:px-3 py-2 text-xs xl:text-sm font-semibold transition-colors whitespace-nowrap ${
+                className={`px-2 xl:px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors whitespace-nowrap ${
                   activeLink === link.label
                     ? "text-accent border-b-2 border-accent"
                     : "text-foreground/70 hover:text-foreground"

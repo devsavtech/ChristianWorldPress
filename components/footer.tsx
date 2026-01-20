@@ -16,8 +16,8 @@ const footerLinks = {
     { label: "Contact Us", href: "#contact" },
   ],
   legal: [
-    { label: "Privacy Policy", href: "#privacy" },
-    { label: "Terms of Service", href: "#terms" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-and-conditions" },
   ],
   social: [
     { icon: Mail, label: "Email", href: "mailto:info@christianworldpress.com" },
@@ -68,7 +68,7 @@ export function Footer() {
 
       {/* Main Footer Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 py-10 sm:py-12 md:py-14 lg:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="flex flex-col sm:col-span-2 md:col-span-1">
             <div className="mb-4 sm:mb-5 md:mb-6">
@@ -81,7 +81,7 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-md sm:max-w-none">
-              Spreading the Gospel through trusted Christian publishing and distribution worldwide.
+              We publish and distribute faith-centered books that reach believers worldwide.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3 sm:gap-4 mt-auto">
@@ -113,7 +113,7 @@ export function Footer() {
                     href={link.href}
                     className="text-xs sm:text-sm text-white/80 hover:text-[#e6b65c] transition-all duration-200 group flex items-center gap-1"
                   >
-                    <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 -ml-1 text-[#e6b65c]" />
+                    <ChevronRight className="sm:block hidden w-2.5 h-2.5 sm:w-3 sm:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 -ml-1 text-[#e6b65c]" />
                     {link.label}
                   </Link>
                 </li>
@@ -131,7 +131,7 @@ export function Footer() {
                     href={link.href}
                     className="text-xs sm:text-sm text-white/80 hover:text-[#e6b65c] transition-all duration-200 group flex items-center gap-1"
                   >
-                    <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 -ml-1 text-[#e6b65c]" />
+                    <ChevronRight className="sm:block hidden w-2.5 h-2.5 sm:w-3 sm:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 -ml-1 text-[#e6b65c]" />
                     {link.label}
                   </Link>
                 </li>

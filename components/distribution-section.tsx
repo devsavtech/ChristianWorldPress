@@ -9,21 +9,21 @@ const methods = [
     id: 1,
     title: "Ingram Content Network",
     description:
-      "Through our partnership with Ingram, we provide global distribution to major retailers, libraries, and online platforms.",
+      "Through our partnership with Ingram, we distribute your books to major retailers, libraries, and online platforms globally.",
     icon: Truck,
   },
   {
     id: 2,
     title: "Direct Partnerships",
     description:
-      "We collaborate directly with Christian bookstores, ministries, and organizations to distribute our books effectively.",
+      "We work directly with Christian bookstores, ministries, and organizations to distribute our books effectively.",
     icon: Handshake,
   },
   {
     id: 3,
     title: "Global Distribution",
     description:
-      "Our network spans over 220 countries, bringing Christian literature to readers worldwide with efficiency and care.",
+      "Our global network spans over 220 countries, ensuring that Christian literature is delivered to readers around the world with efficiency and care.",
     icon: Globe,
   },
 ]

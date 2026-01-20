@@ -63,9 +63,9 @@ export function PartnersSection() {
             <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-7 md:mb-8 leading-relaxed">
               Our books are available in leading Christian and national bookstores across the globe.
             </p>
-            <Button className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
+            {/* <Button className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
               FIND A STORE NEAR YOU
-            </Button>
+            </Button> */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-7 md:mt-8">
               {storeLogos.map((store) => (
                 <div
@@ -88,7 +88,7 @@ export function PartnersSection() {
               We work alongside respected Christian publishers to expand the reach of transformative literature.
             </p>
             <div className="space-y-2 sm:space-y-3">
-              {["Thomas Nelson", "Zondervan", "Baker Publishing Group", "David C. Cook"].map((publisher) => (
+              {["Edward Martin", "Victoria Vossey", "NR Publishers", "Palmer Publishing"].map((publisher) => (
                 <div key={publisher} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-foreground">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
                   <span>{publisher}</span>
