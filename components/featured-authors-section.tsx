@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { useTypingAnimation } from "@/hooks/useTypingAnimation"
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // Images 
@@ -21,17 +21,17 @@ const authors = [
     image: Client1,
   },
   {
-    id: 3,
+    id: 2,
     name: "Greg Pai",
-    image: Client3,
+    image: Client2,
   },
   {
-    id: 2,
+    id: 3,
     name: "Rebekah Davis",
     image: Client4,
   },
   {
-    id: 3,
+    id: 4,
     name: "Jimmy Evans",
     image: Client5,
   },
@@ -39,39 +39,6 @@ const authors = [
 
 export function FeaturedAuthorsSection() {
   const { displayedText, isTyping, sectionRef } = useTypingAnimation("Featured Authors")
-
-  // Slider 
-  const featuredSlider = {
-    dots: false,
-    infinite: true,
-    arrows: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  }
 
   return (
     <section ref={sectionRef} id="authors" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card/20 border-y border-border relative overflow-hidden">
@@ -86,7 +53,7 @@ export function FeaturedAuthorsSection() {
         }}
       />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8">
-        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+        <div className="text-center mb-8 sm:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground uppercase tracking-wider mb-3 sm:mb-4 min-h-[1.2em]">
             {displayedText || " "}
             {isTyping && <span className="animate-pulse">|</span>}
@@ -96,29 +63,29 @@ export function FeaturedAuthorsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
-          {/* <Slider {...featuredSlider}> */}
+        <div className="md:max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3">
             {authors.map((author) => (
-                <Card
-                  key={author.id}
-                  className="bg-card border-border !pt-0 overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation"
-                >
-                  <CardContent className="p-0">
-                    <div className="h-120 xl:h-60 overflow-hidden bg-muted">
-                      <Image
-                        src={author.image}
-                        alt={author.name}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 sm:p-5 md:p-4 !pb-0 text-center space-y-2">
-                      <h3 className="font-serif font-bold text-base sm:text-lg md:text-xl text-foreground">{author.name}</h3>
-                      <p className="text-xs sm:text-sm text-muted-foreground">{author.description}</p>
-                    </div>
-                  </CardContent>
-                </Card>
+              <Card
+                key={author.id}
+                className="bg-card border-border pt-0! overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation"
+              >
+                <CardContent className="p-0">
+                  <div className="h-30 xl:h-50 overflow-hidden bg-muted">
+                    <Image
+                      src={author.image}
+                      alt={author.name}
+                      className="w-full h-full object-fill"
+                    />
+                  </div>
+                  <div className="p-4 sm:p-5 md:p-4 pb-0! text-center space-y-2">
+                    <h3 className="font-serif font-bold text-base sm:text-lg md:text-xl text-foreground">{author.name}</h3>
+                    {/* <p className="text-xs sm:text-sm text-muted-foreground">{author.description}</p> */}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
-          {/* </Slider> */}
+          </div>
         </div>
       </div>
     </section>

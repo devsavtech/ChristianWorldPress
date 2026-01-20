@@ -30,7 +30,7 @@ export function Navbar() {
   // Close mobile menu when screen size changes to desktop
   useEffect(() => {
     if (!mounted) return
-    
+
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setIsOpen(false)
@@ -46,7 +46,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="shrink-0">
             <img
               src="/img/ChrisitanWorldPressLogo.png"
               alt="Christian World Press"
@@ -61,11 +61,10 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={() => setActiveLink(link.label)}
-                className={`px-2 xl:px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors whitespace-nowrap ${
-                  activeLink === link.label
+                className={`px-2 xl:px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors whitespace-nowrap ${activeLink === link.label
                     ? "text-accent border-b-2 border-accent"
                     : "text-foreground/70 hover:text-foreground"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -85,8 +84,8 @@ export function Navbar() {
                   <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
                 </Button>
               </SheetTrigger>
-              <SheetContent 
-                side="right" 
+              <SheetContent
+                side="right"
                 className="bg-[#2b2a27] border-0 w-full sm:w-full md:w-96 p-0 h-full flex flex-col [&>button]:text-white [&>button]:hover:text-white [&>button]:opacity-100 [&>button]:hover:opacity-80 [&>button]:top-5 [&>button]:right-5"
               >
                 <SheetHeader className="sr-only">
