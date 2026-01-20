@@ -38,11 +38,6 @@ const ArticleContent: React.FC<Props> = ({ articleContent }) => {
                                 height={550}
                                 className="w-full object-cover"
                             />
-                            {/* <div className="absolute left-0 right-0 top-[3%] sm:top-[5%] md:top-[8%] text-center px-4">
-                                <h2 className="text-xl sm:text-3xl xl:text-4xl font-serif font-bold uppercase tracking-wider mb-4">
-                                    {articleContent.mainTitle}
-                                </h2>
-                            </div> */}
                             {articleContent?.mainTitle && (
                                 <div className="absolute left-0 right-0 top-[3%] sm:top-[5%] md:top-[8%] text-center px-4">
                                     <h2 className="text-xl sm:text-3xl xl:text-4xl font-serif font-bold uppercase tracking-wider mb-4">
@@ -53,37 +48,6 @@ const ArticleContent: React.FC<Props> = ({ articleContent }) => {
                         </div>
                     )}
                     <div className=" px-4 sm:px-5 md:px-6 lg:px-8">
-                        {/* {articleContent.sections.map((section, index) => (
-                            <div key={index} className="mb-10">
-                                <div className="">
-                                    <h2 className="text-xl sm:text-3xl font-serif font-bold uppercase tracking-wider mb-4">
-                                        {section.title}
-                                    </h2>
-                                </div>
-
-                                {section.blocks.map((block, i) => {
-                                    if (block.type === "subheading") {
-                                        return (
-                                            <h3
-                                                key={i}
-                                                className="text-lg sm:text-2xl font-serif font-bold mt-6 mb-2"
-                                            >
-                                                {block.text}
-                                            </h3>
-                                        );
-                                    }
-
-                                    return (
-                                        <p
-                                            key={i}
-                                            className="text-sm sm:text-base text-muted-foreground mb-3"
-                                        >
-                                            {block.text}
-                                        </p>
-                                    );
-                                })}
-                            </div>
-                        ))} */}
                         {sections.map((section, index) => {
                             const blocks = Array.isArray(section?.blocks)
                                 ? section.blocks

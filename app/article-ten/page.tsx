@@ -1,3 +1,4 @@
+"use client"
 import ArticleContent, { ArticleContentType } from '@/components/ArticleContent/ArticleContent'
 import { Footer } from '@/components/footer'
 import { Navbar } from '@/components/navbar'
