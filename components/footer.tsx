@@ -6,14 +6,14 @@ import { Facebook, Instagram, Mail, ChevronRight } from "lucide-react"
 
 const footerLinks = {
   navigation: [
-    { label: "Home", href: "#" },
-    { label: "About Us", href: "#about" },
-    { label: "Featured Authors", href: "#authors" },
-    { label: "Our Books", href: "#books" },
-    { label: "Extended Distribution", href: "#distribution" },
-    { label: "Our Partners", href: "#partners" },
-    { label: "Events", href: "#events" },
-    { label: "Contact Us", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/#about" },
+    { label: "Featured Authors", href: "/#authors" },
+    { label: "Our Books", href: "/#books" },
+    { label: "Extended Distribution", href: "/#distribution" },
+    { label: "Our Partners", href: "/#partners" },
+    { label: "Events", href: "/#events" },
+    { label: "Contact Us", href: "/#contact" },
   ],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
