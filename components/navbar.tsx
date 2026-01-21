@@ -62,8 +62,8 @@ export function Navbar() {
                 href={link.href}
                 onClick={() => setActiveLink(link.label)}
                 className={`px-2 xl:px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors whitespace-nowrap ${activeLink === link.label
-                    ? "text-accent border-b-2 border-accent"
-                    : "text-foreground/70 hover:text-foreground"
+                  ? "text-accent border-b-2 border-accent"
+                  : "text-foreground/70 hover:text-foreground"
                   }`}
               >
                 {link.label}
@@ -73,7 +73,7 @@ export function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
-            <Button className="btn-primary text-xs xl:text-sm px-4 xl:px-6">EXPLORE BOOKS</Button>
+            <Link href="/#books" className="btn-primary text-xs xl:text-sm px-4 xl:px-6">EXPLORE BOOKS</Link>
           </div>
 
           {/* Mobile Menu */}

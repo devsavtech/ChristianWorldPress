@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { useCountAnimation } from "@/hooks/useCountAnimation"
+import Link from "next/link"
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -35,9 +36,9 @@ export function HeroSection() {
             </div>
 
             <div className="flex justify-center md:justify-start gap-3 sm:gap-4">
-              <Button className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
+              <Link href="/#books" className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
                 EXPLORE OUR BOOKS
-              </Button>
+              </Link>
             </div>
 
             {/* Stats */}

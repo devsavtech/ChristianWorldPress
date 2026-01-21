@@ -21,7 +21,7 @@ export default function Brands() {
   // Debounced resize handler
   const handleResize = useCallback(() => {
     setWindowWidth(window.innerWidth);
-    
+
     // Check if prefers-reduced-motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setShouldAnimate(false);
@@ -30,12 +30,12 @@ export default function Brands() {
 
   useEffect(() => {
     setIsClient(true);
-    
+
     // Initial check for reduced motion
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setShouldAnimate(false);
     }
-    
+
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [handleResize]);
@@ -43,13 +43,13 @@ export default function Brands() {
   // Calculate responsive values
   const getResponsiveValues = () => {
     if (!isClient) return { gap: 16, logoHeight: 40, paddingY: 24, fadeWidth: 96, columns: 7 };
-    
+
     let gap = 16;
     let logoHeight = 40;
     let paddingY = 24;
     let fadeWidth = 96;
     let columns = 7;
-    
+
     if (windowWidth < 320) { // Extra small phones (iPhone SE, etc.)
       gap = 6;
       logoHeight = 20;
@@ -118,7 +118,7 @@ export default function Brands() {
   // Calculate animation duration based on screen width
   const getAnimationDuration = () => {
     if (!isClient || !shouldAnimate) return 0;
-    
+
     if (windowWidth < 320) return 20;
     if (windowWidth < 360) return 22;
     if (windowWidth < 480) return 25;
@@ -156,9 +156,9 @@ export default function Brands() {
   };
 
   return (
-    <section 
+    <section
       className="relative w-full bg-primary overflow-hidden"
-      style={{ 
+      style={{
         paddingTop: `${paddingY}px`,
         paddingBottom: `${paddingY}px`
       }}
@@ -168,13 +168,13 @@ export default function Brands() {
         <h2 className="text-center text-sm md:text-base lg:text-lg text-foreground/70 mb-6 md:mb-8 lg:mb-10 tracking-wider">
           TRUSTED BY LEADING BRANDS
         </h2>
-        
+
         {/* Marquee Container */}
         <div className="relative w-full overflow-hidden">
           {/* Marquee Wrapper - Conditionally animated */}
-          <div 
+          <div
             className="flex items-center"
-            style={{ 
+            style={{
               gap: `${gap}px`,
               animation: shouldAnimate ? `marquee ${animationDuration}s linear infinite` : 'none',
             }}
@@ -202,11 +202,11 @@ export default function Brands() {
                   src={brand.nameLogo}
                   alt={brand.name}
                   className="w-auto object-contain"
-                  style={{ 
+                  style={{
                     height: `${logoHeight}px`,
                     width: 'auto',
-                    maxWidth: `${logoHeight * 2.5}px`,
-                    minWidth: `${logoHeight * 1.5}px`,
+                    maxWidth: `${logoHeight * 3}px`,
+                    minWidth: `${logoHeight * 2.5}px`,
                   }}
                   loading="lazy"
                   decoding="async"
@@ -218,7 +218,7 @@ export default function Brands() {
 
           {/* Static fallback for reduced motion or no animation */}
           {!shouldAnimate && (
-            <div 
+            <div
               className="flex items-center justify-center w-full mt-4"
               style={{ gap: `${gap}px` }}
             >
@@ -231,7 +231,7 @@ export default function Brands() {
                     src={brand.nameLogo}
                     alt={brand.name}
                     className="w-auto object-contain"
-                    style={{ 
+                    style={{
                       height: `${logoHeight}px`,
                       width: 'auto',
                       maxWidth: `${logoHeight * 2.5}px`,
@@ -248,17 +248,17 @@ export default function Brands() {
         {/* Fade edges - Only show if animating */}
         {shouldAnimate && (
           <>
-            <div 
+            <div
               className="pointer-events-none absolute inset-y-0 left-0 bg-gradient-to-r from-primary via-primary/90 to-transparent z-10"
-              style={{ 
+              style={{
                 width: `${fadeWidth}px`,
                 top: `${paddingY}px`,
                 bottom: `${paddingY}px`,
               }}
             />
-            <div 
+            <div
               className="pointer-events-none absolute inset-y-0 right-0 bg-gradient-to-l from-primary via-primary/90 to-transparent z-10"
-              style={{ 
+              style={{
                 width: `${fadeWidth}px`,
                 top: `${paddingY}px`,
                 bottom: `${paddingY}px`,

@@ -44,12 +44,12 @@ export function PartnersSection() {
             {partnerLogos.map((partner) => (
               <div
                 key={partner.name}
-                className="h-12 sm:h-14 md:h-16 w-full flex items-center justify-center bg-card/50 hover:bg-card/80 transition-colors rounded px-2 sm:px-3 md:px-4"
+                className="h-12 sm:h-14 md:h-16 w-full flex items-center justify-center bg-card/80 transition-colors rounded px-2 sm:px-3 md:px-4"
               >
                 <img
                   src={partner.src || "/placeholder.svg"}
                   alt={partner.name}
-                  className="h-6 sm:h-7 md:h-8 object-contain opacity-70 hover:opacity-100 transition-opacity"
+                  className="h-6 sm:h-7 md:h-8 object-contain opacity-100 transition-opacity"
                 />
               </div>
             ))}
@@ -67,18 +67,33 @@ export function PartnersSection() {
               FIND A STORE NEAR YOU
             </Button> */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-7 md:mt-8">
-              {storeLogos.map((store) => (
-                <div
-                  key={store.name}
-                  className="h-10 sm:h-12 flex items-center justify-center bg-card hover:bg-card/80 transition-colors rounded p-3 sm:p-4"
-                >
-                  <img
-                    src={store.src || "/placeholder.svg"}
-                    alt={store.name}
-                    className="h-5 sm:h-6 object-contain opacity-70"
-                  />
-                </div>
-              ))}
+              {storeLogos.map((store, index) => {
+                const isLastOdd =
+                  storeLogos.length % 2 !== 0 &&
+                  index === storeLogos.length - 1
+
+                return (
+                  <div
+                    key={store.name}
+                    className={isLastOdd ? "col-span-2 flex justify-center" : ""}
+                  >
+                    <div
+                      className={`
+                        h-10 sm:h-12
+                        flex items-center justify-center
+                        bg-card hover:bg-card/80 transition-colors rounded
+                        p-3 sm:p-4
+                        ${isLastOdd ? "w-1/2" : "w-full"}
+                      `} >
+                      <img
+                        src={store.src || "/placeholder.svg"}
+                        alt={store.name}
+                        className="h-5 sm:h-6 object-contain opacity-70"
+                      />
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
 

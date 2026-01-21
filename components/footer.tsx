@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import Link from "next/link"
-import { Facebook, Instagram, Mail, ChevronRight } from "lucide-react"
+import { Facebook, Instagram, Mail, ChevronRight, Linkedin, Twitter } from "lucide-react"
 
 const footerLinks = {
   navigation: [
@@ -21,8 +21,9 @@ const footerLinks = {
   ],
   social: [
     { icon: Mail, label: "Email", href: "mailto:info@christianworldpress.com" },
-    { icon: Facebook, label: "Facebook", href: "https://facebook.com" },
-    { icon: Instagram, label: "Instagram", href: "https://instagram.com" },
+    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61586607706132" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/111136901/admin/dashboard/" },
+    { icon: Twitter, label: "Twitter", href: "https://x.com/press24111" },
   ],
 }
 
@@ -54,7 +55,7 @@ export function Footer() {
       {/* Background Layers */}
       {/* Base dark grey background */}
       <div className="absolute inset-0 bg-[#2b2a27]" />
-      
+
       {/* Diagonal red overlay */}
       <div
         className="absolute inset-0 bg-[#8b1d1d]"
@@ -62,7 +63,7 @@ export function Footer() {
           clipPath: "polygon(55% 0, 100% 0, 100% 100%, 32% 100%)",
         }}
       />
-      
+
       {/* Subtle black overlay for vintage texture */}
       <div className="absolute inset-0 bg-black/30" />
 
@@ -153,13 +154,19 @@ export function Footer() {
                 >
                   info@christianworldpress.com
                 </a>
+                <a
+                  href="mailto:authorrelations@christianworldpress.com"
+                  className="text-xs sm:text-sm text-white/80 hover:text-[#e6b65c] transition-colors duration-200 break-all  block"
+                >
+                  authorrelations@christianworldpress.com
+                </a>
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Address</p>
                 <p className="text-xs sm:text-sm text-white/80">
-                  Christian World Press
-                  <br />
-                  Worldwide Distribution
+                  13100 Wortham Center Dr, Suite 320
+                  Houston, TX 77065
+                  United states
                 </p>
               </div>
             </div>

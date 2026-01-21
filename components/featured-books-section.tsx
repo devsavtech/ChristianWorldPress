@@ -1,9 +1,11 @@
 "use client"
 
 import { useState, useEffect, useRef, Suspense } from "react"
-import { Canvas } from "@react-three/fiber"
-import { BookCarousel3D } from "@/components/3d/book-carousel-3d"
+// import dynamic from "next/dynamic"
+// import { Canvas } from "@react-three/fiber"
+// import { BookCarousel3D } from "@/components/3d/book-carousel-3d"
 import { useTypingAnimation } from "@/hooks/useTypingAnimation"
+import Slider from 'react-slick'
 
 const defaultBooks = [
   { title: "Peace for the Anxious Heart", author: "Joey James", image: "/books/book1.jpg" },
@@ -44,7 +46,7 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
     }
     checkScreenSize()
     window.addEventListener("resize", checkScreenSize)
-    
+
     return () => {
       window.removeEventListener("resize", checkScreenSize)
     }
@@ -83,8 +85,42 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
 
   const cameraSettings = getCameraSettings()
 
+  var settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 9,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "0px",
+    focusOnSelect: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    responsive: [
+      {
+        breakpoint: 1099,
+        settings: {
+          slidesToShow: 7,
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 5,
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+        }
+      }
+    ]
+  };
+
   return (
-    <section ref={sectionRef} id="books" className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-background relative overflow-hidden">
+    <section ref={sectionRef} id="books" className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-background relative overflow-hidden pb-0!">
       {/* Background image with overlay */}
       <div
         className="absolute inset-0 opacity-50"
@@ -102,11 +138,11 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
             {isTyping && <span className="animate-pulse">|</span>}
           </h2>
           <p className="text-xs sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-3 sm:px-2">
-           See our featured collection and find the perfect book to deepen your faith and guide you in your walk with God.
+            See our featured collection and find the perfect book to deepen your faith and guide you in your walk with God.
           </p>
         </div>
 
-        <div
+        {/* <div
           className="w-full relative"
           style={{
             height: getCanvasHeight(),
@@ -124,19 +160,19 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
               camera={cameraSettings}
             >
               <ambientLight intensity={isMobile ? 1.2 : isTablet ? 1.0 : 0.9} />
-              <directionalLight 
-                position={isMobile ? [0, 9, 11] : isTablet ? [0, 7, 9] : [0, 6, 8]} 
-                intensity={isMobile ? 1.7 : isTablet ? 1.5 : 1.4} 
+              <directionalLight
+                position={isMobile ? [0, 9, 11] : isTablet ? [0, 7, 9] : [0, 6, 8]}
+                intensity={isMobile ? 1.7 : isTablet ? 1.5 : 1.4}
               />
-              <directionalLight 
-                position={isMobile ? [-9, 6, 6] : isTablet ? [-7, 5, 5] : [-6, 4, 4]} 
-                intensity={isMobile ? 0.8 : isTablet ? 0.65 : 0.6} 
+              <directionalLight
+                position={isMobile ? [-9, 6, 6] : isTablet ? [-7, 5, 5] : [-6, 4, 4]}
+                intensity={isMobile ? 0.8 : isTablet ? 0.65 : 0.6}
               />
-              <spotLight 
-                position={isMobile ? [0, 10, 13] : isTablet ? [0, 8, 11] : [0, 7, 10]} 
-                angle={0.35} 
-                penumbra={1} 
-                intensity={isMobile ? 1.6 : isTablet ? 1.4 : 1.3} 
+              <spotLight
+                position={isMobile ? [0, 10, 13] : isTablet ? [0, 8, 11] : [0, 7, 10]}
+                angle={0.35}
+                penumbra={1}
+                intensity={isMobile ? 1.6 : isTablet ? 1.4 : 1.3}
               />
 
               <BookCarousel3D
@@ -152,13 +188,25 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
         </div>
 
         <div className="mt-4 sm:mt-6 md:mt-8 text-center px-3 sm:px-4">
-          <h3 className="text-base sm:text-xl md:text-2xl font-serif font-bold text-foreground break-words">
+          <h3 className="text-base sm:text-xl md:text-2xl font-serif font-bold text-foreground wrap-break-word">
             {books[activeIndex].title}
           </h3>
           <p className="text-xs sm:text-base md:text-lg text-muted-foreground mt-1 sm:mt-2">
             by {books[activeIndex].author}
           </p>
-        </div>
+        </div> */}
+
+        <Slider {...settings} className="book-slider">
+          {defaultBooks.map((book, index) => (
+            <div key={index} className="slide">
+              <img src={book.image} alt={book.title} />
+              <div className="book-info pt-10 sm:pt-14 md:pt-20 lg:pt-28">
+                <h3 className="text-base sm:text-xl md:text-2xl font-serif font-bold text-foreground wrap-break-word">{book.title}</h3>
+                <p className="text-xs sm:text-base md:text-lg text-muted-foreground mt-1 sm:mt-2">by {book.author}</p>
+              </div>
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   )

@@ -121,9 +121,11 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   /* Vintage texture background */
   body::before {
     content: "";
@@ -142,9 +144,11 @@
   .btn-primary {
     @apply bg-primary text-primary-foreground px-6 py-3 font-semibold uppercase tracking-wide hover:bg-primary/90 transition-colors duration-200;
   }
+
   .section-title {
     @apply text-4xl font-serif font-bold text-foreground uppercase tracking-wider;
   }
+
   .section-subtitle {
     @apply text-lg text-muted-foreground max-w-2xl mx-auto;
   }
@@ -155,5 +159,102 @@
   .touch-manipulation {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Slider */
+/* Base slide */
+.slide {
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.slide img {
+  width: 100%;
+  max-height: 150px;
+  min-height: 150px;
+  margin: auto;
+  transition: all 0.4s ease;
+}
+
+.slick-center {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+
+.slick-center img {
+  transform: scale(2);
+  max-height: 180px;
+  min-height: 180px;
+}
+
+.book-info {
+  margin-top: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  color: #fff;
+}
+
+.slick-center .book-info {
+  opacity: 1;
+  transform: translateY(0);
+  max-width: 300px;
+  min-width: 300px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.book-info h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.slick-slide.slick-active.slick-center.slick-current {
+  position: relative;
+  z-index: 99999;
+}
+
+.slick-slider .slick-list {
+  padding-top: 125px !important;
+}
+
+.slick-initialized .slick-slide {
+  padding: 0 10px;
+}
+
+.slick-initialized .slick-slide.slick-center {
+  padding: 0 0px !important;
+}
+
+@media only screen and (max-width: 991px) {
+  .slick-center img {
+    min-height: 150px;
+    max-height: 150px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .slide img {
+    min-height: 100px;
+    max-height: 100px;
+  }
+
+  .slick-initialized .slick-slide {
+    padding: 0 5px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .slick-center img {
+    min-height: 110px !important;
+    max-height: 110px !important;
+  }
+
+  .slick-slider .slick-list {
+    padding-top: 85px !important;
   }
 }
