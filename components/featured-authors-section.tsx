@@ -2,16 +2,16 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { useTypingAnimation } from "@/hooks/useTypingAnimation"
+import Image from "next/image";
 // import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // Images 
 import Client1 from "../public/clients/client1.jpg"
 import Client2 from "../public/clients/client2.jpg"
-import Client3 from "../public/clients/client3.png"
-import Client4 from "../public/clients/client4.png"
+import Client3 from "../public/clients/client3.jpg"
+import Client4 from "../public/clients/client4.jpg"
 import Client5 from "../public/clients/client5.jpg"
-import Image from "next/image";
 
 
 const authors = [
@@ -28,11 +28,16 @@ const authors = [
   {
     id: 3,
     name: "Rebekah Davis",
-    image: Client4,
+    image: Client3,
   },
   {
     id: 4,
     name: "Jimmy Evans",
+    image: Client4,
+  },
+  {
+    id: 5,
+    name: "Victoria Vossey",
     image: Client5,
   },
 ]
@@ -64,14 +69,15 @@ export function FeaturedAuthorsSection() {
         </div>
 
         <div className="md:max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3">
+          {/* <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3"> */}
+          <div className="flex items-center justify-center flex-wrap gap-3">
             {authors.map((author) => (
               <Card
                 key={author.id}
-                className="bg-card border-border pt-0! overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation"
+                className="bg-card border-border pt-0! overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation w-[45%] lg:w-[19%]"
               >
                 <CardContent className="p-0">
-                  <div className="h-30 xl:h-50 overflow-hidden bg-muted">
+                  <div className="overflow-hidden bg-muted">
                     <Image
                       src={author.image}
                       alt={author.name}
@@ -79,7 +85,7 @@ export function FeaturedAuthorsSection() {
                     />
                   </div>
                   <div className="p-4 sm:p-5 md:p-4 pb-0! text-center space-y-2">
-                    <h3 className="font-serif font-bold text-base sm:text-lg md:text-xl text-foreground">{author.name}</h3>
+                    <h3 className="font-serif font-bold text-[12px] sm:text-lg md:text-xl text-foreground">{author.name}</h3>
                     {/* <p className="text-xs sm:text-sm text-muted-foreground">{author.description}</p> */}
                   </div>
                 </CardContent>

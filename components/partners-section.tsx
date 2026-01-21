@@ -81,7 +81,7 @@ export function PartnersSection() {
                       className={`
                         h-10 sm:h-12
                         flex items-center justify-center
-                        bg-card hover:bg-card/80 transition-colors rounded
+                        bg-card/80 transition-colors rounded
                         p-3 sm:p-4
                         ${isLastOdd ? "w-1/2" : "w-full"}
                       `} >
