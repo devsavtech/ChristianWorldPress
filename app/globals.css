@@ -255,15 +255,25 @@
 }
 
 @media only screen and (max-width: 576px) {
-  .slick-center img {
+  /* .slick-center img {
     min-height: 145px !important;
     max-height: 145px !important;
     transform: scale(1.5);
-  }
+  } */
 
-  .slide img {
+  /* .slide img {
     min-height: 135px;
     max-height: 135px;
+  } */
+
+  .slide img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .slick-center img {
+    transform: scale(1.5);
   }
 
   .slick-slider .slick-list {
