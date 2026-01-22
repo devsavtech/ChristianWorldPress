@@ -256,14 +256,14 @@
 
 @media only screen and (max-width: 576px) {
   .slick-center img {
-    min-height: 175px !important;
-    max-height: 175px !important;
+    min-height: 145px !important;
+    max-height: 145px !important;
     transform: scale(1.5);
   }
 
   .slide img {
-    min-height: 170px;
-    max-height: 170px;
+    min-height: 135px;
+    max-height: 135px;
   }
 
   .slick-slider .slick-list {

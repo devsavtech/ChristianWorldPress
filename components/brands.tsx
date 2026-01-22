@@ -151,7 +151,7 @@ export default function Brands() {
   // Handle image loading error
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
-    target.style.opacity = '0.3';
+    // target.style.opacity = '0.3';
     console.warn(`Failed to load brand logo: ${target.alt}`);
   };
 
@@ -194,7 +194,7 @@ export default function Brands() {
                   }
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = '0.8';
+                  // e.currentTarget.style.opacity = '0.8';
                   e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
@@ -225,7 +225,7 @@ export default function Brands() {
               {brands.slice(0, Math.min(columns, brands.length)).map((brand) => (
                 <div
                   key={brand.id}
-                  className="opacity-80 flex-shrink-0"
+                  className="flex-shrink-0"
                 >
                   <img
                     src={brand.nameLogo}

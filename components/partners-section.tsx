@@ -40,11 +40,11 @@ export function PartnersSection() {
             {displayedText || " "}
             {isTyping && <span className="animate-pulse">|</span>}
           </h2>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-items-center mb-8 sm:mb-10 md:mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-4 justify-items-center mb-8 sm:mb-10 md:mb-12">
             {partnerLogos.map((partner) => (
               <div
                 key={partner.name}
-                className="h-12 sm:h-14 md:h-16 flex items-center justify-center bg-card/80 transition-colors rounded px-2 sm:px-3 md:px-4 w-[30%] md:w-[20%] lg:w-[18%]"
+                className="h-12 sm:h-14 md:h-16 flex items-center justify-center bg-card/80 transition-colors rounded px-2 sm:px-3 md:px-4 w-[30%] md:w-[20%] lg:w-[18%] xl:w-[17%]"
               >
                 <img
                   src={partner.src || "/placeholder.svg"}
