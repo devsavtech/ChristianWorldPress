@@ -191,7 +191,7 @@ export function Footer() {
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-2 sm:gap-3 md:gap-4 text-[10px] sm:text-xs text-white/80">
               <span>Designed for faith-driven publishing</span>
               <span className="text-[#e6b65c] hidden sm:inline">•</span>
-              <span>Trusted since 2024</span>
+              <span>Trusted since 2021</span>
             </div>
           </div>
         </div>
