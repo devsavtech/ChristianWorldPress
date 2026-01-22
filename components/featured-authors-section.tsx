@@ -74,7 +74,7 @@ export function FeaturedAuthorsSection() {
             {authors.map((author) => (
               <Card
                 key={author.id}
-                className="bg-card border-border pt-0! overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation w-[45%] lg:w-[19%]"
+                className="bg-card border-border pt-0! overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation w-[25%] sm:w-[20%] lg:w-[19%]"
               >
                 <CardContent className="p-0">
                   <div className="overflow-hidden bg-muted">
@@ -85,7 +85,7 @@ export function FeaturedAuthorsSection() {
                     />
                   </div>
                   <div className="p-4 sm:p-5 md:p-4 pb-0! text-center space-y-2">
-                    <h3 className="font-serif font-bold text-[12px] sm:text-lg md:text-xl text-foreground">{author.name}</h3>
+                    <h3 className="font-serif font-bold text-[12px] sm:text-md lg:text-xl text-foreground">{author.name}</h3>
                     {/* <p className="text-xs sm:text-sm text-muted-foreground">{author.description}</p> */}
                   </div>
                 </CardContent>

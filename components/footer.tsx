@@ -20,10 +20,10 @@ const footerLinks = {
     { label: "Terms of Service", href: "/terms-and-conditions" },
   ],
   social: [
-    { icon: Mail, label: "Email", href: "mailto:info@christianworldpress.com" },
+    { icon: Mail, label: "Email", href: "mailto:authorrelations@christianworldpress.com" },
     { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61586607706132" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/111136901/admin/dashboard/" },
-    { icon: Twitter, label: "Twitter", href: "https://x.com/press24111" },
+    // { icon: Twitter, label: "Twitter", href: "https://x.com/press24111" },
   ],
 }
 
@@ -148,17 +148,24 @@ export function Footer() {
             <div className="space-y-3 sm:space-y-4">
               <div>
                 <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Email</p>
-                <a
-                  href="mailto:info@christianworldpress.com"
+                {/* <a
+                  href="mailto:authorrelations@christianworldpress.com"
                   className="text-xs sm:text-sm text-white/80 hover:text-[#e6b65c] transition-colors duration-200 break-all"
                 >
-                  info@christianworldpress.com
-                </a>
+                  authorrelations@christianworldpress.com
+                </a> */}
                 <a
                   href="mailto:authorrelations@christianworldpress.com"
                   className="text-xs sm:text-sm text-white/80 hover:text-[#e6b65c] transition-colors duration-200 break-all  block"
                 >
                   authorrelations@christianworldpress.com
+                </a>
+              </div>
+              <div>
+                <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Phone No.</p>
+                <a href="tel:+(714) 475-7922"
+                  className="text-xs sm:text-sm text-white/80">
+                  (714) 475-7922
                 </a>
               </div>
               <div>

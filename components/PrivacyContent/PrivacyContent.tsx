@@ -92,8 +92,8 @@ const PrivacyContent = () => {
                                 Contact Us
                             </h2>
                             <p className='text-xs sm:text-base md:text-md text-muted-foreground'>
-                                If you have any questions or concerns regarding this Privacy Policy or how your information is being handled, please contact us at <Link href="mailto:info@christianworldpress.com;" className='underline'>
-                                    info@christianworldpress.com
+                                If you have any questions or concerns regarding this Privacy Policy or how your information is being handled, please contact us at <Link href="mailto:authorrelations@christianworldpress.com;" className='underline'>
+                                    authorrelations@christianworldpress.com
                                 </Link>.
                             </p>
                         </div>

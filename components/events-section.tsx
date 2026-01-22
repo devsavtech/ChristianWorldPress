@@ -18,7 +18,7 @@ const events = [
     id: 2,
     title: "Author Workshop: Crafting Your Message",
     date: "June 8, 2024",
-    location: "Central/North Texas",
+    location: "Dallas, Texas",
     description:
       "Learn how to effectively communicate your faith-based message through powerful Christian literature.",
   },

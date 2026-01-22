@@ -38,26 +38,36 @@ export function ContactSection() {
       const brand = typeof window !== "undefined" ? window.location.hostname : ""
 
       // Format the brief message with route information
-      const brief = `${formData.message}\n\n[Route] contact-form`
+      const brief = `${formData.message}`
 
+      console.log(brief)
       // Prepare the request body according to the API specification
       const requestBody = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         brief: brief,
-        domain: domain,
-        brand: brand,
+        domain: "www.christianworldpress.com",//domain,
+        brand: "christianworldpress.com"//brand,
       }
 
       // Make the API request
-      const response = await fetch("https://savtrack.savtechglobal.com/api/customer", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestBody),
-      })
+      // const response = await fetch("https://savtrack.savtechglobal.com/api/customer", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(requestBody),
+      // })
+      
+
+   const response = await fetch("/api/customer", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(requestBody),
+});
+
+
 
       if (!response.ok) {
         throw new Error(`API request failed with status ${response.status}`)

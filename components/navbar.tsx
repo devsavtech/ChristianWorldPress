@@ -7,18 +7,17 @@ import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/co
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
-  { label: "HOME", href: "/" },
-  // { label: "ABOUT US", href: "/#about" },
-  { label: "FEATURED AUTHORS", href: "/#authors" },
-  { label: "OUR BOOKS", href: "/#books" },
-  { label: "EXTENDED DISTRIBUTION", href: "/#distribution" },
-  { label: "OUR PARTNERS", href: "/#partners" },
-  { label: "EVENTS", href: "/#events" },
-  { label: "CONTACT US", href: "/#contact" },
+  { label: "HOME", href: "home" },
+  { label: "OUR BOOKS", href: "books" },
+  { label: "FEATURED AUTHORS", href: "authors" },
+  { label: "EXTENDED DISTRIBUTION", href: "distribution" },
+  { label: "OUR PARTNERS", href: "partners" },
+  { label: "EVENTS", href: "events" },
+  { label: "CONTACT US", href: "contact" },
 ]
 
 export function Navbar() {
-  const [activeLink, setActiveLink] = useState("HOME")
+  const [activeLink, setActiveLink] = useState("")
   const [isOpen, setIsOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
 
@@ -41,6 +40,30 @@ export function Navbar() {
     return () => window.removeEventListener("resize", handleResize)
   }, [mounted])
 
+  useEffect(() => {
+    const sections = navLinks
+      .map(link => document.getElementById(link.href))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-50% 0px -50% 0px", // section center mein aaye
+        threshold: 0
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <nav className="sticky top-0 z-50 bg-secondary border-b border-border/30">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
@@ -59,11 +82,11 @@ export function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.label}
-                href={link.href}
-                onClick={() => setActiveLink(link.label)}
-                className={`px-2 xl:px-2.5 py-2 text-xs xl:text-sm font-semibold transition-colors whitespace-nowrap ${activeLink === link.label
-                  ? "text-accent border-b-2 border-accent"
-                  : "text-foreground/70 hover:text-foreground"
+                href={`/#${link.href}`}
+                className={`px-2 py-2 text-xs xl:text-sm font-semibold transition-colors
+            ${activeLink === link.href
+                    ? "text-accent border-b-2 border-accent"
+                    : "text-foreground/70 hover:text-foreground"
                   }`}
               >
                 {link.label}

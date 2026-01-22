@@ -9,7 +9,7 @@ const partnerLogos = [
   { name: "Hostinger", src: "/brands/cl-4.png" },
   { name: "Stream", src: "/brands/cl-5.png" },
   { name: "Docker", src: "/brands/cl-6.png" },
-  { name: "Brand Six", src: "/brands/cl-7.png" },
+  // { name: "Brand Six", src: "/brands/cl-7.png" },
 ]
 
 const storeLogos = [
@@ -40,11 +40,11 @@ export function PartnersSection() {
             {displayedText || " "}
             {isTyping && <span className="animate-pulse">|</span>}
           </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-6 lg:gap-8 items-center justify-items-center mb-8 sm:mb-10 md:mb-12">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 lg:gap-8 justify-items-center mb-8 sm:mb-10 md:mb-12">
             {partnerLogos.map((partner) => (
               <div
                 key={partner.name}
-                className="h-12 sm:h-14 md:h-16 w-full flex items-center justify-center bg-card/80 transition-colors rounded px-2 sm:px-3 md:px-4"
+                className="h-12 sm:h-14 md:h-16 flex items-center justify-center bg-card/80 transition-colors rounded px-2 sm:px-3 md:px-4 w-[30%] md:w-[20%] lg:w-[18%]"
               >
                 <img
                   src={partner.src || "/placeholder.svg"}
@@ -88,7 +88,7 @@ export function PartnersSection() {
                       <img
                         src={store.src || "/placeholder.svg"}
                         alt={store.name}
-                        className="h-5 sm:h-6 object-contain opacity-70"
+                        className="h-5 sm:h-8 object-contain"
                       />
                     </div>
                   </div>
@@ -103,7 +103,7 @@ export function PartnersSection() {
               We work alongside respected Christian publishers to expand the reach of transformative literature.
             </p>
             <div className="space-y-2 sm:space-y-3">
-              {["Edward Martin", "Victoria Vossey", "NR Publishers", "Palmer Publishing"].map((publisher) => (
+              {["Joey Jaymes", "Greg Pai", "Rebekah Davis", "Jimmy Evans", "Victoria Vossey"].map((publisher) => (
                 <div key={publisher} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-foreground">
                   <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
                   <span>{publisher}</span>

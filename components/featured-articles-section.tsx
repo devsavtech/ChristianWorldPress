@@ -58,16 +58,6 @@ const articles = [
     redirect: '/article-five'
   },
   {
-    id: 6,
-    title: "Can Faith in God Truly Guide Us Through Life’s Darkest Moments?",
-    category: "SPIRITUAL GROWTH",
-    author: "L. Peterson",
-    date: "March 28, 2024",
-    excerpt: "Are you the person who has experienced moments in your life where every step felt heavier than the last one? ",
-    image: "/Featered Articles/Spirtual Growth.png",
-    redirect: '/article-six'
-  },
-  {
     id: 7,
     title: "Do You Struggle to Trust God's Timing?",
     category: "SPIRITUAL GROWTH",
@@ -77,16 +67,7 @@ const articles = [
     image: "/Featered Articles/Spirtual Growth.png",
     redirect: '/article-seven'
   },
-  {
-    id: 8,
-    title: "Can Faith in God Truly Guide Us Through Life’s Darkest Moments?",
-    category: "SPIRITUAL GROWTH",
-    author: "L. Peterson",
-    date: "March 28, 2024",
-    excerpt: "Are you the person who has experienced this moment in your life where every step felt heavier than the last one? Where the light at the end of the tunnel seemed too far to reach for you? ",
-    image: "/Featered Articles/Spirtual Growth.png",
-    redirect: '/article-eight'
-  },
+  
   {
     id: 9,
     title: "3 Ways to Grow Closer to God When You Feel Far Away",
@@ -106,6 +87,26 @@ const articles = [
     excerpt: "God’s presence is a feature of his relationship with humanity. Unlike human presence, God’s presence is divine. ",
     image: "/Featered Articles/Spirtual Growth.png",
     redirect: '/article-ten'
+  },
+   {
+    id: 6,
+    title: "Can Faith in God Truly Guide Us Through Life’s Darkest Moments?",
+    category: "SPIRITUAL GROWTH",
+    author: "L. Peterson",
+    date: "March 28, 2024",
+    excerpt: "Are you the person who has experienced moments in your life where every step felt heavier than the last one? ",
+    image: "/Featered Articles/Spirtual Growth.png",
+    redirect: '/article-six'
+  },
+  {
+    id: 8,
+    title: "Can Faith in God Truly Guide Us Through Life’s Darkest Moments?",
+    category: "SPIRITUAL GROWTH",
+    author: "L. Peterson",
+    date: "March 28, 2024",
+    excerpt: "Are you the person who has experienced this moment in your life where every step felt heavier than the last one? Where the light at the end of the tunnel seemed too far to reach for you? ",
+    image: "/Featered Articles/Spirtual Growth.png",
+    redirect: '/article-eight'
   },
 ]
 
@@ -161,8 +162,10 @@ export function FeaturedArticlesSection() {
                   </div>
                 </div>
                 <div className="p-4 sm:p-5 md:p-6 space-y-3 sm:space-y-4">
-                  <h3 className="font-serif font-bold text-base sm:text-lg md:text-xl text-foreground line-clamp-2">{article.title}</h3>
-                  <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">{article.excerpt}</p>
+                  <div>
+                    <h3 className="font-serif font-bold text-base sm:text-lg md:text-xl text-foreground line-clamp-2">{article.title}</h3>
+                    <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">{article.excerpt}</p>
+                  </div>
                   <div className="flex items-center justify-between text-[10px] sm:text-xs text-muted-foreground">
                     {/* <div className="flex gap-1 sm:gap-2">
                       <span>{article.author}</span>

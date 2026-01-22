@@ -12,7 +12,7 @@ export function HeroSection() {
   const countriesCount = useCountAnimation(220, 2000, "+", sectionRef)
 
   return (
-    <section ref={sectionRef} className="relative min-h-[85vh] sm:min-h-screen flex items-center overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24">
+    <section ref={sectionRef} id="home" className="relative min-h-[85vh] sm:min-h-screen flex items-center overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24">
       {/* Background with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"

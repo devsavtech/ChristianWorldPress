@@ -5,11 +5,11 @@ import React, { useState, useEffect, useCallback } from "react";
 
 const brands = [
   { id: 1, name: "Cloudinary", nameLogo: "/brands/cl-2.png" },
-  { id: 2, name: "Appwrite", nameLogo: "/brands/cl-3.png" },
+  // { id: 2, name: "Appwrite", nameLogo: "/brands/cl-3.png" },
   { id: 3, name: "Hostinger", nameLogo: "/brands/cl-4.png" },
   { id: 4, name: "Stream", nameLogo: "/brands/cl-5.png" },
   { id: 5, name: "Docker", nameLogo: "/brands/cl-6.png" },
-  { id: 6, name: "Brand Six", nameLogo: "/brands/cl-7.png" },
+  // { id: 6, name: "Brand Six", nameLogo: "/brands/cl-7.png" },
   { id: 7, name: "Brand Seven", nameLogo: "/brands/cl-10.png" },
 ];
 
@@ -165,7 +165,7 @@ export default function Brands() {
     >
       {/* Container for better control */}
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <h2 className="text-center text-sm md:text-base lg:text-lg text-foreground/70 mb-6 md:mb-8 lg:mb-10 tracking-wider">
+        <h2 className="text-center text-sm md:text-base lg:text-lg text-white mb-6 md:mb-8 lg:mb-10 tracking-wider">
           TRUSTED BY LEADING BRANDS
         </h2>
 
@@ -184,7 +184,7 @@ export default function Brands() {
                 key={`${brand.id}-${index}`}
                 className="flex-shrink-0"
                 style={{
-                  opacity: 0.8,
+                  opacity: 1,
                   transition: 'all 0.3s ease',
                 }}
                 onMouseEnter={(e) => {

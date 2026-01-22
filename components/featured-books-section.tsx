@@ -18,8 +18,8 @@ const defaultBooks = [
   { title: "Marriage On The Rock", author: "Jimmy Evans", image: "/books/book8.webp" },
   { title: "Toxic Relationships", author: "Mary Melissa Hall", image: "/books/book9.webp" },
   { title: "Bridges of Love and Understanding", author: "Rebekah Davis", image: "/books/book10.webp" },
-  { title: "Sacred Moments", author: "Palmer Publishing", image: "/books/book11.webp" },
-  { title: "The Bible Study Journal Advent Calendar", author: "Susan Mayford", image: "/books/book12.jpg" },
+  // { title: "Sacred Moments", author: "Palmer Publishing", image: "/books/book11.webp" },
+  // { title: "The Bible Study Journal Advent Calendar", author: "Susan Mayford", image: "/books/book12.jpg" },
   { title: "Daily Devotional for Women", author: "Made Easy Press ", image: "/books/book13.webp" },
   { title: "The Book of Enoch", author: "Timothy Alberino", image: "/books/book14.webp" },
   { title: "Birthright", author: "Timothy Alberino", image: "/books/book15.webp" },
@@ -95,7 +95,7 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
     centerMode: true,
     centerPadding: "0px",
     focusOnSelect: true,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     responsive: [
       {
@@ -200,7 +200,7 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
           {defaultBooks.map((book, index) => (
             <div key={index} className="slide">
               <img src={book.image} alt={book.title} />
-              <div className="book-info pt-10 sm:pt-14 md:pt-20 lg:pt-28">
+              <div className="book-info pt-7 sm:pt-14 md:pt-20 lg:pt-28">
                 <h3 className="text-base sm:text-xl md:text-2xl font-serif font-bold text-foreground wrap-break-word">{book.title}</h3>
                 <p className="text-xs sm:text-base md:text-lg text-muted-foreground mt-1 sm:mt-2">by {book.author}</p>
               </div>
