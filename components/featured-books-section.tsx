@@ -85,39 +85,60 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
 
   const cameraSettings = getCameraSettings()
 
+  const getInitialSlides = () => {
+    if (typeof window === 'undefined') return 9;
+    const width = window.innerWidth;
+    if (width < 480) return 3;
+    if (width < 600) return 5;
+    if (width < 1099) return 7;
+    return 9;
+  };
+
   var settings = {
     dots: false,
     arrows: false,
     infinite: true,
     speed: 600,
-    slidesToShow: 9,
+    // slidesToShow: 9,
+    slidesToShow: getInitialSlides(),
     slidesToScroll: 1,
     centerMode: true,
     centerPadding: "0px",
     focusOnSelect: true,
     autoplay: false,
     autoplaySpeed: 3000,
-    responsive: [
-      {
-        breakpoint: 1099,
-        settings: {
-          slidesToShow: 7,
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 5,
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 3,
-        }
-      }
-    ]
+    // responsive: [
+    //   {
+    //     breakpoint: 480,
+    //     settings: {
+    //       slidesToShow: 5,
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 600,
+    //     settings: {
+    //       slidesToShow: 5,
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 1099,
+    //     settings: {
+    //       slidesToShow: 7,
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 9999,
+    //     settings: {
+    //       slidesToShow: 9,
+    //     }
+    //   }
+    // ]
   };
+
+  useEffect(() => {
+    // Slider ko force refresh karein
+    window.dispatchEvent(new Event('resize'));
+  }, []);
 
   return (
     <section ref={sectionRef} id="books" className="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-background relative overflow-hidden pb-0!">
