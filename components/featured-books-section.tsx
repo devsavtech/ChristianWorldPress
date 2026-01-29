@@ -105,7 +105,7 @@ export function FeaturedBooksSection({ books = defaultBooks }: FeaturedBooksSect
     centerMode: true,
     centerPadding: "0px",
     focusOnSelect: true,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
     // responsive: [
     //   {
