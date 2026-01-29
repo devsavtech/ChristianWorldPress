@@ -50,9 +50,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${crimsonText.variable} ${lato.variable}`}>
       <body className="font-sans antialiased bg-background text-foreground">
-        <LiveChat />
+        {/* <LiveChat /> */}
         {children}
-        <ChatButton />
+        {/* <ChatButton /> */}
         <Analytics />
       </body>
     </html>
