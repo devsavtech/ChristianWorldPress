@@ -19,20 +19,8 @@ const TextImageSection = () => {
               Resolve to grow closer to God — a 30-day study with women of Scripture
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-6">
-              <span className="text-2xl sm:text-3xl font-bold text-accent">
-                $11.99
-              </span>
-              <span className="text-lg sm:text-xl text-muted-foreground line-through">
-                $21.99
-              </span>
-              <span className="text-lg sm:text-xl font-semibold text-accent">
-                Save 45%
-              </span>
-            </div>
-            
             <button className="w-full sm:w-auto bg-primary text-primary-foreground font-semibold py-3 px-8 rounded transition-all duration-200 hover:bg-primary/90 uppercase text-sm tracking-wide">
-              Add to Cart
+              BUY NOW
             </button>
           </div>
           

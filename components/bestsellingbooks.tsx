@@ -273,7 +273,7 @@ const BookSection = ({ booksData, sectionTitle = "Best Selling Books", sectionId
                     {/* Add to Cart Button */}
                     <Link href={book.link || `/book/${book.id}`} className="block w-full">
                       <button className="w-40 h-10 bg-primary text-primary-foreground font-semibold py-2.5 px-4 rounded transition-all duration-200 hover:bg-primary/90 uppercase text-xs tracking-wide mt-2 mx-auto">
-                        Add to Cart
+                        BUY NOW
                       </button>
                     </Link>
                   </div>

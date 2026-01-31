@@ -7,7 +7,7 @@ const TextImageSection = () => {
     <section id="featured-promotion" className=" bg-background relative overflow-hidden">
       <div className="mx-auto">
         
-        <div className="flex flex-col-reverse  py-4 lg:flex-row items-center justify-between mt-8 sm:mt-12">
+        <div className="flex flex-col-reverse  py-4 lg:flex-row items-center justify-between">
           
           {/* Book Details Section */}
           <div className="flex-1 max-w-2xl lg:text-left lg:px-6 md:px-0">
@@ -32,7 +32,7 @@ const TextImageSection = () => {
             </div>
             
             <button className="w-[200px] sm:w-auto bg-primary text-primary-foreground font-semibold py-3 px-8 rounded transition-all duration-200 hover:bg-primary/90 uppercase text-sm tracking-wide">
-              Add to Cart
+              BUY NOW
             </button>
           </div>
           
@@ -48,7 +48,7 @@ const TextImageSection = () => {
                 <div className="bg-opacity-50 text-white p-2 rounded mb-2">
                   <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-7xl font-semibold">$15.99</p>
                 </div>
-                <div className="flex gap-1">
+                <div className="flex ml-10 gap-1 w-full sm:ml-0">
                   {[...Array(5)].map((_, index) => (
                     <svg
                       key={index}

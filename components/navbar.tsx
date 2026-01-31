@@ -99,7 +99,7 @@ export function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
-            <Link href="/#books" className="btn-primary text-[10px] xl:text-xs px-4 xl:px-6">EXPLORE BOOKS</Link>
+            <Link href="/#bestsellers" className="btn-primary text-[10px] xl:text-xs px-4 xl:px-6">EXPLORE BOOKS</Link>
           </div>
 
           {/* Mobile Menu */}

@@ -3,7 +3,7 @@
 import React from 'react';
 const HeroBookPromo = () => {
   return (
-    <section id="new-releases" className="py-4 bg-background relative overflow-hidden">
+    <section id="new-releases" className="pt-4 bg-background relative overflow-hidden">
       <div className="mx-auto">
         
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 mt-8 sm:mt-12">
@@ -36,7 +36,7 @@ const HeroBookPromo = () => {
           </div>
           
           {/* Book Details Section */}
-          <div className="flex-1 max-w-2xl lg:text-left">
+          <div className="flex-1 max-w-2xl lg:text-left pl-3.5">
             <h3 className="sm:text-2xl md:text-2xl font-serif font-bold text-foreground mb-4">
               Marriage On The Rock: Couple's Discussion Guide
             </h3>
@@ -45,8 +45,11 @@ const HeroBookPromo = () => {
               Society demands years of training for careers, yet offers almost none for our most vital commitment: marriage. In an era of "disposable" relationships, where can couples find lasting answers?
             </p>
             
-            <button className="w-[200px] sm:w-auto bg-primary text-primary-foreground font-semibold py-3 px-8 rounded transition-all duration-200 hover:bg-primary/90 uppercase text-sm tracking-wide">
-              Add to Cart
+            <button 
+              className="w-[200px] sm:w-auto bg-primary text-primary-foreground font-semibold py-3 px-8 rounded transition-all duration-200 hover:bg-primary/90 uppercase text-sm tracking-wide"
+              onClick={() => window.open('https://www.amazon.com/Marriage-Rock-Couples-Discussion-Guide/dp/1790349907/ref=sr_1_10?crid=4BQFQ1RE7MOC&dib=eyJ2IjoiMSJ9.CZHdf7AjCgLuj_IZtWZpvmn7mqBjDwd1hIVsyoRfzuHIH57WObprvN_GtYwLNVrYCwuaEmls0UqMQ7GDDA9LULs0qnPR6IDSAksz4s6TrWRBkr-kyQnxPQg1ecRsfoky5-bKaCO018j0emEvGBfYRNl8L_xE85BllfedEn2jDH4V4gPAsgQIFb9ebDf6-Ui5LM9_f7FzbYInj89xCAms7P7aJ7evgNLZpideonicHac.LG21w20a4kS_i8UrLadOGOsjMqQoWbEk0oVUM4PbKqM&dib_tag=se&keywords=independently+published+books+on+christian&qid=1768430814&sprefix=independently+published+books+on+christian%2Caps%2C330&sr=8-10', '_blank')}
+            >
+              BUY NOW
             </button>
           </div>
         </div>
