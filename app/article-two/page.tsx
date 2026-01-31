@@ -8,6 +8,18 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Theology.png",
         mainTitle: "How Can Faith Help People Deal With Grief and Loss?",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "Where Sunflowers Go",
+                author: "Jenna Consiglio",
+                price: 15.99,
+                originalPrice: 21.99,
+                rating: 5,
+                image: "/books/book5.webp",
+                reviews: 298
+            },
+        ],
         sections: [
             {
                 title: "",

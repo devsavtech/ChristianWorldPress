@@ -8,6 +8,28 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Christian Living.png",
         mainTitle: "Do You Struggle to Trust God's Timing?",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "Sola Scriptura: Topical Bible Study Series",
+                author: "Robert Coleridge",
+                price: 18.99,
+                originalPrice: 24.99,
+                rating: 5,
+                image: "/books/book1.jpg",
+                reviews: 412
+            },
+            {
+                id: 2,
+                title: "Waiting on God",
+                author: "Andrew Murray",
+                price: 12.99,
+                originalPrice: 16.99,
+                rating: 5,
+                image: "/books/book2.jpg",
+                reviews: 356
+            },
+        ],
         sections: [
             {
                 title: "",

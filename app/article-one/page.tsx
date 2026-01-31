@@ -8,6 +8,28 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Christian Living.png",
         mainTitle: "Can Faith Help You Heal a Broken Past?",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "Overcoming Adversity: God's Grace is Sufficient",
+                author: "J. Paul Russell",
+                price: 14.99,
+                originalPrice: 24.99,
+                rating: 5,
+                image: "/books/book1.jpg",
+                reviews: 342
+            },
+            {
+                id: 2,
+                title: "Healing Through Faith",
+                author: "Sarah Johnson",
+                price: 12.99,
+                originalPrice: 19.99,
+                rating: 4,
+                image: "/books/book2.jpg",
+                reviews: 187
+            }
+        ],
         sections: [
             {
                 title: "",

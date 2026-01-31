@@ -8,6 +8,18 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Spirtual Growth.png",
         mainTitle: "How Does Religion Shape Black Cultural Identity?",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "Life After Religion",
+                author: "Bruce Fullah",
+                price: 17.99,
+                originalPrice: 24.99,
+                rating: 5,
+                image: "/books/book5.webp",
+                reviews: 342
+            },
+        ],
         sections: [
             {
                 title: "",

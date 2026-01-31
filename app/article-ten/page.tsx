@@ -8,6 +8,48 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Christian Living.png",
         mainTitle: "Why is the Promise of God's Presence So Important?",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "Nine Words that Change Everything",
+                author: "Ross C. Powell",
+                price: 15.99,
+                originalPrice: 21.99,
+                rating: 5,
+                image: "/books/book5.webp",
+                reviews: 423
+            },
+            {
+                id: 2,
+                title: "The Promise of His Presence",
+                author: "Sarah Johnson",
+                price: 13.99,
+                originalPrice: 17.99,
+                rating: 4,
+                image: "/books/book7.webp",
+                reviews: 287
+            },
+            {
+                id: 3,
+                title: "Walking in His Light",
+                author: "Michael Thompson",
+                price: 14.99,
+                originalPrice: 19.99,
+                rating: 5,
+                image: "/books/book8.webp",
+                reviews: 356
+            },
+            {
+                id: 4,
+                title: "Eternal Hope",
+                author: "Rebecca Wilson",
+                price: 12.99,
+                originalPrice: 16.99,
+                rating: 4,
+                image: "/books/book9.webp",
+                reviews: 245
+            }
+        ],
         sections: [
             {
                 title: "",

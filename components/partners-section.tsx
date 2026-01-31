@@ -57,16 +57,16 @@ export function PartnersSection() {
         </div>
 
         {/* Partner Stores */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
           <div>
             <h3 className="font-serif font-bold text-xl sm:text-2xl md:text-3xl text-foreground mb-4 sm:mb-5 md:mb-6 uppercase">Partner Stores</h3>
             <p className="text-sm sm:text-base text-muted-foreground mb-6 sm:mb-7 md:mb-8 leading-relaxed">
               Our books are available in leading Christian and national bookstores across the globe.
-            </p>
+            </p> */}
             {/* <Button className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
               FIND A STORE NEAR YOU
             </Button> */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-7 md:mt-8">
+            {/* <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-7 md:mt-8">
               {storeLogos.map((store, index) => {
                 const isLastOdd =
                   storeLogos.length % 2 !== 0 &&
@@ -110,9 +110,8 @@ export function PartnersSection() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
-      </div>
     </section>
   )
 }

@@ -8,6 +8,18 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Chruch Leadership.png",
         mainTitle: "3 Ways to Grow Closer to God When You Feel Far Away",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "My Walk with Jesus",
+                author: "Author Name",
+                price: 14.99,
+                originalPrice: 19.99,
+                rating: 5,
+                image: "/books/book1.jpg",
+                reviews: 378
+            },
+        ],
         sections: [
             {
                 title: "",

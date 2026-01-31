@@ -8,6 +8,18 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Spirtual Growth.png",
         mainTitle: "The Journey to Knowing God - Steps to a Deeper Relationship",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "Chosen",
+                author: "Nicholas L. Maze",
+                price: 14.99,
+                originalPrice: 19.99,
+                rating: 5,
+                image: "/books/book1.jpg",
+                reviews: 427
+            },
+        ],
         sections: [
             {
                 title: "",

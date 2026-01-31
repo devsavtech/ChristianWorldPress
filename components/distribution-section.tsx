@@ -81,6 +81,7 @@ export function DistributionSection() {
                     transition-transform duration-700 ease-out
                     group-hover:scale-100
                     group-active:scale-100
+                    rounded-lg
                   "
                 />
 

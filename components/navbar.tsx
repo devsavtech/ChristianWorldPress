@@ -8,8 +8,11 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { label: "HOME", href: "home" },
-  { label: "OUR BOOKS", href: "books" },
+  // { label: "OUR BOOKS", href: "books" },
   { label: "FEATURED AUTHORS", href: "authors" },
+  { label: "FEATURED ARTICLES", href: "articles" },
+  { label: "BEST SELLERS", href: "bestsellers" },
+  { label: "NEW RELEASES", href: "new-releases" },
   { label: "EXTENDED DISTRIBUTION", href: "distribution" },
   { label: "OUR PARTNERS", href: "partners" },
   { label: "EVENTS", href: "events" },
@@ -54,12 +57,12 @@ export function Navbar() {
         });
       },
       {
-        rootMargin: "-50% 0px -50% 0px", // section center mein aaye
-        threshold: 0
+        rootMargin: "-30% 0px -70% 0px",
+        threshold: 0.1
       }
     );
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach(section => section && observer.observe(section));
 
     return () => observer.disconnect();
   }, []);
@@ -69,7 +72,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="shrink-0">
+          <Link href="/" className="shrink-0 img-fluid w-auto">
             <img
               src="/img/ChrisitanWorldPressLogo.png"
               alt="Christian World Press"
@@ -83,10 +86,10 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={`/#${link.href}`}
-                className={`px-2 py-2 text-xs xl:text-sm font-semibold transition-colors
+                className={`px-2 py-2 text-[9px] xl:text-[11px] font-semibold transition-all duration-200 ease-in-out
             ${activeLink === link.href
                     ? "text-accent border-b-2 border-accent"
-                    : "text-foreground/70 hover:text-foreground"
+                    : "text-foreground/70 hover:text-accent hover:border-b hover:border-accent/50"
                   }`}
               >
                 {link.label}
@@ -96,7 +99,7 @@ export function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
-            <Link href="/#books" className="btn-primary text-xs xl:text-sm px-4 xl:px-6">EXPLORE BOOKS</Link>
+            <Link href="/#books" className="btn-primary text-[10px] xl:text-xs px-4 xl:px-6">EXPLORE BOOKS</Link>
           </div>
 
           {/* Mobile Menu */}
@@ -131,11 +134,41 @@ export function Navbar() {
                         <Link
                           key={link.label}
                           href={`/#${link.href}`}
-                          onClick={() => {
-                            setActiveLink(link.label)
-                            setIsOpen(false)
+                          onClick={(e) => {
+                            e.preventDefault();
+                            setIsOpen(false);
+                            const targetElement = document.getElementById(link.href);
+                            if (targetElement) {
+                              // Calculate navbar height based on screen size
+                              const navbarHeight = window.innerWidth >= 1024 ? 80 : 64;
+                              
+                              // Get the actual padding values
+                              const computedStyle = window.getComputedStyle(targetElement);
+                              const paddingTop = parseInt(computedStyle.paddingTop) || 0;
+                              
+                              // For hero section, we need special handling due to min-h and flex
+                              let offsetTop: number;
+                              if (link.href === 'home') {
+                                // Hero section uses flex and min-h, so we target the content area
+                                const contentDiv = targetElement.querySelector('.relative.z-10') as HTMLElement;
+                                if (contentDiv) {
+                                  offsetTop = contentDiv.offsetTop - navbarHeight;
+                                } else {
+                                  offsetTop = targetElement.offsetTop + paddingTop - navbarHeight;
+                                }
+                              } else {
+                                // For other sections, use the standard calculation
+                                offsetTop = targetElement.offsetTop + paddingTop - navbarHeight;
+                              }
+                              
+                              window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                              });
+                              setActiveLink(link.href);
+                            }
                           }}
-                          className="block py-4 sm:py-5 text-base sm:text-lg text-white font-bold uppercase tracking-wide hover:text-accent transition-colors border-b border-white/5 last:border-0"
+                          className="block py-4 sm:py-5 text-xs sm:text-sm text-white font-bold uppercase tracking-wide hover:text-accent transition-colors border-b border-white/5 last:border-0"
                         >
                           {link.label}
                         </Link>

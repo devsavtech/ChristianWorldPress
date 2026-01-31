@@ -219,7 +219,7 @@
 }
 
 .slick-slider .slick-list {
-  padding-top: 125px !important;
+  padding-top: 30px !important;
 }
 
 .slick-initialized .slick-slide {
@@ -277,6 +277,6 @@
   }
 
   .slick-slider .slick-list {
-    padding-top: 85px !important;
+    padding-top: 30px !important;
   }
 }

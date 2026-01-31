@@ -8,14 +8,6 @@ import { useTypingAnimation } from "@/hooks/useTypingAnimation"
 const events = [
   {
     id: 1,
-    title: "Novel Marketing Conference",
-    date: "January 30–31, 2026",
-    location: "Austin, Texas",
-    description:
-      "A focused conference centered on helping authors understand book marketing, reader engagement, and long-term platform growth within the Christian publishing space.",
-  },
-  {
-    id: 2,
     title: "Asheville Christian Writers Conference",
     date: "February 27 – March 1, 2026",
     location: "Blue Ridge Mountains, North Carolina",
@@ -23,7 +15,7 @@ const events = [
       "A well-known gathering offering spiritual encouragement and publishing insight in a retreat-style setting.",
   },
   {
-    id: 3,
+    id: 2,
     title: "Carolina Christian Writers Conference",
     date: "March 6–7, 2026",
     location: "Spartanburg, South Carolin",
@@ -31,7 +23,7 @@ const events = [
       "An intimate conference focused on writing craft, spiritual growth, and meaningful connections between writers and industry professionals.",
   },
   {
-    id: 4,
+    id: 3,
     title: "Blue Lake Christian Writers Retreat",
     date: "March 18–21, 2026",
     location: "Andalusia, Alabama",
@@ -39,7 +31,7 @@ const events = [
       "A quiet, reflective retreat designed for writers seeking focused time, encouragement, and spiritual renewal.",
   },
   {
-    id: 5,
+    id: 4,
     title: "Mid-South Christian Writers Conference",
     date: "March 20–21, 2026",
     location: "Collierville, Tennessee",
@@ -47,7 +39,7 @@ const events = [
       "A practical, teaching-oriented conference that serves writers across genres with sessions led by experienced professionals.",
   },
     {
-    id: 6,
+    id: 5,
     title: "Write His Answer Conference",
     date: "June 17–20, 2026",
     virtualEvent: "Virtual Event",
@@ -55,7 +47,7 @@ const events = [
       "An online conference focused on helping writers clearly communicate God's message with faith, integrity, and confidence.",
   },
     {
-    id: 7,
+    id: 6,
     title: "British Christian Writers Conference",
     date: "September 4–5, 2026",
     location: "Collierville, Tennessee",
@@ -158,7 +150,7 @@ export function EventsSection() {
                       <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span className="break-words leading-tight flex-1">{event.date}</span>
                     </div>
-                    {event.id !== 6 && (
+                    {event.id !== 5 && event.id !== 6 && (
                       <div className="flex items-start gap-2 pl-4 min-w-[180px]">
                         <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0 mt-0.5" />
                         <span className="break-words leading-tight flex-1">{event.location}</span>

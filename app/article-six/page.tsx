@@ -8,6 +8,18 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Christian Living.png",
         mainTitle: "Can Faith in God Truly Guide Us Through Life’s Darkest Moments?",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "Through the Valley of the Shadows",
+                author: "Pastor Rob Flaherty",
+                price: 16.99,
+                originalPrice: 22.99,
+                rating: 5,
+                image: "/books/book5.webp",
+                reviews: 387
+            },
+        ],
         sections: [
             {
                 title: "",

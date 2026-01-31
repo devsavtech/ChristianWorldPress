@@ -8,6 +8,18 @@ const page = () => {
     const articleContent: ArticleContentType = {
         image: "/Featered Articles/Chruch Leadership.png",
         mainTitle: "Faith Over Feelings: How to Trust God More Than My Emotions",
+        relatedBooks: [
+            {
+                id: 1,
+                title: "Finding God in the Moment",
+                author: "Andrew Wollman",
+                price: 14.99,
+                originalPrice: 19.99,
+                rating: 5,
+                image: "/books/book1.jpg",
+                reviews: 312
+            }
+        ],
         sections: [
             {
                 title: "",
