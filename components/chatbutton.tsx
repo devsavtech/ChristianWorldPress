@@ -25,14 +25,14 @@ export default function ChatButton() {
               <Phone size={20} />
               <span className="font-medium">+(714) 475-7922</span>
             </a>
-            <button
+            {/* <button
               onClick={toggleLiveChat}
               className="flex items-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-green-700 transition-colors animate-in slide-in-from-bottom-1"
               aria-label="Start live chat"
             >
               <MessageCircle size={20} />
               <span className="font-medium">Chat With Us</span>
-            </button>
+            </button> */}
           </>
         )}
 
