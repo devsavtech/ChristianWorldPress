@@ -1,9 +1,10 @@
 "use client"
 
-import { Calendar, MapPin, Video } from "lucide-react"
+import { Calendar, MapPin, Video, ChevronDown, ChevronUp } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { useTypingAnimation } from "@/hooks/useTypingAnimation"
+import { useState } from "react"
 
 const events = [
   {
@@ -54,10 +55,65 @@ const events = [
     description:
       "A UK-based conference bringing together Christian writers for teaching, encouragement, and community across the Atlantic.",
   },
+    {
+    id: 7,
+    title: "Vision Christian Writers Conference",
+    date: "March 27–31, 2026",
+    location: "Felton, California",
+    description:
+      "A multi-day conference covering both creative and technical aspects of writing. Sessions range from storytelling fundamentals to advanced topics that spark imagination and depth.",
+  },
+    {
+    id: 8,
+    title: "Cascade Christian Writers Spring Conference",
+    date: "2026 – Virtual Event",
+    description:
+      "A virtual gathering bringing together writers, editors, and agents for education, encouragement, and industry insight. Accessible learning designed to support writers wherever they are.",
+  },
+   {
+    id: 9,
+    title: "Blue Ridge Mountains Christian Writers Conference",
+    date: "2026",
+    location: "Blue Ridge Mountains",
+    description:
+      "A well-established conference offering in-depth workshops on writing, publishing, and ministry-focused communication. Includes sessions on writing for Christian organizations and outreach platforms.",
+  },
+  {
+    id: 10,
+    title: "Hans Christian Andersen Awards",
+    date: "August 6–9, 2026",
+    location: "Ottawa, Canada",
+    description:
+      "One of the most respected international honors in children’s literature, presented during the 40th IBBY World Congress. Celebrates lifelong contributions to writing and illustration for young readers.",
+  },
+    {
+    id: 11,
+    title: "European Christian Rights Fair",
+    date: "March 16–17, 2026",
+    location: "Krakow, Poland",
+    description:
+      "A focused international event centered on publishing, translation, and rights. Brings together Christian publishers, agents, and industry professionals for networking and rights discussions.",
+  },
+    {
+    id: 12,
+    title: "Reedsy Writing Contests",
+    date: "2026",
+    virtualEvent: "Various Locations / Online",
+    description:
+      "A series of themed monthly writing contests offering Christian writers opportunities to practice craft, gain visibility, and receive professional feedback throughout the year.",
+  }
+
+
+
+
+
 ]
 
 export function EventsSection() {
   const { displayedText, isTyping, sectionRef } = useTypingAnimation("Upcoming Events")
+  const [showAllEvents, setShowAllEvents] = useState(false)
+  
+  const displayedEvents = showAllEvents ? events : events.slice(0, 6)
 
   return (
     <section ref={sectionRef} id="events" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card/10 border-y border-border relative overflow-hidden">
@@ -84,7 +140,7 @@ export function EventsSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {events.map((event) => (
+          {displayedEvents.map((event) => (
             <Card
               key={event.id}
               className="
@@ -150,7 +206,7 @@ export function EventsSection() {
                       <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span className="break-words leading-tight flex-1">{event.date}</span>
                     </div>
-                    {event.id !== 5 && event.id !== 6 && (
+                    {event.id !== 5 && event.id !== 6 && event.id !== 8 && event.id !== 12 && (
                       <div className="flex items-start gap-2 pl-4 min-w-[180px]">
                         <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0 mt-0.5" />
                         <span className="break-words leading-tight flex-1">{event.location}</span>
@@ -168,6 +224,38 @@ export function EventsSection() {
             </Card>
           ))}
         </div>
+        
+        {events.length > 6 && (
+          <div className="w-full flex justify-center mt-8 sm:mt-10 md:mt-12">
+            <Button
+              onClick={() => setShowAllEvents(!showAllEvents)}
+              variant="default"
+              className="
+                bg-[#7f0101] text-white
+                border-[#7f0101]
+                transition-all duration-300
+                hover:bg-[#990101]
+                hover:border-[#990101]
+                text-sm sm:text-base
+                px-6 sm:px-8
+                py-2.5 sm:py-3
+                flex items-center gap-2
+              "
+            >
+              {showAllEvents ? (
+                <>
+                  <ChevronUp className="w-4 h-4" />
+                  Show Less Events
+                </>
+              ) : (
+                <>
+                  <ChevronDown className="w-4 h-4" />
+                  Show More Events
+                </>
+              )}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )
