@@ -28,7 +28,7 @@ const TextImageSection = () => {
           <div className="flex-shrink-0 flex justify-center w-full lg:w-auto">
             <div className="relative w-full max-w-[450px] lg:max-w-[550px] xl:max-w-[650px]">
               <img 
-                src="/promotionbooks/promotionbook-1.webp" 
+                src="/promotionbooks/promotionbook-1.png" 
                 alt="Featured Promotion Book Cover"
                 className="w-full h-auto object-contain"
               />

@@ -177,11 +177,28 @@ const BookSection = ({ booksData, sectionTitle = "Best Selling Books", sectionId
     );
   };
 
+  const [windowWidth, setWindowWidth] = React.useState(0);
+
+  React.useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const getInitialSlides = () => {
+    if (typeof window === 'undefined' || windowWidth === 0) return 5; // Default to mobile
+    if (windowWidth < 480) return 1;
+    if (windowWidth < 768) return 2;
+    if (windowWidth < 1024) return 3;
+    return 5;
+  };
+
   const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: getInitialSlides(),
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 3000,
@@ -233,11 +250,13 @@ const BookSection = ({ booksData, sectionTitle = "Best Selling Books", sectionId
               <div className="group relative overflow-hidden rounded">
                 <div className="flex flex-col items-center p-0">
                   {/* Book Image */}
-                  <div className="relative w-48 mb-0 flex justify-center">
+                  <div className="relative w-48 mb-0 flex justify-center cursor-pointer">
                     <img 
                       src={book.image} 
                       alt={book.title}
                       className="h-60 object-contain"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
 

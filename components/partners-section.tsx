@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button"
 import { useTypingAnimation } from "@/hooks/useTypingAnimation"
 
 const partnerLogos = [
-  { name: "Cloudinary", src: "/brands/cl-2.png" },
-  { name: "Appwrite", src: "/brands/cl-3.png" },
-  { name: "Hostinger", src: "/brands/cl-4.png" },
-  { name: "Stream", src: "/brands/cl-5.png" },
-  { name: "Docker", src: "/brands/cl-6.png" },
+  { name: "Cloudinary", src: "/newsliderlogos/logo-1.png" },
+  { name: "Appwrite", src: "/newsliderlogos/logo-2.png" },
+  { name: "Hostinger", src: "/newsliderlogos/logo-3.png" },
+  { name: "Stream", src: "/newsliderlogos/logo-4.png" },
+  { name: "Docker", src: "/newsliderlogos/logo-5.png" },
   // { name: "Brand Six", src: "/brands/cl-7.png" },
 ]
 
@@ -44,7 +44,7 @@ export function PartnersSection() {
             {partnerLogos.map((partner) => (
               <div
                 key={partner.name}
-                className="h-12 sm:h-14 md:h-16 flex items-center justify-center bg-card/80 transition-colors rounded px-2 sm:px-3 md:px-4 w-[30%] md:w-[20%] lg:w-[18%] xl:w-[17%]"
+                className="h-12 bg-[#f5f1e8] sm:h-14 md:h-16 flex items-center justify-center transition-colors rounded px-2 sm:px-3 md:px-4 w-[30%] md:w-[20%] lg:w-[18%] xl:w-[17%]"
               >
                 <img
                   src={partner.src || "/placeholder.svg"}

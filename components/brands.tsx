@@ -11,6 +11,12 @@ const brands = [
   { id: 5, name: "Docker", nameLogo: "/brands/cl-6.png" },
   // { id: 6, name: "Brand Six", nameLogo: "/brands/cl-7.png" },
   { id: 7, name: "Brand Seven", nameLogo: "/brands/cl-10.png" },
+  { id: 8, name: "Brand Eight", nameLogo: "/newsliderlogos/logo-1.png" },
+  { id: 9, name: "Brand Nine", nameLogo: "/newsliderlogos/logo-2.png" },
+  { id: 10, name: "Brand Ten", nameLogo: "/newsliderlogos/logo-3.png" },
+  { id: 11, name: "Brand Eleven", nameLogo: "/newsliderlogos/logo-4.png" },
+  { id: 12, name: "Brand Twelve", nameLogo: "/newsliderlogos/logo-5.png" },
+  { id: 13, name: "Brand Thirteen", nameLogo: "/newsliderlogos/logo-6.png" },
 ];
 
 export default function Brands() {

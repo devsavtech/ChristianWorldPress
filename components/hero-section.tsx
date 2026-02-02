@@ -12,7 +12,7 @@ export function HeroSection() {
   const countriesCount = useCountAnimation(220, 2000, "+", sectionRef)
 
   return (
-    <section ref={sectionRef} id="home" className="relative min-h-[85vh] sm:min-h-screen flex items-center overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24">
+    <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -36,7 +36,7 @@ export function HeroSection() {
             </div>
 
             <div className="flex justify-center md:justify-start gap-3 sm:gap-4">
-              <Link href="/#books" className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
+              <Link href="/#bestsellers" className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
                 EXPLORE OUR BOOKS
               </Link>
             </div>
