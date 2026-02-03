@@ -4,19 +4,20 @@
 import React, { useState, useEffect, useCallback } from "react";
 
 const brands = [
-  { id: 1, name: "Cloudinary", nameLogo: "/brands/cl-2.png" },
+  { id: 1, name: "Brand Nine", nameLogo: "/brands/logo-1.png" },
+  { id: 2, name: "Cloudinary", nameLogo: "/brands/logo-2.png" },
   // { id: 2, name: "Appwrite", nameLogo: "/brands/cl-3.png" },
-  { id: 3, name: "Hostinger", nameLogo: "/brands/cl-4.png" },
-  { id: 4, name: "Stream", nameLogo: "/brands/cl-5.png" },
-  { id: 5, name: "Docker", nameLogo: "/brands/cl-6.png" },
+  { id: 3, name: "Brand Eight", nameLogo: "/brands/logo-3.png" },
+  { id: 4, name: "Hostinger", nameLogo: "/brands/logo-4.png" },
+  { id: 5, name: "Brand Thirteen", nameLogo: "/brands/logo-6.png" },
+  { id: 6, name: "Stream", nameLogo: "/brands/logo-5.png" },
+  { id: 7, name: "Brand Twelve", nameLogo: "/brands/logo-7.png" },
+  { id: 8, name: "Docker", nameLogo: "/brands/logo-8.png" },
+  // { id: 9, name: "Brand Ten", nameLogo: "/brands/logo-9.png" },
   // { id: 6, name: "Brand Six", nameLogo: "/brands/cl-7.png" },
-  { id: 7, name: "Brand Seven", nameLogo: "/brands/cl-10.png" },
-  { id: 8, name: "Brand Eight", nameLogo: "/newsliderlogos/logo-1.png" },
-  { id: 9, name: "Brand Nine", nameLogo: "/newsliderlogos/logo-2.png" },
-  { id: 10, name: "Brand Ten", nameLogo: "/newsliderlogos/logo-3.png" },
-  { id: 11, name: "Brand Eleven", nameLogo: "/newsliderlogos/logo-4.png" },
-  { id: 12, name: "Brand Twelve", nameLogo: "/newsliderlogos/logo-5.png" },
-  { id: 13, name: "Brand Thirteen", nameLogo: "/newsliderlogos/logo-6.png" },
+  { id: 10, name: "Brand Seven", nameLogo: "/brands/logo-10.png" },
+  { id: 11, name: "Brand Eleven", nameLogo: "/brands/logo-11.png" },
+{ id: 11, name: "Brand Eleven", nameLogo: "/brands/logo-12.png" },
 ];
 
 export default function Brands() {

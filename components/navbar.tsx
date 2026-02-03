@@ -29,6 +29,35 @@ export function Navbar() {
     setMounted(true)
   }, [])
 
+  // Add optimized puff-in animation
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const styleId = 'puff-in-animation';
+      if (!document.getElementById(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = `
+          @keyframes puff-in-center {
+            0% {
+              transform: scale(0.5);
+              opacity: 0;
+              filter: blur(4px);
+            }
+            100% {
+              transform: scale(1);
+              opacity: 1;
+              filter: blur(0);
+            }
+          }
+          .animate-puff-in {
+            animation: puff-in-center 0.7s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+  }, [])
+
   // Close mobile menu when screen size changes to desktop
   useEffect(() => {
     if (!mounted) return
@@ -76,7 +105,7 @@ export function Navbar() {
             <img
               src="/img/ChrisitanWorldPressLogo.png"
               alt="Christian World Press"
-              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto"
+              className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto animate-puff-in"
             />
           </Link>
 

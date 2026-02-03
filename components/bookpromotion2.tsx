@@ -4,7 +4,7 @@ import React from 'react';
 
 const TextImageSection = () => {
   return (
-    <section id="featured-promotion" className=" bg-background relative overflow-hidden pb-10">
+    <section id="featured-promotion" className=" bg-background relative overflow-hidden">
       <div className="flex flex-col md:flex-row w-full">
         
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center w-full">

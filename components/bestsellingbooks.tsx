@@ -9,7 +9,7 @@ import { useTypingAnimation } from '@/hooks/useTypingAnimation';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Add custom styles to handle vertical gaps
+// Add custom styles to handle vertical gaps and dot styling
 const sliderStyles = `
   .slick-vertical-gap-0 .slick-list {
     margin-bottom: 0;
@@ -21,6 +21,29 @@ const sliderStyles = `
   .slick-vertical-gap-0 .slick-slide {
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+  
+  /* Custom dot styling */
+  .slick-dots {
+    bottom: -40px !important;
+  }
+  .slick-dots li {
+    margin: 0 6px;
+  }
+  .slick-dots li button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+  }
+  .slick-dots li button:before {
+    content: '•';
+    font-size: 16px;
+    color: #d1d5db;
+    opacity: 1;
+  }
+  .slick-dots li.slick-active button:before {
+    color: #dc2626;
+    opacity: 1;
   }
 `;
 
@@ -290,11 +313,11 @@ const BookSection = ({ booksData, sectionTitle = "Best Selling Books", sectionId
                     </div>
 
                     {/* Add to Cart Button */}
-                    <Link href={book.link || `/book/${book.id}`} className="block w-full">
+                    <a href={book.link || `/book/${book.id}`} target="_blank" rel="noopener noreferrer" className="block w-full">
                       <button className="w-40 h-10 bg-primary text-primary-foreground font-semibold py-2.5 px-4 rounded transition-all duration-200 hover:bg-primary/90 uppercase text-xs tracking-wide mt-2 mx-auto">
                         BUY NOW
                       </button>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>

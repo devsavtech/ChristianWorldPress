@@ -7,7 +7,7 @@ const TextImageSection = () => {
     <section id="featured-promotion" className=" bg-background relative overflow-hidden pt-10">
       <div className="flex flex-col md:flex-row w-full">
         
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center w-ful">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 items-center w-full">
 
               {/* Book Image Section */}
           <div className="flex flex-col lg:flex-row items-center gap-4 w-full">

@@ -9,7 +9,8 @@ const footerLinks = {
     { label: "Home", href: "/" },
     { label: "About Us", href: "/#about" },
     { label: "Featured Authors", href: "/#authors" },
-    { label: "Our Books", href: "/#books" },
+    { label: "Best Sellers", href: "/#bestsellers" },
+    { label: "New Releases", href: "/#new-releases" },
     { label: "Extended Distribution", href: "/#distribution" },
     { label: "Our Partners", href: "/#partners" },
     { label: "Events", href: "/#events" },
@@ -114,7 +115,7 @@ export function Footer() {
                     href={link.href}
                     className="text-xs sm:text-sm text-white/80 hover:text-[#e6b65c] transition-all duration-200 group flex items-center gap-1"
                   >
-                    <ChevronRight className="sm:block hidden w-2.5 h-2.5 sm:w-3 sm:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 -ml-1 text-[#e6b65c]" />
+                    <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 transition-colors duration-200 text-white/60 group-hover:text-[#e6b65c] -ml-1" />
                     {link.label}
                   </Link>
                 </li>
@@ -132,7 +133,7 @@ export function Footer() {
                     href={link.href}
                     className="text-xs sm:text-sm text-white/80 hover:text-[#e6b65c] transition-all duration-200 group flex items-center gap-1"
                   >
-                    <ChevronRight className="sm:block hidden w-2.5 h-2.5 sm:w-3 sm:h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200 -ml-1 text-[#e6b65c]" />
+                    <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 transition-colors duration-200 text-white/60 group-hover:text-[#e6b65c] -ml-1" />
                     {link.label}
                   </Link>
                 </li>
