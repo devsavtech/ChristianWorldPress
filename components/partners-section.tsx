@@ -16,7 +16,7 @@ const partnerLogos = [
   { name: "Brand Eight", src: "/newsliderlogos/logo-9.png" },
   { name: "Brand Eight", src: "/newsliderlogos/logo-10.png" },
   { name: "Brand Eight", src: "/newsliderlogos/logo-11.png" },
-  { name: "Brand Eight", src: "/newsliderlogos/logo-12.png" },
+  // { name: "Brand Eight", src: "/newsliderlogos/logo-12.png" },
 ]
 
 export function PartnersSection() {

@@ -9,7 +9,7 @@ const brands = [
   // { id: 2, name: "Appwrite", nameLogo: "/brands/cl-3.png" },
   { id: 3, name: "Brand Eight", nameLogo: "/brands/logo-3.png" },
   { id: 4, name: "Hostinger", nameLogo: "/brands/logo-4.png" },
-  { id: 5, name: "Brand Thirteen", nameLogo: "/brands/logo-6.png" },
+  // { id: 5, name: "Brand Thirteen", nameLogo: "/brands/logo-6.png" },
   { id: 6, name: "Stream", nameLogo: "/brands/logo-5.png" },
   { id: 7, name: "Brand Twelve", nameLogo: "/brands/logo-7.png" },
   { id: 8, name: "Docker", nameLogo: "/brands/logo-8.png" },
