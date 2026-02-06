@@ -64,10 +64,10 @@ const FAQ = () => {
       question: "Will my data be safe and confidential?",
       answer: "Our customer’s safety is our top priority. Once you close the deal with us, your work becomes our work, and we keep our things very private. Confidentiality of your content is one thing that you will never have to worry about while working with KDP."
     },
-    {
-      question: "How much time will it take to publish my book?",
-      answer: "The average time for book completion is almost 2 months, but it is when all other things from both parties are kept constant. Team Haymarket ensures time management, and if you acquire to complete your project earlier than 2 months, then the plan can be customized and adjusted accordingly"
-    },
+    // {
+    //   question: "How much time will it take to publish my book?",
+    //   answer: "The average time for book completion is almost 2 months, but it is when all other things from both parties are kept constant. Team Haymarket ensures time management, and if you acquire to complete your project earlier than 2 months, then the plan can be customized and adjusted accordingly"
+    // },
     {
       question: "How much time will it take to publish my book?",
       answer: "The average time for book completion is almost 2 months, but it is when all other things from both parties are kept constant. Team Haymarket ensures time management, and if you acquire to complete your project earlier than 2 months, then the plan can be customized and adjusted accordingly."
