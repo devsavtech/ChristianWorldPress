@@ -53,52 +53,36 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "What is The Process Of Self Publishing?",
-      answer: "Self-publishing involves several key steps: writing and editing your manuscript, formatting it for publication, designing a cover, obtaining an ISBN, uploading to publishing platforms (like Amazon KDP, IngramSpark), and marketing your book to readers."
+      question: "What is the process of Self Publishing?",
+      answer: "The process of self publishing a book is simple. You need to create an account, sign into the account, choose your plan, get in touch with the team, communicate your specifications, wait for the customized layout, and start working as soon as you get the layout."
     },
     {
-      question: "Do You People Provide Book Marketing Services?",
-      answer: "Yes, we offer comprehensive book marketing services including social media promotion, email campaigns, book launch strategies, Amazon advertising, book reviews, and influencer outreach to help your book reach its target audience."
+      question: "Do you people provide book marketing services?",
+      answer: "Yes, our team of professional marketers is always ready to provide the top marketing services for people. We provide you with a proper plan, which covers the execution and expected results at the end of the campaign."
     },
     {
-      question: "Do I Need Different Barcodes For EBook And Print Binding Books?",
-      answer: "eBooks don't require barcodes, but print books do need ISBN barcodes on the back cover. Each format (hardcover, paperback) needs its own unique ISBN, though you can use the same base ISBN family for your book."
+      question: "Will my data be safe and confidential?",
+      answer: "Our customer’s safety is our top priority. Once you close the deal with us, your work becomes our work, and we keep our things very private. Confidentiality of your content is one thing that you will never have to worry about while working with KDP."
     },
     {
-      question: "Will My Data Be Safe And Confidential?",
-      answer: "Absolutely. We take data privacy seriously and implement industry-standard security measures. Your manuscript, personal information, and payment details are encrypted and stored securely. We never share your data with third parties without your consent."
+      question: "How much time will it take to publish my book?",
+      answer: "The average time for book completion is almost 2 months, but it is when all other things from both parties are kept constant. Team Haymarket ensures time management, and if you acquire to complete your project earlier than 2 months, then the plan can be customized and adjusted accordingly"
     },
     {
-      question: "How Much Time Will It Take To Publish My Book?",
-      answer: "The timeline varies based on your book's readiness. If your manuscript is polished, formatting and uploading can take 1-2 weeks. Including editing, cover design, and ISBN registration, the full process typically takes 4-8 weeks from start to publication."
+      question: "How much time will it take to publish my book?",
+      answer: "The average time for book completion is almost 2 months, but it is when all other things from both parties are kept constant. Team Haymarket ensures time management, and if you acquire to complete your project earlier than 2 months, then the plan can be customized and adjusted accordingly."
     },
     {
-      question: "What Are The Basics Of Designing A Book Cover?",
-      answer: "A great book cover needs: a compelling central image, clear readable title and author name, appropriate genre styling, professional typography, correct dimensions for your format, and both front cover and spine design for print books. It should grab attention and communicate your book's essence instantly."
+      question: "What are the basics of designing a book cover?",
+      answer: "The outlook must always be relevant to the content. If a novel is a romantic comedy, the cover must have a calming vibe. If the novel has a dark romance, the cover must be subtly spicy. Similarly, if the novel is a recipe book, the cover must be of food. The cover of a book must not only be good enough to grab attention, but also it should be relevant to the content in the book."
     },
     {
-      question: "How Can I Get An ISBN?",
-      answer: "You can purchase ISBNs from your country's official ISBN agency (Bowker in the US, Nielsen in UK). Alternatively, platforms like Amazon KDP offer free ISBNs, though you'll be listed as the publisher. Buying your own ISBN gives you full publishing rights and ownership."
+      question: "Do I need different barcodes for eBook and print binding books?",
+      answer: "Yes, you need to have a separate barcode for hardcover books and Paperback books, as both formats are completely different. As far as eBook is concerned, you do not need to have a barcode for that."
     },
     {
-      question: "Where Will My Book Be Available For Purchase?",
-      answer: "Your book can be distributed to major retailers including Amazon, Barnes & Noble, Apple Books, Google Play Books, Kobo, and many independent bookstores. We can help you choose the right distribution channels based on your goals and target audience."
-    },
-    {
-      question: "Can I Self Publish A Book For Free?",
-      answer: "Yes, you can self-publish for free using platforms like Amazon KDP, Draft2Digital, or Smashwords. However, investing in professional editing, cover design, and formatting significantly improves your book's quality and sales potential."
-    },
-    {
-      question: "Can I Self Publish Graphic Novels?",
-      answer: "Absolutely! Graphic novels and comics can be self-published through platforms like Amazon KDP, ComiXology, and specialized comic publishers. Ensure your files are high-resolution, properly formatted, and meet the platform's specifications for the best results."
-    },
-    {
-      question: "Is Having An Author's Website A Vital Decision?",
-      answer: "Yes, an author website is crucial for building your brand, connecting with readers, showcasing your books, collecting email subscribers, and establishing credibility. It serves as your home base on the internet and gives you control over your online presence."
-    },
-    {
-      question: "What is A Book's Video Trailer?",
-      answer: "A book trailer is a short promotional video (30-90 seconds) that creates excitement about your book, similar to a movie trailer. It uses visuals, music, and text to convey your book's theme, genre, and hook, helping to attract readers on social media and websites."
+      question: "Is having an Author’s Website a vital decision?",
+      answer: "Yes, having an author website is a very beneficial aspect of one’s career as an author. There are times when readers/viewers require credibility, and that is when the author’s website and social media presence play a role. To have a vital increase in reach, it is important to think like the audience."
     }
   ];
 

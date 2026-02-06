@@ -91,15 +91,6 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="#events"
-                  className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-all duration-200 group flex items-center gap-1"
-                >
-                  <ChevronRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 transition-colors duration-200 text-muted-foreground/60 group-hover:text-accent -ml-1" />
-                  Events
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="#faq"
                   className="text-xs sm:text-sm text-muted-foreground hover:text-accent transition-all duration-200 group flex items-center gap-1"
                 >
