@@ -6,8 +6,12 @@ export function useTypingAnimation(text: string, speed: number = 100) {
   const sectionRef = useRef<HTMLElement>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
   const hasCheckedInitialView = useRef(false)
+  const hasAnimated = useRef(false)
 
   const startAnimation = () => {
+    // Only run animation once
+    if (hasAnimated.current) return
+    
     // Clear any existing interval
     if (intervalRef.current) {
       clearInterval(intervalRef.current)
@@ -17,6 +21,7 @@ export function useTypingAnimation(text: string, speed: number = 100) {
     // Reset and start typing animation
     setDisplayedText("")
     setIsTyping(true)
+    hasAnimated.current = true
     let currentIndex = 0
 
     intervalRef.current = setInterval(() => {
@@ -54,18 +59,9 @@ export function useTypingAnimation(text: string, speed: number = 100) {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasAnimated.current) {
           hasCheckedInitialView.current = true
           startAnimation()
-        } else {
-          // Reset when leaving viewport
-          if (intervalRef.current) {
-            clearInterval(intervalRef.current)
-            intervalRef.current = null
-          }
-          setDisplayedText("")
-          setIsTyping(false)
-          hasCheckedInitialView.current = false
         }
       },
       { threshold: 0.1 }

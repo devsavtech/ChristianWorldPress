@@ -46,43 +46,39 @@ const FAQ = () => {
       } else {
         clearInterval(timer);
       }
-    }, 50); // Adjust speed here (lower = faster)
+    }, 100); // Adjust speed here (lower = faster)
 
     return () => clearInterval(timer);
   }, [shouldAnimate]);
 
   const faqs = [
     {
-      question: "What is the process of Self Publishing?",
-      answer: "The process of self publishing a book is simple. You need to create an account, sign into the account, choose your plan, get in touch with the team, communicate your specifications, wait for the customized layout, and start working as soon as you get the layout."
+      question: "What is Christian World Press?",
+      answer: "Christian World Press is a faith-centered publishing and distribution platform that helps Christian authors publish and share their books with readers around the world."
     },
     {
-      question: "Do you people provide book marketing services?",
-      answer: "Yes, our team of professional marketers is always ready to provide the top marketing services for people. We provide you with a proper plan, which covers the execution and expected results at the end of the campaign."
+      question: "Who can publish with Christian World Press?",
+      answer: "We primarily work with Christian authors, pastors, ministry leaders, and faith-based writers who want to share messages rooted in biblical values and spiritual growth."
     },
     {
-      question: "Will my data be safe and confidential?",
-      answer: "Our customer’s safety is our top priority. Once you close the deal with us, your work becomes our work, and we keep our things very private. Confidentiality of your content is one thing that you will never have to worry about while working with KDP."
-    },
-    // {
-    //   question: "How much time will it take to publish my book?",
-    //   answer: "The average time for book completion is almost 2 months, but it is when all other things from both parties are kept constant. Team Haymarket ensures time management, and if you acquire to complete your project earlier than 2 months, then the plan can be customized and adjusted accordingly"
-    // },
-    {
-      question: "How much time will it take to publish my book?",
-      answer: "The average time for book completion is almost 2 months, but it is when all other things from both parties are kept constant. Team Haymarket ensures time management, and if you acquire to complete your project earlier than 2 months, then the plan can be customized and adjusted accordingly."
+      question: "What services does Christian World Press offer?",
+      answer: "Our services may include editing, formatting, cover design, publishing support, marketing, and global distribution to help authors bring their books to readers effectively."
     },
     {
-      question: "What are the basics of designing a book cover?",
-      answer: "The outlook must always be relevant to the content. If a novel is a romantic comedy, the cover must have a calming vibe. If the novel has a dark romance, the cover must be subtly spicy. Similarly, if the novel is a recipe book, the cover must be of food. The cover of a book must not only be good enough to grab attention, but also it should be relevant to the content in the book."
+      question: "Do I keep the rights to my book?",
+      answer: "Yes. Authors generally retain the rights to their work while Christian World Press assists with publishing and distribution."
     },
     {
-      question: "Do I need different barcodes for eBook and print binding books?",
-      answer: "Yes, you need to have a separate barcode for hardcover books and Paperback books, as both formats are completely different. As far as eBook is concerned, you do not need to have a barcode for that."
+      question: "Will my book be available worldwide?",
+      answer: "Christian World Press aims to provide global distribution, making books available through online retailers, bookstores, and libraries where possible."
     },
     {
-      question: "Is having an Author’s Website a vital decision?",
-      answer: "Yes, having an author website is a very beneficial aspect of one’s career as an author. There are times when readers/viewers require credibility, and that is when the author’s website and social media presence play a role. To have a vital increase in reach, it is important to think like the audience."
+      question: "Do you work with first-time authors?",
+      answer: "Absolutely. Many of our authors are publishing their first book, and we guide them step by step through the process."
+    },
+    {
+      question: "How do I get started?",
+      answer: "You can get started by contacting Christian World Press through the website and sharing details about your manuscript or publishing goals."
     }
   ];
 
@@ -99,7 +95,7 @@ const FAQ = () => {
         <div className="mb-12">
           {/* Animated text version - only shows when animation should run */}
           {shouldAnimate && (
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 font-serif">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground uppercase tracking-wider mb-3 sm:mb-4 min-h-[1.2em] text-center">
               {animatedText}
               <span className="animate-pulse">|</span>
             </h2>
@@ -107,7 +103,7 @@ const FAQ = () => {
           
           {/* Fallback static text for when not animating */}
           {!shouldAnimate && (
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 font-serif">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-foreground uppercase tracking-wider mb-3 sm:mb-4 min-h-[1.2em] text-center">
               Frequently <span className="text-accent">Asked Questions</span>
             </h2>
           )}
