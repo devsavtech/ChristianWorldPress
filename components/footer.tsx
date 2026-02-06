@@ -101,6 +101,7 @@ export function Footer() {
                 )
               })}
             </div>
+            
           </div>
 
           {/* Navigation Links */}
