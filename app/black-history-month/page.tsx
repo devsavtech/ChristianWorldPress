@@ -3,7 +3,7 @@
 import { HeroSection } from '@/components/lp-1/herosection'
 import BookSection from '@/components/bestsellingbooks'
 import FAQ from '@/components/lp-1/faq'
-import { ContactSection } from "@/components/contact-section";
+import { Form } from "@/components/lp-1/form";
 import Brands from "@/components/brands";
 import { DistributionSection } from "@/components/distribution-section";
 import { Popup } from "@/components/lp-1/popup";
@@ -253,7 +253,7 @@ export default function NewPage() {
         <PartnersSection />
 
         <FAQ />
-        <ContactSection />
+        <Form />
 
       <Footer />
       {showPopup && <Popup onClose={() => setShowPopup(false)} />}
