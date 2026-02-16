@@ -26,11 +26,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/logo/Chrisitan World Press Logo.png",
+        url: "/logo/Christian World Press Logo.png",
         type: "image/png",
       },
     ],
-    apple: "/logo/Christian World Press Logo.png",
   },
 }
 

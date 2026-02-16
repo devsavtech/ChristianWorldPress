@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Facebook, Mail, Linkedin } from "lucide-react";
+import { ChevronRight, Facebook, Mail, Linkedin , Instagram} from "lucide-react";
 
 const footerLinks = {
   legal: [
@@ -10,8 +10,9 @@ const footerLinks = {
   ],
   social: [
     { icon: Mail, label: "Email", href: "mailto:authorrelations@christianworldpress.com" },
-    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61586607706132" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/111136901/admin/dashboard/" },
+    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/people/Christian-World-Press/61586607706132/" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/christian-world-press/" },
+    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/christianworldpress.official/" },
   ],
 };
 

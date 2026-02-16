@@ -22,8 +22,9 @@ const footerLinks = {
   ],
   social: [
     { icon: Mail, label: "Email", href: "mailto:authorrelations@christianworldpress.com" },
-    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/profile.php?id=61586607706132" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/111136901/admin/dashboard/" },
+    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/people/Christian-World-Press/61586607706132/" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQGPj9vV8jYZrgAAAZxnapwwk4SPILHQrKzGxlEeKyzwDxwnY0t_OP_2poKRP5x-55J09fH8xYFLYh33gr_2RV9OqYno3dBF1PxgCJ7dJptsgMYZso23huw-ZcmwsP0fgMFm4qQ=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fchristian-world-press%2F" },
+    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/christianworldpress.official/" },
     // { icon: Twitter, label: "Twitter", href: "https://x.com/press24111" },
   ],
 }
@@ -94,6 +95,8 @@ export function Footer() {
                     key={social.label}
                     href={social.href}
                     aria-label={social.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-white/70 transition-all duration-300 hover:scale-110 hover:text-[#e6b65c]"
                   >
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
