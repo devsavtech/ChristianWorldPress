@@ -359,7 +359,7 @@ export function HeroSection() {
   }
 
   return (
-    <section ref={sectionRef} id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section ref={sectionRef} id="home" className="relative flex items-center justify-center overflow-hidden pt-16">
       {/* Background with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -429,7 +429,7 @@ export function HeroSection() {
         </motion.div>
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto p-4 sm:p-6 md:p-8 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto p-14 sm:p-10 md:p-20 w-full">
         <div className="gap-8 items-center">
           {/* Slider Container */}
           <div ref={swiperRef}>
