@@ -1,55 +1,60 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { useTypingAnimation } from "@/hooks/useTypingAnimation"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 
 export function ContactSection() {
-  const { displayedText, isTyping, sectionRef } = useTypingAnimation("Get In Touch")
+  const { displayedText, isTyping, sectionRef } =
+    useTypingAnimation("Get In Touch");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null
-    message: string
-  }>({ type: null, message: "" })
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus({ type: null, message: "" })
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
 
     try {
       // Get domain and brand dynamically from the current window location
-      const domain = typeof window !== "undefined" ? window.location.hostname : ""
-      const brand = typeof window !== "undefined" ? window.location.hostname : ""
+      const domain =
+        typeof window !== "undefined" ? window.location.hostname : "";
+      const brand =
+        typeof window !== "undefined" ? window.location.hostname : "";
 
       // Format the brief message with route information
-      const brief = `${formData.message}`
+      const brief = `${formData.message}`;
 
-      console.log(brief)
+      console.log(brief);
       // Prepare the request body according to the API specification
       const requestBody = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         brief: brief,
-        domain: "www.christianworldpress.com",//domain,
-        brand: "christianworldpress.com"//brand,
-      }
+        domain: "www.christianworldpress.com", //domain,
+        brand: "christianworldpress.com", //brand,
+      };
 
       // Make the API request
       // const response = await fetch("https://savtrack.savtechglobal.com/api/customer", {
@@ -59,44 +64,46 @@ export function ContactSection() {
       //   },
       //   body: JSON.stringify(requestBody),
       // })
-      
 
-   const response = await fetch("/api/customer", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(requestBody),
-});
-
-
+      const response = await fetch("/api/customer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody),
+      });
 
       if (!response.ok) {
-        throw new Error(`API request failed with status ${response.status}`)
+        throw new Error(`API request failed with status ${response.status}`);
       }
 
       // Success
       setSubmitStatus({
         type: "success",
         message: "Thank you! Your message has been sent successfully.",
-      })
-      setFormData({ name: "", email: "", phone: "", message: "" })
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
 
       // Clear success message after 5 seconds
       setTimeout(() => {
-        setSubmitStatus({ type: null, message: "" })
-      }, 5000)
+        setSubmitStatus({ type: null, message: "" });
+      }, 5000);
     } catch (error) {
-      console.error("Error submitting form:", error)
+      console.error("Error submitting form:", error);
       setSubmitStatus({
         type: "error",
-        message: "Sorry, there was an error sending your message. Please try again later.",
-      })
+        message:
+          "Sorry, there was an error sending your message. Please try again later.",
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
-    <section ref={sectionRef} id="contact" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="contact"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background relative overflow-hidden"
+    >
       {/* Background image with overlay */}
       {/* <div
         className="absolute inset-0 opacity-20"
@@ -134,7 +141,10 @@ export function ContactSection() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
             <div>
-              <label htmlFor="name" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
+              <label
+                htmlFor="name"
+                className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2"
+              >
                 Your Name
               </label>
               <Input
@@ -148,7 +158,10 @@ export function ContactSection() {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
+              <label
+                htmlFor="email"
+                className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2"
+              >
                 Your Email
               </label>
               <Input
@@ -165,7 +178,10 @@ export function ContactSection() {
           </div>
 
           <div>
-            <label htmlFor="phone" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
+            <label
+              htmlFor="phone"
+              className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2"
+            >
               Phone Number
             </label>
             <Input
@@ -180,7 +196,10 @@ export function ContactSection() {
           </div>
 
           <div>
-            <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2">
+            <label
+              htmlFor="message"
+              className="block text-xs sm:text-sm font-semibold text-foreground mb-1.5 sm:mb-2"
+            >
               Message
             </label>
             <Textarea
@@ -207,9 +226,9 @@ export function ContactSection() {
             </div>
           )}
 
-          <Button 
-            type="submit" 
-            className="btn-primary w-full text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-2.5 md:py-3 h-9 sm:h-10 md:h-11" 
+          <Button
+            type="submit"
+            className="btn-primary w-full text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-2.5 md:py-3 h-9 sm:h-10 md:h-11"
             disabled={isSubmitting}
           >
             {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
@@ -217,5 +236,5 @@ export function ContactSection() {
         </form>
       </div>
     </section>
-  )
+  );
 }
