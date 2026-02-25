@@ -3,8 +3,9 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Christian World Press | End of Month 50% Off Author Features",
-  description: "End-of-month special at Christian World Press. Get 50% off Christian author feature and promotion services. Share your faith-driven message worldwide.",
+  title: "Christian World Press | End of Month 28% Off Author Features",
+  description:
+    "End-of-month special at Christian World Press. Get 28% off Christian author feature and promotion services. Share your faith-driven message worldwide.",
 };
 
 export default function Lp1Layout({
@@ -14,7 +15,7 @@ export default function Lp1Layout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className="antialias">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
