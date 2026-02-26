@@ -1,52 +1,69 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { useTypingAnimation } from "@/hooks/useTypingAnimation"
+import { Card, CardContent } from "@/components/ui/card";
+import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import Image from "next/image";
 // import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// Images 
-import Client1 from "../public/clients/client1.jpg"
-import Client2 from "../public/clients/client2.jpg"
-import Client3 from "../public/clients/client3.jpg"
-import Client4 from "../public/clients/client4.jpg"
-import Client5 from "../public/clients/client5.jpg"
-
+// Images
+import Client1 from "../public/clients/client1.jpg";
+import Client2 from "../public/clients/client2.jpg";
+import Client3 from "../public/clients/client3.jpg";
+import Client4 from "../public/clients/client4.jpg";
+import Client5 from "../public/clients/client5.jpg";
+import Client6 from "../public/clients/client6.jpg";
 
 const authors = [
   {
     id: 1,
-    name: "Joey Jaymes",
-    image: Client1,
+    name: "Andre Weisbrod",
+    image: Client6,
+    link: "https://authorandre.com/",
   },
   {
     id: 2,
     name: "Greg Pai",
     image: Client2,
+    link: "https://www.amazon.com/stores/Greg-Pai/author/B0DKF25GHV?ref=sr_ntt_srch_lnk_1&qid=1772122125&sr=1-1&shoppingPortalEnabled=true",
   },
   {
     id: 3,
     name: "Rebekah Davis",
     image: Client3,
+    link: "https://www.amazon.com/stores/Rebekah-Davis/author/B08PTD72NF?ref=sr_ntt_srch_lnk_1&qid=1772122144&sr=1-1&shoppingPortalEnabled=true",
   },
   {
     id: 4,
     name: "Jimmy Evans",
     image: Client4,
+    link: "https://www.amazon.com/stores/Jimmy-Evans/author/B001JSDIGK?ref=sr_ntt_srch_lnk_2&qid=1772122168&sr=1-2&shoppingPortalEnabled=true",
   },
   {
     id: 5,
     name: "Victoria Vossey",
     image: Client5,
+    link: "https://www.amazon.com/stores/Victoria-Vossey/author/B0D31VYLWF?ref=sr_ntt_srch_lnk_1&qid=1772122186&sr=1-1&shoppingPortalEnabled=true",
   },
-]
+  {
+    id: 6,
+    name: "Joey Jaymes",
+    image: Client1,
+    link: "https://www.amazon.com/stores/Joey-Jaymes/author/B0DGG2NXH5?ref=sr_ntt_srch_lnk_1&qid=1772058581&sr=1-1&shoppingPortalEnabled=true",
+  },
+];
 
 export function FeaturedAuthorsSection() {
-  const { displayedText, isTyping, sectionRef } = useTypingAnimation("Featured Authors")
+  const { displayedText, isTyping, sectionRef } = useTypingAnimation(
+    "Best Upcoming Authors"
+  );
 
   return (
-    <section ref={sectionRef} id="authors" className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card/20 border-y border-border relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="authors"
+      className="py-12 sm:py-16 md:py-20 lg:py-24 bg-card/20 border-y border-border relative overflow-hidden"
+    >
       {/* Background image with overlay */}
       <div
         className="absolute inset-0 opacity-50"
@@ -69,31 +86,38 @@ export function FeaturedAuthorsSection() {
         </div>
 
         <div className="md:max-w-5xl mx-auto">
-          {/* <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-3"> */}
           <div className="flex items-center justify-center flex-wrap gap-3">
             {authors.map((author) => (
-              <Card
+              <a
                 key={author.id}
-                className="bg-card border-border pt-0! overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation w-[30%] sm:w-[20%] lg:w-[19%]"
+                href={author.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-[calc(50%-6px)] sm:w-[calc(33.333%-8px)] lg:w-[calc(16.666%-10px)] h-full"
               >
-                <CardContent className="p-0">
-                  <div className="overflow-hidden bg-muted">
-                    <Image
-                      src={author.image}
-                      alt={author.name}
-                      className="w-full h-full object-fill"
-                    />
-                  </div>
-                  <div className="p-2 sm:p-5 md:p-4 pb-0! text-center space-y-2">
-                    <h3 className="font-serif font-bold text-[12px] sm:text-md lg:text-xl text-foreground">{author.name}</h3>
-                    {/* <p className="text-xs sm:text-sm text-muted-foreground">{author.description}</p> */}
-                  </div>
-                </CardContent>
-              </Card>
+                <Card className="bg-card border-border pt-0! overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation h-full cursor-pointer">
+                  <CardContent className="p-0 h-full flex flex-col">
+                    <div className="overflow-hidden bg-muted aspect-square flex-shrink-0">
+                      <Image
+                        src={author.image}
+                        alt={author.name}
+                        width={200}
+                        height={200}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-2 sm:p-4 text-center flex-1 flex items-center justify-center min-h-[60px]">
+                      <h3 className="font-serif font-bold text-[12px] sm:text-sm lg:text-base text-foreground leading-tight">
+                        {author.name}
+                      </h3>
+                    </div>
+                  </CardContent>
+                </Card>
+              </a>
             ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
