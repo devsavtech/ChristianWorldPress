@@ -12,6 +12,7 @@ import { Footer } from "@/components/footer";
 import Brands from "@/components/brands";
 import HeroBookPromo from "@/components/promotionbooks";
 import BookPromo2 from "@/components/bookpromotion2";
+import FlipBook from "@/components/3d-flip-book";
 import { link } from "fs";
 
 export default function Home() {
@@ -214,6 +215,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
+      <FlipBook />
     </>
   );
 }
