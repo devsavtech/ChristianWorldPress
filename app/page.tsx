@@ -12,7 +12,7 @@ import { Footer } from "@/components/footer";
 import Brands from "@/components/brands";
 import HeroBookPromo from "@/components/promotionbooks";
 import BookPromo2 from "@/components/bookpromotion2";
-import FlipBook from "@/components/3d-flip-book";
+import { UpcomingBestSettlers } from "@/components/upcomingbestsettlers";
 import { link } from "fs";
 
 export default function Home() {
@@ -24,6 +24,7 @@ export default function Home() {
         <Brands />
         {/* <FeaturedBooksSection /> */}
         <FeaturedAuthorsSection />
+        <UpcomingBestSettlers />
         <BookSection
           sectionTitle="Best Selling Books"
           sectionId="bestsellers"
@@ -97,7 +98,7 @@ export default function Home() {
               reviews: 8,
               price: 27.95,
               link: "https://www.amazon.com/dp/B0DK5N1L97/ref=sspa_dk_detail_5?psc=1&pf_rd_p=953c7d66-4120-4d22-a777-f19dbfa69309&pf_rd_r=Y2BVJJS2SN2GF1KACED1&pd_rd_wg=24Sfn&pd_rd_w=OzPgD&content-id=amzn1.sym.953c7d66-4120-4d22-a777-f19dbfa69309&pd_rd_r=8611a057-d922-41ce-a019-f4868ab77f62&s=books&sp_csd=d2lkZ2V0TmFtZT1zcF9kZXRhaWwy",
-            }
+            },
           ]}
         />
         <BookSection
@@ -215,7 +216,6 @@ export default function Home() {
         <ContactSection />
       </main>
       <Footer />
-      <FlipBook />
     </>
   );
 }
