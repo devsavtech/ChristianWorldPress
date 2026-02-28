@@ -53,13 +53,43 @@ const FlipBook: React.FC<FlipBookProps> = ({
     }
     // Check for text content
     if (content && content[contentIndex]) {
+      const text = content[contentIndex];
+      // Check if text starts with a heading (Introduction, CHAPTER, Sola Scriptura, etc.)
+      // Also capture subtitle on next line (e.g., "Sola Scriptura 1:1\nThe Word of God")
+      const headingMatch = text.match(/^(\s*)(Introduction|CHAPTER\s+\d+|CREATURES\s+OF\s+FAITH|Questions\s+and\s+Answers|Sola\s+Scriptura\s+\d+:\d+|The\s+Word\s+of\s+God|Our\s+Identity\s+in\s+Christ|Focus:|Primary\s+Scripture:|Biblical\s+Teaching:)(\s*)\n/);
+      if (headingMatch) {
+        const mainHeading = headingMatch[2];
+        let remainingText = text.slice(headingMatch[0].length);
+        let fullHeading = mainHeading;
+        
+        // Check if next line is also a heading/subtitle (The Word of God, CREATURES OF FAITH, etc.)
+        const subtitleMatch = remainingText.match(/^\s*(The\s+Word\s+of\s+God|Our\s+Identity\s+in\s+Christ|CREATURES\s+OF\s+FAITH|Subtitle|Overview|Summary)\s*\n/);
+        if (subtitleMatch) {
+          fullHeading = mainHeading + '\n' + subtitleMatch[1];
+          remainingText = remainingText.slice(subtitleMatch[0].length);
+        }
+        
+        return (
+          <div className="w-full h-full bg-white shadow-inner p-2 sm:p-3 md:p-4 overflow-hidden">
+            <h2 className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm font-bold text-black text-center mb-2 font-serif whitespace-pre-wrap">
+              {fullHeading}
+            </h2>
+            <div 
+              className="w-full text-[7px] sm:text-[9px] md:text-[10px] lg:text-xs leading-snug text-black whitespace-pre-wrap font-serif" 
+              style={{ opacity: 1, textAlign: 'left', overflow: 'hidden' }}
+            >
+              {remainingText}
+            </div>
+          </div>
+        );
+      }
       return (
         <div className="w-full h-full bg-white shadow-inner p-2 sm:p-3 md:p-4 overflow-hidden">
           <div 
             className="w-full h-full text-[7px] sm:text-[9px] md:text-[10px] lg:text-xs leading-snug text-black whitespace-pre-wrap font-serif" 
             style={{ opacity: 1, textAlign: 'left', overflow: 'hidden' }}
           >
-            {content[contentIndex]}
+            {text}
           </div>
         </div>
       );
@@ -213,6 +243,8 @@ const FlipBook: React.FC<FlipBookProps> = ({
           className="relative w-full h-full"
           style={{
             transformStyle: "preserve-3d",
+            perspective: "2000px",
+            perspectiveOrigin: "center center",
           }}
         >
           {pages.map((page, index) => {
