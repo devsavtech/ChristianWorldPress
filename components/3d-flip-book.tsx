@@ -10,9 +10,9 @@ interface PageData {
 interface FlipBookProps {
   className?: string;
   title?: string;
-  content?: string[];
+  content?: (string | null)[];
   coverImage?: string;
-  pageImages?: string[];
+  pageImages?: (string | null)[];
   authorName?: string;
   onClose?: () => void;
 }
@@ -37,24 +37,34 @@ const FlipBook: React.FC<FlipBookProps> = ({
   const defaultContent = content.length >= 3 ? content : ["Chapter 1", "Chapter 2", "Chapter 3"];
 
   // Helper to render page content (image or text)
-  const renderPage = (pageNum: number, isBack: boolean = false) => {
-    // Map pageNum to image index: page 0 uses images 0,1; page 1 uses images 2,3
-    const imgIndex = pageNum * 2 + (isBack ? 1 : 0);
-    // Add padding-top for Andre Weisbrod's page 3 (index 2, front side)
-    const isAndrePage3 = authorName === "Andre Weisbrod" && pageNum === 2 && !isBack;
-    if (pageImages && pageImages[imgIndex]) {
+  const renderPage = (contentIndex: number) => {
+    // Check for image first
+    if (pageImages && pageImages[contentIndex]) {
       return (
         <div
-          className={`w-full h-full ${isAndrePage3 ? "pt-2" : ""}`}
+          className="w-full h-full"
           style={{
-            backgroundImage: `url(${pageImages[imgIndex]})`,
+            backgroundImage: `url(${pageImages[contentIndex]})`,
             backgroundSize: "100% 100%",
             backgroundPosition: "center",
           }}
         />
       );
     }
-    // No text content - return blank white page
+    // Check for text content
+    if (content && content[contentIndex]) {
+      return (
+        <div className="w-full h-full bg-white shadow-inner p-2 sm:p-3 md:p-4 overflow-hidden">
+          <div 
+            className="w-full h-full text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs leading-snug text-black whitespace-pre-wrap font-serif overflow-y-auto" 
+            style={{ opacity: 1, textAlign: 'left' }}
+          >
+            {content[contentIndex]}
+          </div>
+        </div>
+      );
+    }
+    // No content - return blank white page
     return <div className="w-full h-full bg-white shadow-inner" />;
   };
 
@@ -80,19 +90,19 @@ const FlipBook: React.FC<FlipBookProps> = ({
           <p className="text-xs sm:text-sm opacity-80">By {title}</p>
         </div>
       ),
-      back: <div className="w-full h-full bg-[#f5f5f0] shadow-inner" />,
-    },
-    {
-      front: renderPage(0),
-      back: renderPage(0, true),
+      back: renderPage(0),
     },
     {
       front: renderPage(1),
-      back: renderPage(1, true),
+      back: renderPage(2),
     },
     {
-      front: <div className="w-full h-full bg-[#f5f5f0] shadow-inner" />,
-      back: <div className="w-full h-full bg-[#f5f5f0] shadow-inner" />,
+      front: renderPage(3),
+      back: renderPage(4),
+    },
+    {
+      front: renderPage(5),
+      back: renderPage(6),
     },
   ];
 
@@ -127,6 +137,17 @@ const FlipBook: React.FC<FlipBookProps> = ({
         }}
       >
         <style jsx>{`
+          /* Page fold hover effects */
+          .page-front:hover .page-fold-right {
+            width: 40px !important;
+            height: 40px !important;
+            background-image: linear-gradient(45deg, #fefefe 0%, #f2f2f2 49%, #ffffff 50%, #ffffff 100%) !important;
+          }
+          .page-back:hover .page-fold-left {
+            width: 40px !important;
+            height: 40px !important;
+            background-image: linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #f2f2f2 51%, #fefefe 100%) !important;
+          }
           /* Small devices (phones, 640px and up) */
           @media (min-width: 640px) {
             .book-container {
@@ -189,27 +210,69 @@ const FlipBook: React.FC<FlipBookProps> = ({
               >
                 {/* Front */}
                 <div
-                  className={`absolute inset-0 rounded-r-sm overflow-hidden ${isActive ? "cursor-pointer" : ""}`}
+                  className={`absolute inset-0 rounded-r-sm overflow-hidden ${isActive ? "cursor-pointer" : ""} page-front`}
                   style={{
                     backfaceVisibility: "hidden",
                     transform: "rotateY(0deg)",
                     boxShadow: isActive ? "-5px 0 15px rgba(0,0,0,0.15), -2px 0 5px rgba(0,0,0,0.1)" : "none",
+                    background: "linear-gradient(to right, #d9d9d9 0%, #f9f9f9 3%, #ffffff 8%, #ffffff 100%)",
                   }}
                   onClick={isActive ? goNext : undefined}
                 >
                   {page.front}
+                  {/* Page fold right */}
+                  <div 
+                    className="page-fold-right"
+                    style={{
+                      position: "absolute",
+                      width: "0px",
+                      height: "0px",
+                      top: 0,
+                      right: 0,
+                      borderLeftWidth: "1px",
+                      borderLeftColor: "#dddddd",
+                      borderLeftStyle: "solid",
+                      borderBottomWidth: "1px",
+                      borderBottomColor: "#dddddd",
+                      borderBottomStyle: "solid",
+                      boxShadow: "-5px 5px 10px #dddddd",
+                      transition: "all 0.3s ease",
+                      pointerEvents: "none",
+                    }}
+                  />
                 </div>
                 {/* Back */}
                 <div
-                  className={`absolute inset-0 rounded-l-sm overflow-hidden ${isLastFlipped ? "cursor-pointer" : ""}`}
+                  className={`absolute inset-0 rounded-l-sm overflow-hidden ${isLastFlipped ? "cursor-pointer" : ""} page-back`}
                   style={{
                     backfaceVisibility: "hidden",
                     transform: "rotateY(180deg)",
                     boxShadow: isLastFlipped ? "5px 0 15px rgba(0,0,0,0.15), 2px 0 5px rgba(0,0,0,0.1)" : "none",
+                    background: "linear-gradient(to right, #ffffff 0%, #ffffff 92%, #f9f9f9 97%, #d9d9d9 100%)",
                   }}
                   onClick={isLastFlipped ? goPrev : undefined}
                 >
                   {page.back}
+                  {/* Page fold left */}
+                  <div 
+                    className="page-fold-left"
+                    style={{
+                      position: "absolute",
+                      width: "0px",
+                      height: "0px",
+                      top: 0,
+                      left: 0,
+                      borderRightWidth: "1px",
+                      borderRightColor: "#dddddd",
+                      borderRightStyle: "solid",
+                      borderBottomWidth: "1px",
+                      borderBottomColor: "#dddddd",
+                      borderBottomStyle: "solid",
+                      boxShadow: "5px 5px 10px #dddddd",
+                      transition: "all 0.3s ease",
+                      pointerEvents: "none",
+                    }}
+                  />
                 </div>
               </div>
             );
