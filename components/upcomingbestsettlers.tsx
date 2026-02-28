@@ -124,7 +124,7 @@ export function UpcomingBestSettlers() {
 
         {selectedAuthor && (
           <div className="mt-8 flex flex-col items-center">
-            <h3 className="text-2xl font-serif font-bold mb-4">
+            <h3 className="text-2xl font-serif font-bold mb-6 mt-4">
               {selectedAuthor.bookTitle}
             </h3>
             <FlipBook
