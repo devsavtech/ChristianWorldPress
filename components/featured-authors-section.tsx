@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // Images
 import Client1 from "../public/clients/client1.jpg";
-import Client2 from "../public/clients/client2.jpg";
+import Client2 from "../public/clients/client7.jpg";
 import Client3 from "../public/clients/client3.jpg";
 import Client4 from "../public/clients/client4.jpg";
 import Client5 from "../public/clients/client5.jpg";
@@ -23,9 +23,9 @@ const authors = [
   },
   {
     id: 2,
-    name: "Greg Pai",
+    name: "Robert Coleridge",
     image: Client2,
-    link: "https://www.amazon.com/stores/Greg-Pai/author/B0DKF25GHV?ref=sr_ntt_srch_lnk_1&qid=1772122125&sr=1-1&shoppingPortalEnabled=true",
+    link: "https://robertcoleridgeauthor.com/",
   },
   {
     id: 3,
