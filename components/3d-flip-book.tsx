@@ -56,8 +56,8 @@ const FlipBook: React.FC<FlipBookProps> = ({
       return (
         <div className="w-full h-full bg-white shadow-inner p-2 sm:p-3 md:p-4 overflow-hidden">
           <div 
-            className="w-full h-full text-[8px] sm:text-[9px] md:text-[10px] lg:text-xs leading-snug text-black whitespace-pre-wrap font-serif overflow-y-auto" 
-            style={{ opacity: 1, textAlign: 'left' }}
+            className="w-full h-full text-[7px] sm:text-[9px] md:text-[10px] lg:text-xs leading-snug text-black whitespace-pre-wrap font-serif" 
+            style={{ opacity: 1, textAlign: 'left', overflow: 'hidden' }}
           >
             {content[contentIndex]}
           </div>
@@ -132,7 +132,6 @@ const FlipBook: React.FC<FlipBookProps> = ({
           height: "auto",
           maxHeight: "80vh",
           aspectRatio: "2/3",
-          perspective: "1500px",
           marginLeft: isOpen ? "50vw" : "0",
         }}
       >
@@ -167,12 +166,33 @@ const FlipBook: React.FC<FlipBookProps> = ({
               width: min(45vw, 320px) !important;
               height: min(75vh, 480px) !important;
             }
+                .book-container.book-open {
+              margin-left: 40vw !important;
+            }
+            .book-container:not(.book-open) {
+              margin-left: 0 !important;
+            }
+          }
+
+          @media (min-width: 820px) {
+                .book-container.book-open {
+              margin-left: 38vw !important;
+            }
+            .book-container:not(.book-open) {
+              margin-left: 0 !important;
+            }
           }
           /* Large devices (desktops, 1024px and up) */
           @media (min-width: 1024px) {
             .book-container {
               width: min(25vw, 280px) !important;
               height: min(65vh, 420px) !important;
+            }
+                .book-container.book-open {
+              margin-left: 22vw !important;
+            }
+            .book-container:not(.book-open) {
+              margin-left: 0 !important;
             }
           }
           /* Extra large devices (large desktops, 1280px and up) */
@@ -181,13 +201,18 @@ const FlipBook: React.FC<FlipBookProps> = ({
               width: min(20vw, 320px) !important;
               height: min(70vh, 480px) !important;
             }
+                .book-container.book-open {
+              margin-left: 18vw !important;
+            }
+            .book-container:not(.book-open) {
+              margin-left: 0 !important;
+            }
           }
         `}</style>
         <div
           className="relative w-full h-full"
           style={{
             transformStyle: "preserve-3d",
-            transform: "rotateX(5deg)",
           }}
         >
           {pages.map((page, index) => {
@@ -246,7 +271,7 @@ const FlipBook: React.FC<FlipBookProps> = ({
                   className={`absolute inset-0 rounded-l-sm overflow-hidden ${isLastFlipped ? "cursor-pointer" : ""} page-back`}
                   style={{
                     backfaceVisibility: "hidden",
-                    transform: "rotateY(180deg)",
+                    transform: "rotateY(180deg) translateZ(1px)",
                     boxShadow: isLastFlipped ? "5px 0 15px rgba(0,0,0,0.15), 2px 0 5px rgba(0,0,0,0.1)" : "none",
                     background: "linear-gradient(to right, #ffffff 0%, #ffffff 92%, #f9f9f9 97%, #d9d9d9 100%)",
                   }}
