@@ -13,7 +13,7 @@ const upcomingAuthors = [
     id: 1,
     name: "Andre Weisbrod",
     image: Client6,
-    bookTitle: "HELPING MY UNBLIEF",
+    bookTitle: "HELP MY UNBELIEF",
     bookContent: [
       "                   Introduction\n\nIs there a God? Is there a Creator? Or did all that we see and observe happen by some... what? An accident? What do you believe?\n\nWhether we consider ourselves Christian, Jewish, Islamic, Buddhist, Atheist, Agnostic or any other description of belief or unbelief, there is a fact we should consider. We are creatures of faith.\n\n What is faith? It is belief and trust in something that cannot be proven. But it is based on evidence - facts and observations that lead to our conclusion. Yes, there is a faith called 'blind faith' which is not the faith I am talking about.\n\nThe reader should know that I do believe in God. And I am a Christian. But I am not religious. Jesus didn't come to start a religion. He came to show and give true love in personal relationships.\n\nA number of chapters involve stories from my friends and family. Real people with real stories. I am so grateful for them and their willingness to share.",
       "\nI write this for both believers and unbelievers. I don't preach; I share. I desire to help the reader reflect, ponder, and discover. I write to help myself think better and to help the reader to think better.\n\nWhere the Bible is quoted, I have used the New International Version (NIV) unless noted otherwise. Please enjoy and be challenged.",
