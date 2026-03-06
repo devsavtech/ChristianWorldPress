@@ -11,7 +11,7 @@ const footerLinks = {
   social: [
     { icon: Mail, label: "Email", href: "mailto:authorrelations@christianworldpress.com" },
     { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/people/Christian-World-Press/61586607706132/" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/authwall?trk=bf&trkInfo=AQGPj9vV8jYZrgAAAZxnapwwk4SPILHQrKzGxlEeKyzwDxwnY0t_OP_2poKRP5x-55J09fH8xYFLYh33gr_2RV9OqYno3dBF1PxgCJ7dJptsgMYZso23huw-ZcmwsP0fgMFm4qQ=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fchristian-world-press%2F" },
+    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/christian-world-press/" },
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/christianworldpress.official/" },
     { icon: () => (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
