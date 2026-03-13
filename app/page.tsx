@@ -1,19 +1,20 @@
 import { Navbar } from "@/components/navbar";
 import { HeroSection } from "@/components/hero-section";
 // import { FeaturedBooksSection } from "@/components/featured-books-section"
-import { FeaturedAuthorsSection } from "@/components/featured-authors-section";
-import BookSection from "@/components/bestsellingbooks";
+// import { FeaturedAuthorsSection } from "@/components/featured-authors-section";
+// import BookSection from "@/components/bestsellingbooks";
 import { DistributionSection } from "@/components/distribution-section";
 import { PartnersSection } from "@/components/partners-section";
 import { FeaturedArticlesSection } from "@/components/featured-articles-section";
 import { EventsSection } from "@/components/events-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
-import Brands from "@/components/brands";
-import HeroBookPromo from "@/components/promotionbooks";
-import BookPromo2 from "@/components/bookpromotion2";
-import { UpcomingBestSettlers } from "@/components/upcomingbestsettlers";
-import { link } from "fs";
+import ChatButton from "@/components/chatbutton";
+// import Brands from "@/components/brands";
+// import HeroBookPromo from "@/components/promotionbooks";
+// import BookPromo2 from "@/components/bookpromotion2";
+// import { UpcomingBestSettlers } from "@/components/upcomingbestsettlers";
+// import { link } from "fs";
 
 export default function Home() {
   return (
@@ -21,11 +22,11 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <Brands />
+        {/* <Brands /> */}
         {/* <FeaturedBooksSection /> */}
-        <FeaturedAuthorsSection />
-        <UpcomingBestSettlers />
-        <BookSection
+        {/* <FeaturedAuthorsSection /> */}
+        {/* <UpcomingBestSettlers /> */}
+        {/* <BookSection
           sectionTitle="Best Selling Books"
           sectionId="bestsellers"
           booksData={[
@@ -206,15 +207,16 @@ export default function Home() {
               link: "https://www.amazon.com/dp/B0DX83D6YF/ref=sspa_dk_rhf_search_pt_sub_8/?_encoding=UTF8&ie=UTF8&psc=1&sp_csd=d2lkZ2V0TmFtZT1zcF9yaGZfc2VhcmNoX3BlcnNvbmFsaXplZA%3D%3D&pd_rd_w=x1pDe&pd_rd_wg=agDsp&pd_rd_r=f0744a1b-c96c-4a96-bc76-d8496761d30b&content-id=amzn1.sym.74b85f4a-bfbe-49a3-8252-7e9927a19318&ref_=sspa_dk_rhf_search_pt_sub",
             },
           ]}
-        />
-        <HeroBookPromo />
-        <BookPromo2 />
+        /> */}
+        {/* <HeroBookPromo /> */}
+        {/* <BookPromo2 /> */}
         <DistributionSection />
-        <PartnersSection />
         <FeaturedArticlesSection />
+        <PartnersSection />
         <EventsSection />
         <ContactSection />
       </main>
+      <ChatButton />
       <Footer />
     </>
   );

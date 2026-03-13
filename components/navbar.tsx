@@ -9,11 +9,11 @@ import { Button } from "@/components/ui/button"
 const navLinks = [
   { label: "HOME", href: "home" },
   // { label: "OUR BOOKS", href: "books" },
-  { label: "FEATURED AUTHORS", href: "authors" },
+  // { label: "FEATURED AUTHORS", href: "authors" },
   { label: "FEATURED ARTICLES", href: "articles" },
-  { label: "BEST SELLERS", href: "bestsellers" },
-  { label: "NEW RELEASES", href: "new-releases" },
-  { label: "EXTENDED DISTRIBUTION", href: "distribution" },
+  // { label: "BEST SELLERS", href: "bestsellers" },
+  // { label: "NEW RELEASES", href: "new-releases" },
+  // { label: "EXTENDED DISTRIBUTION", href: "distribution" },
   { label: "OUR PARTNERS", href: "partners" },
   { label: "EVENTS", href: "events" },
   { label: "CONTACT US", href: "contact" },
@@ -128,7 +128,7 @@ export function Navbar() {
 
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
-            <Link href="/#bestsellers" className="btn-primary text-[10px] xl:text-xs px-4 xl:px-6">EXPLORE BOOKS</Link>
+            <Link href="/#contact" className="btn-primary text-[10px] xl:text-xs px-4 xl:px-6">Contact Us</Link>
           </div>
 
           {/* Mobile Menu */}

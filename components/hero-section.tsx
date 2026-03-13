@@ -36,9 +36,9 @@ export function HeroSection() {
             </div>
 
             <div className="flex justify-center md:justify-start gap-3 sm:gap-4">
-              <Link href="/#bestsellers" className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
+              {/* <Link href="/#bestsellers" className="btn-primary text-xs sm:text-sm md:text-base px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3">
                 EXPLORE OUR BOOKS
-              </Link>
+              </Link> */}
             </div>
 
             {/* Stats */}

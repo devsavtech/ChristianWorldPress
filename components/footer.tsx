@@ -7,11 +7,12 @@ import { Facebook, Instagram, Mail, ChevronRight, Linkedin } from "lucide-react"
 const footerLinks = {
   navigation: [
     { label: "Home", href: "/" },
-    { label: "About Us", href: "/#about" },
-    { label: "Featured Authors", href: "/#authors" },
-    { label: "Best Sellers", href: "/#bestsellers" },
-    { label: "New Releases", href: "/#new-releases" },
-    { label: "Extended Distribution", href: "/#distribution" },
+    { label: "Featured Articles", href: "/#articles" },
+    // { label: "About Us", href: "/#about" },
+    // { label: "Featured Authors", href: "/#authors" },
+    // { label: "Best Sellers", href: "/#bestsellers" },
+    // { label: "New Releases", href: "/#new-releases" },
+    // { label: "Extended Distribution", href: "/#distribution" },
     { label: "Our Partners", href: "/#partners" },
     { label: "Events", href: "/#events" },
     { label: "Contact Us", href: "/#contact" },
@@ -180,9 +181,10 @@ export function Footer() {
               <div>
                 <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Address</p>
                 <p className="text-xs sm:text-sm text-white/80">
-                  13100 Wortham Center Dr, Suite 320
-                  Houston, TX 77065
-                  United states
+                13100 Wortham Center Dr, Suite 320 Houston, TX 77065 US
+                <br />
+                <br />
+                  30 N Gould St Sheridan, WY 82801, US
                 </p>
               </div>
             </div>
