@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu } from "lucide-react"
+import { Menu, Phone } from "lucide-react"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 
@@ -127,8 +127,16 @@ export function Navbar() {
           </div>
 
           {/* Desktop CTA Button */}
-          <div className="hidden lg:block">
-            <Link href="/#contact" className="btn-primary text-[10px] xl:text-xs px-4 xl:px-6">Contact Us</Link>
+          <div className="lg:flex items-center gap-4 hidden">
+            <div className="number">
+              <Link href="tel:+ (714) 475-7922;" className="text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2">
+                <Phone className="w-4 h-4" />
+                + (714) 475-7922
+              </Link>
+            </div>
+            <div className="hidden lg:block">
+              <Link href="/#contact" className="btn-primary text-[10px] xl:text-xs px-4 xl:px-6">Contact Us</Link>
+            </div>
           </div>
 
           {/* Mobile Menu */}
@@ -170,11 +178,11 @@ export function Navbar() {
                             if (targetElement) {
                               // Calculate navbar height based on screen size
                               const navbarHeight = window.innerWidth >= 1024 ? 80 : 64;
-                              
+
                               // Get the actual padding values
                               const computedStyle = window.getComputedStyle(targetElement);
                               const paddingTop = parseInt(computedStyle.paddingTop) || 0;
-                              
+
                               // For hero section, we need special handling due to min-h and flex
                               let offsetTop: number;
                               if (link.href === 'home') {
@@ -189,7 +197,7 @@ export function Navbar() {
                                 // For other sections, use the standard calculation
                                 offsetTop = targetElement.offsetTop + paddingTop - navbarHeight;
                               }
-                              
+
                               window.scrollTo({
                                 top: offsetTop,
                                 behavior: 'smooth'
