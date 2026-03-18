@@ -129,7 +129,7 @@ export function Navbar() {
           {/* Desktop CTA Button */}
           <div className="lg:flex items-center gap-4 hidden">
             <div className="number">
-              <Link href="tel:+ (714) 475-7922;" className="text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2">
+              <Link href="tel:+ (714) 475-7922;" className="text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
                 <Phone className="w-4 h-4" />
                 + (714) 475-7922
               </Link>
