@@ -19,7 +19,7 @@ export default function ChatButton() {
           <>
             <a
               href="tel:+714475-7922"
-              className="flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors animate-in slide-in-from-bottom-2"
+              className="flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors animate-in slide-in-from-bottom-2 phone_button"
               aria-label="Call +714475-7922"
             >
               <Phone size={20} />
@@ -27,7 +27,7 @@ export default function ChatButton() {
             </a>
             <button
               onClick={toggleLiveChat}
-              className="flex items-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-green-700 transition-colors animate-in slide-in-from-bottom-1"
+              className="flex items-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-green-700 transition-colors animate-in slide-in-from-bottom-1 chat_btn"
               aria-label="Start live chat"
             >
               <MessageCircle size={20} />

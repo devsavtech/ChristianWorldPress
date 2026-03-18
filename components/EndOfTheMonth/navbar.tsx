@@ -239,7 +239,7 @@ export function Navbar() {
                       });
                     }
                   }}
-                  className="text-foreground hover:text-accent transition-colors duration-200"
+                  className="text-foreground hover:text-accent transition-colors duration-200 contact_button"
                 >
                   Contact Us
                 </Link>

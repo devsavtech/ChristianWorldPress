@@ -209,7 +209,7 @@ export function Form() {
 
           <Button 
             type="submit" 
-            className="btn-primary w-full text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-2.5 md:py-3 h-9 sm:h-10 md:h-11" 
+            className="btn-primary w-full text-xs sm:text-sm md:text-base px-4 sm:px-6 py-2 sm:py-2.5 md:py-3 h-9 sm:h-10 md:h-11 form_button" 
             disabled={isSubmitting}
           >
             {isSubmitting ? "SENDING..." : "SEND MESSAGE"}
