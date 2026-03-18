@@ -123,7 +123,7 @@ export function Navbar() {
               >
                 {link.label}
               </Link>
-            ))}
+            ))} 
           </div>
 
           {/* Desktop CTA Button */}
