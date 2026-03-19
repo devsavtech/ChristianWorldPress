@@ -37,7 +37,7 @@ export function Testimonials() {
                 
                 {/* Quote Icon */}
                 <div className="text-black mb-2">
-                  <span className="text-8xl font-serif font-black leading-[0.4] tracking-tighter block mt-4">“</span>
+                  <span className="text-8xl font-serif  text-[#8b0000] p-1 leading-[0.4] tracking-tighter block mt-4">“</span>
                 </div>
                 
                 {/* Stars */}
@@ -55,7 +55,7 @@ export function Testimonials() {
               
               {/* Author Name */}
               <div className="pl-4">
-                <h4 className="font-bold text-black text-lg">{testimonial.name}</h4>
+                <h4 className="font-bold text-[#8b0000] text-lg">{testimonial.name}</h4>
               </div>
             </div>
           ))}

@@ -13,7 +13,6 @@ export function Footer() {
               src="/logo/Chrisitan World Press Logo.png" 
               alt="Logo" 
               className="h-16 w-auto mb-6"
-              style={{ filter: "brightness(0) invert(1)" }}
             />
             <div className="space-y-4 text-gray-300">
               <p className="flex items-start">

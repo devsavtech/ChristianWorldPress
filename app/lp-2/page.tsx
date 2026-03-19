@@ -10,7 +10,8 @@ import { Plan } from "@/components/lp-2/plan";
 import { Process } from "@/components/lp-2/process";
 import { Testimonials } from "@/components/lp-2/testimonials";
 import { FAQ } from "@/components/lp-2/faq";
-import { Footer } from "@/components/lp-2/footer";
+import { Footer } from "@/components/footer";
+import { BookSlider } from "@/components/lp-2/book-slider";
 
 export default function Lp2Page() {
   return (
@@ -20,6 +21,7 @@ export default function Lp2Page() {
         <Hero />
         <Journey />
         <Services />
+        <BookSlider />
         <Experience />
         <Audience />
         <Plan />
