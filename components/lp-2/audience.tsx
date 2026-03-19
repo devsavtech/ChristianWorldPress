@@ -1,38 +1,61 @@
+import apple from './audience/Apple book logo.png';
+import img3 from './audience/3.webp';
+import img4 from './audience/4.webp';
+import img5 from './audience/5.webp';
+import img6 from './audience/6.webp';
+import img7 from './audience/7.webp';
+import google from './audience/Google book logo.png';
+
 export function Audience() {
   const logos = [
-    "/brands/logo-1.png",
-    "/brands/logo-2.png",
-    "/brands/logo-3.png",
-    "/brands/logo-4.png",
-    "/brands/logo-5.png",
-    "/brands/logo-6.png",
+    apple,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    google,
   ];
 
   return (
-    <section className="py-20 bg-white text-center">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 bg-white text-center overflow-hidden">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
           Your Story Deserves a Global Audience
         </h2>
-        <p className="text-gray-700 mb-12">
+        <p className="text-gray-700">
           Your book shouldn't be limited to a local shelf. When you partner with us, you'll reach readers everywhere. We'll give your book the exposure it needs across major retail platforms and distributors.
         </p>
-
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-          {logos.map((logo, index) => (
-            <img 
-              key={index} 
-              src={logo} 
-              alt={`Partner ${index + 1}`} 
-              loading="lazy"
-              className="h-12 object-contain transition-all duration-300"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
-            />
-          ))}
-        </div>
       </div>
+
+      <div className="relative flex overflow-hidden whitespace-nowrap bg-white py-4 w-full">
+        {/* We duplicate the logo list a few times to ensure seamless infinite scrolling on all screen sizes */}
+        {[...Array(4)].map((_, arrayIndex) => (
+          <div key={arrayIndex} className="animate-marquee flex items-center gap-12 md:gap-24 shrink-0 px-6 md:px-12">
+            {logos.map((logo, index) => (
+              <img 
+                key={`${arrayIndex}-${index}`} 
+                src={logo.src} 
+                alt={`Partner ${index + 1}`} 
+                loading="lazy"
+                className="h-10 md:h-14 lg:h-16 w-auto object-contain shrink-0"
+              />
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+        }
+        `
+      }} />
     </section>
   );
 }
