@@ -196,7 +196,7 @@ export function PartnersSection() {
                 {getBrandCopies().map((partner, index) => (
                   <div
                     key={`${partner.name}-${index}`}
-                    className="flex-shrink-0"
+                    className="shrink-0"
                     style={{
                       opacity: 1,
                       transition: 'all 0.3s ease',
@@ -229,7 +229,7 @@ export function PartnersSection() {
                   {partnerLogos.slice(0, Math.min(columns, partnerLogos.length)).map((partner, index) => (
                     <div
                       key={`${partner.name}-${index}`}
-                      className="flex-shrink-0"
+                      className="shrink-0"
                     >
                       <img
                         src={partner.src || "/placeholder.svg"}
@@ -322,7 +322,7 @@ export function PartnersSection() {
             <div className="space-y-2 sm:space-y-3">
               {["Joey Jaymes", "Greg Pai", "Rebekah Davis", "Jimmy Evans", "Victoria Vossey"].map((publisher) => (
                 <div key={publisher} className="flex items-center gap-2 sm:gap-3 text-sm sm:text-base text-foreground">
-                  <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0" />
+                  <div className="w-2 h-2 bg-accent rounded-full shrink-0" />
                   <span>{publisher}</span>
                 </div>
               ))}

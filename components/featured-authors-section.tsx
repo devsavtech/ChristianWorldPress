@@ -97,7 +97,7 @@ export function FeaturedAuthorsSection() {
               >
                 <Card className="bg-card border-border pt-0! overflow-hidden hover:border-accent/50 active:border-accent/50 transition-colors touch-manipulation h-full cursor-pointer">
                   <CardContent className="p-0 h-full flex flex-col">
-                    <div className="overflow-hidden bg-muted aspect-square flex-shrink-0">
+                    <div className="overflow-hidden bg-muted aspect-square shrink-0">
                       <Image
                         src={author.image}
                         alt={author.name}

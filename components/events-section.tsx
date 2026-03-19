@@ -197,7 +197,7 @@ export function EventsSection() {
                       px-3 sm:px-4 md:px-6
                       py-2 sm:py-2.5
                       w-full md:w-auto
-                      flex-shrink-0
+                      shrink-0
                     "
                   >
                     LEARN MORE
@@ -206,7 +206,7 @@ export function EventsSection() {
                   <div className="flex flex-col gap-1.5 sm:gap-2 text-xs sm:text-sm text-muted-foreground relative mt-auto">
                     <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-border"></div>
                     <div className="flex items-start gap-2 pl-4 min-w-[180px]">
-                      <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0 mt-0.5" />
                       <span className="break-words leading-tight flex-1">
                         {event.date}
                       </span>
@@ -217,7 +217,7 @@ export function EventsSection() {
                       event.id !== 11 &&
                       event.id !== 12 && (
                         <div className="flex items-start gap-2 pl-4 min-w-[180px]">
-                          <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0 mt-0.5" />
+                          <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0 mt-0.5" />
                           <span className="break-words leading-tight flex-1">
                             {event.location}
                           </span>
@@ -225,7 +225,7 @@ export function EventsSection() {
                       )}
                     {event.virtualEvent && (
                       <div className="flex items-start gap-2 pl-4 min-w-[180px]">
-                        <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary flex-shrink-0 mt-0.5" />
+                        <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0 mt-0.5" />
                         <span className="break-words leading-tight flex-1">
                           {event.virtualEvent}
                         </span>

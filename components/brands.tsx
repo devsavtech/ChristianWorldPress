@@ -189,7 +189,7 @@ export default function Brands() {
             {getBrandCopies().map((brand, index) => (
               <div
                 key={`${brand.id}-${index}`}
-                className="flex-shrink-0"
+                className="shrink-0"
                 style={{
                   opacity: 1,
                   transition: 'all 0.3s ease',
@@ -232,7 +232,7 @@ export default function Brands() {
               {brands.slice(0, Math.min(columns, brands.length)).map((brand) => (
                 <div
                   key={brand.id}
-                  className="flex-shrink-0"
+                  className="shrink-0"
                 >
                   <img
                     src={brand.nameLogo}

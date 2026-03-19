@@ -39,7 +39,7 @@ const PromotionSlider = () => {
             {[...Array(6)].map((_, index) => (
               <p 
                 key={index} 
-                className="text-black font-bold text-lg whitespace-nowrap flex-shrink-0 px-4"
+                className="text-black font-bold text-lg whitespace-nowrap shrink-0 px-4"
               >
                 {promotionText}
               </p>

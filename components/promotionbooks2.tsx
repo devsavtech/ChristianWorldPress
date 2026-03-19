@@ -37,7 +37,7 @@
 //           </div>
           
 //           {/* Book Image Section */}
-//           <div className="flex-shrink-0 flex justify-center w-full lg:w-auto">
+//           <div className="shrink-0 flex justify-center w-full lg:w-auto">
 //             <div className="relative w-full max-w-[450px] lg:max-w-[550px] xl:max-w-[650px]">
 //               <img 
 //                 src="/newreleasebooks/biblestudyjounraladventcalender.jpg" 

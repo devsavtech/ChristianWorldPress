@@ -86,7 +86,7 @@ export function Navbar() {
       <nav className="fixed top-[20px] left-0 right-0 z-40 bg-background/80 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Link href="#">
                 <img
                   src="/logo/Chrisitan World Press Logo.png"
