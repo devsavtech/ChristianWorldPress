@@ -5,6 +5,7 @@ import img5 from './audience/5.webp';
 import img6 from './audience/6.webp';
 import img7 from './audience/7.webp';
 import google from './audience/Google book logo.png';
+import { useTypingAnimation } from '@/hooks/useTypingAnimation';
 
 export function Audience() {
   const logos = [
@@ -16,12 +17,14 @@ export function Audience() {
     img7,
     google,
   ];
+  const {displayedText, isTyping, sectionRef} = useTypingAnimation("Your Story Deserves a Global Audience")
 
   return (
-    <section className="py-20 bg-white text-center overflow-hidden">
+    <section ref={sectionRef}  className="py-20 bg-white text-center overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-          Your Story Deserves a Global Audience
+           {displayedText || " "}
+            {isTyping && <span className="animate-pulse">|</span>}
         </h2>
         <p className="text-gray-700">
           Your book shouldn't be limited to a local shelf. When you partner with us, you'll reach readers everywhere. We'll give your book the exposure it needs across major retail platforms and distributors.

@@ -1,15 +1,18 @@
 import { Button } from "@/components/ui/button";
+import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 
 export function Plan() {
+  const {displayedText, isTyping, sectionRef} = useTypingAnimation("Build Your Publishing Plan With the Right Support")
   return (
-    <section className="pt-24 pb-0 bg-black text-white">
+    <section ref={sectionRef} className="pt-24 pb-0 bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           
           {/* Left Content */}
           <div className="space-y-6 text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              Build Your Publishing Plan With the Right Support
+              {displayedText || " "}
+              {isTyping && <span className="animate-pulse">|</span>}
             </h2>
           </div>
 

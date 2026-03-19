@@ -1,4 +1,7 @@
+import { useTypingAnimation } from "@/hooks/useTypingAnimation";
+
 export function Process() {
+  const {displayedText, isTyping, sectionRef} = useTypingAnimation("Our Process")
   const steps = [
     {
       number: "01",
@@ -28,9 +31,12 @@ export function Process() {
   ];
 
   return (
-    <section className="py-24 bg-white text-center">
+    <section ref={sectionRef} className="py-24 bg-white text-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-black mb-4">Our Process</h2>
+        <h2 className="text-4xl font-bold text-black mb-4">
+          {displayedText || " "}
+          {isTyping && <span className="animate-pulse">|</span>}
+        </h2>
         <p className="text-gray-600 mb-16 max-w-2xl mx-auto">
           Here is a step-by-step, clear path from manuscript to published book
         </p>

@@ -4,8 +4,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useTypingAnimation } from "@/hooks/useTypingAnimation"
+
 
 export function FAQ() {
+  const {displayedText, isTyping, sectionRef} = useTypingAnimation("Frequently Asked Questions")
   const faqs = [
     {
       question: "Are you a traditional publisher or a self-publishing support team?",
@@ -34,10 +37,13 @@ export function FAQ() {
   ];
 
   return (
-    <section className="py-24 bg-gray-50">
+    <section ref={sectionRef} className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-black mb-4">Frequently Asked Questions</h2>
+          <h2 className="text-4xl font-bold text-black mb-4">
+            {displayedText || " "}
+            {isTyping && <span className="animate-pulse">|</span>}
+          </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Have a publishing process with questions on self-publishing. We're sure clear answers to help you understand what to expect.
           </p>

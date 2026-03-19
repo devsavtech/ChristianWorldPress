@@ -1,15 +1,18 @@
 import { Button } from "@/components/ui/button";
+import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 
 export function Experience() {
+  const {displayedText, isTyping, sectionRef} = useTypingAnimation("An Experience Built for Authors")
   return (
-    <section className="py-24 bg-black">
+    <section ref={sectionRef} className="py-24 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Content */}
           <div className="text-white space-y-6 text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-              An Experience Built for Authors
+              {displayedText || " "}
+              {isTyping && <span className="animate-pulse">|</span>}
             </h2>
             <p className="text-lg text-gray-300 mx-auto lg:mx-0 max-w-2xl">
               With Kinetic Digital Publishers, you're not just another client. You're an author with specific goals, and our job is to help you achieve them. Whether you're a first-time or seasoned pro, our team will be with you. We will walk you through the entire publishing journey and help you achieve the success you deserve.
