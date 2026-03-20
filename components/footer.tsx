@@ -174,7 +174,7 @@ export function Footer() {
               <div>
                 <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Phone No.</p>
                 <a href="tel:+714475-7922"
-                  className="text-xs sm:text-sm text-white/80">
+                  className="text-xs sm:text-sm text-white/80 phone_button">
                    + (714) 475-7922
                 </a>
               </div>
