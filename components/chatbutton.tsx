@@ -27,7 +27,7 @@ export default function ChatButton() {
             </a>
             <button
               onClick={toggleLiveChat}
-              className="flex items-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-green-700 transition-colors animate-in slide-in-from-bottom-1 chat_btn"
+              className="flex items-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-green-700 transition-colors animate-in slide-in-from-bottom-1 chat_button"
               aria-label="Start live chat"
             >
               <MessageCircle size={20} />
