@@ -285,7 +285,7 @@ export function BookSlider() {
         <Button  onClick={() => setShowPopup(true)} className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold tracking-widest px-12 py-6 text-sm w-full sm:w-auto transition-colors duration-200">
           Get A Quote
         </Button>
-        <Button onClick={toggleLiveChat} variant="outline" className="text-black border-2 border-black hover:bg-black hover:text-white rounded-sm uppercase font-bold tracking-widest px-12 py-6 text-sm w-full sm:w-auto transition-colors duration-200">
+        <Button onClick={toggleLiveChat} variant="outline" className="text-black border-2 border-black hover:bg-black hover:text-white rounded-sm uppercase font-bold tracking-widest px-12 py-6 text-sm w-full sm:w-auto transition-colors duration-200 chat_button">
           Live Chat
         </Button>
       </div>

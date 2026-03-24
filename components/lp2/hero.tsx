@@ -110,7 +110,7 @@ export function Hero() {
               <Button 
                 onClick={toggleLiveChat}
                 variant="outline"
-                className="text-white border-white hover:bg-white hover:text-black rounded-none uppercase px-8 py-6 w-full sm:w-auto"
+                className="chat_button text-white border-white hover:bg-white hover:text-black rounded-none uppercase px-8 py-6 w-full sm:w-auto"
               >
                 Live Chat
               </Button>

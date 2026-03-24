@@ -37,7 +37,7 @@ export function Plan() {
       <Button 
         onClick={toggleLiveChat}
         variant="outline"
-        className="text-white border-white hover:bg-white hover:text-black rounded-sm uppercase font-semibold px-8 py-6 w-full sm:w-auto"
+        className="chat_button text-white border-white hover:bg-white hover:text-black rounded-sm uppercase font-semibold px-8 py-6 w-full sm:w-auto"
       >
         Live Chat
       </Button>

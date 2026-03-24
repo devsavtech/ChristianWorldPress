@@ -43,7 +43,7 @@ const services = [
 ];
 
 export function Services() {
-  const [showAllServices, showPopupsetShowAllServices] = useState(false);
+  const [showAllServices, setShowAllServices] = useState(false);
   const displayServices = showAllServices ? services : services.slice(0, 6);
   const [showPopup, setShowPopup] = useState(false);
   const toggleLiveChat = () => {
@@ -107,7 +107,7 @@ export function Services() {
           <Button 
             onClick={toggleLiveChat}
             variant="outline"
-            className="text-black border-black hover:bg-black hover:text-white rounded-sm uppercase font-semibold px-8 py-4"
+            className="chat_button text-black border-black hover:bg-black hover:text-white rounded-sm uppercase font-semibold px-8 py-4"
           >
             Live Chat
           </Button>

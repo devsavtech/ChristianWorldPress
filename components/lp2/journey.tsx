@@ -32,7 +32,7 @@ Christian World Press was created to help authors get their work professionally 
              
             </div>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <Button onClick={toggleLiveChat} variant="outline" className="text-black border-black hover:bg-black hover:text-white rounded-sm uppercase font-semibold px-8 py-6 w-full sm:w-auto">
+              <Button onClick={toggleLiveChat} variant="outline" className="chat_button text-black border-black hover:bg-black hover:text-white rounded-sm uppercase font-semibold px-8 py-6 w-full sm:w-auto">
                 Live Chat
               </Button>
               <Button onClick={() => setShowPopup(true)} className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold px-8 py-6 w-full sm:w-auto">

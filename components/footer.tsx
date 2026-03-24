@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import Link from "next/link"
-import { Facebook, Instagram, Mail, ChevronRight, Linkedin } from "lucide-react"
+import { Facebook, Instagram, Mail, ChevronRight, Linkedin, Phone } from "lucide-react"
 
 const footerLinks = {
   navigation: [
@@ -173,10 +173,10 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Phone No.</p>
-                <a href="tel:+714475-7922"
-                  className="text-xs sm:text-sm text-white/80 ">
-                   + (714) 475-7922
-                </a>
+                <Link href="tel:+ (714) 475-7922;" className="text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
+                <Phone className="w-4 h-4" />
+                + (714) 475-7922
+              </Link>
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Address</p>

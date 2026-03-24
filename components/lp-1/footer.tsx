@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Facebook, Mail, Linkedin , Instagram} from "lucide-react";
+import { ChevronRight, Facebook, Mail, Linkedin , Instagram, Phone} from "lucide-react";
 
 const footerLinks = {
   legal: [
@@ -152,11 +152,11 @@ export function Footer() {
                 </a>
               </div>
               <div>
-                <p className="text-[10px] sm:text-xs text-accent uppercase tracking-widest font-semibold mb-1">Phone No.</p>
-                <a href="tel:+714475-7922"
-                  className="text-xs sm:text-sm text-muted-foreground">
-                   + (714) 475-7922
-                </a>
+                <p className="text-[10px] sm:text-xs text-accent uppercase tracking-widest font-semibold mb-1 ">Phone No.</p>
+                <Link href="tel:+ (714) 475-7922;" className="text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
+                <Phone className="w-4 h-4" />
+                + (714) 475-7922
+              </Link>
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-accent uppercase tracking-widest font-semibold mb-1">Address</p>

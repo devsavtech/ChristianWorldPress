@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Phone } from "lucide-react";
 
 export function Navbar() {
   const toggleLiveChat = () => {
@@ -22,10 +23,11 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4 md:gap-6">
-            <a href="tel:+18332803883" className="text-white hover:text-[#8b0000] transition-colors font-medium text-sm md:text-base hidden sm:block">
-              +1 (833) 280-3883
-            </a>
-            <Button   onClick={toggleLiveChat}  variant="outline" className="text-white border-white hover:bg-white hover:text-black rounded-none uppercase text-xs tracking-wider px-4 md:px-6">
+             <Link href="tel:+ (714) 475-7922;" className="text-white text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
+                          <Phone className="w-4 h-4" />
+                          + (714) 475-7922
+                        </Link>
+            <Button   onClick={toggleLiveChat}  variant="outline" className="chat_button text-white border-white hover:bg-white hover:text-black rounded-none uppercase text-xs tracking-wider px-4 md:px-6">
               Live Chat
             </Button>
           </div>
