@@ -170,7 +170,7 @@ export function Popup({ onClose }: PopupProps) {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-accent text-white py-1 px-2 rounded hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-colors text-sm disabled:opacity-50"
+                className="w-full bg-accent text-white py-1 px-2 rounded hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-colors text-sm disabled:opacity-50 form_button"
               >
                 {isSubmitting ? "SENDING..." : "SEND"}
               </button>

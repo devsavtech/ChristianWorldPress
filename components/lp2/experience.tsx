@@ -167,7 +167,7 @@ export function Experience() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold py-6 disabled:opacity-50"
+                    className="w-full bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold py-6 disabled:opacity-50 form_button"
                   >
                     {isSubmitting ? "SENDING..." : "Start Your Journey"}
                   </Button>

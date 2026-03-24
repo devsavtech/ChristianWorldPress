@@ -576,7 +576,7 @@ export function HeroSection() {
                           <button 
                             type="submit" 
                             disabled={isSubmitting}
-                            className="w-auto bg-accent text-white py-2 px-15 rounded hover:bg-accent/90 transition-colors font-medium text-xs disabled:opacity-50"
+                            className="w-auto bg-accent text-white py-2 px-15 rounded hover:bg-accent/90 transition-colors font-medium text-xs disabled:opacity-50 form_button"
                           >
                             {isSubmitting ? "SENDING..." : "Send"}
                           </button>

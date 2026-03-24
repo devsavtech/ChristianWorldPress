@@ -199,7 +199,7 @@ export function HeroSection() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-accent text-white py-2 px-4 rounded hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-colors text-sm font-medium disabled:opacity-50 cursor-pointer"
+                className="w-full bg-accent text-white py-2 px-4 rounded hover:bg-accent/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent transition-colors text-sm font-medium disabled:opacity-50 cursor-pointer form_button"
               >
                 {isSubmitting ? "SENDING..." : "CLAIM OFFER"}
               </button>
