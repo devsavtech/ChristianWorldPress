@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { Popup } from "@/components/lp-1/popup";
 
 const services = [
   {
@@ -42,16 +43,26 @@ const services = [
 ];
 
 export function Services() {
-  const [showAllServices, setShowAllServices] = useState(false);
+  const [showAllServices, showPopupsetShowAllServices] = useState(false);
   const displayServices = showAllServices ? services : services.slice(0, 6);
+  const [showPopup, setShowPopup] = useState(false);
+  const toggleLiveChat = () => {
+    if (typeof window !== 'undefined' && (window as any).LiveChatWidget) {
+      (window as any).LiveChatWidget.call('maximize');
+    }
+  };
   return (
     <section className="py-20 bg-gray-50 text-center">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-[#8b0000] mb-6">
-          Everything You Need to Publish as a Christian Author 
+          Everything You Need to Publish as a Christian Author
         </h2>
         <p className="text-gray-700 max-w-4xl mx-auto mb-16">
-         Christian World Press supports Christian authors at every stage of their publishing journey. We understand that every message is unique, and your book deserves more than a one-size-fits-all approach. Our goal is to help you publish while maintaining the integrity of your message and full ownership of your work. 
+          Christian World Press supports Christian authors at every stage of
+          their publishing journey. We understand that every message is unique,
+          and your book deserves more than a one-size-fits-all approach. Our
+          goal is to help you publish while maintaining the integrity of your
+          message and full ownership of your work.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16 mb-16">
@@ -93,17 +104,21 @@ export function Services() {
           </div>
         )}
         <div className="flex flex-wrap justify-center gap-6 mt-8">
-          <Button
+          <Button 
+            onClick={toggleLiveChat}
             variant="outline"
             className="text-black border-black hover:bg-black hover:text-white rounded-sm uppercase font-semibold px-8 py-4"
           >
             Live Chat
           </Button>
-          <Button className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold px-8 py-4">
+          <Button 
+            onClick={() => setShowPopup(true)}
+            className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold px-8 py-4">
             Get A Quote
           </Button>
         </div>
       </div>
+      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
     </section>
   );
 }

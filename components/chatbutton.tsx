@@ -13,37 +13,39 @@ export default function ChatButton() {
   };
 
   return (
-    <div className="fixed bottom-8 left-4 sm:left-auto sm:right-6 sm:bottom-14 z-50">
-      <div className={`flex flex-col items-start sm:items-end gap-3 transition-all duration-300 ${isExpanded ? 'mb-16' : ''}`}>
-        {isExpanded && (
-          <>
-            <a
-              href="tel:+714475-7922"
-              className="flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors animate-in slide-in-from-bottom-2 phone_button"
-              aria-label="Call +714475-7922"
-            >
-              <Phone size={20} />
-              <span className="font-medium">+(714) 475-7922</span>
-            </a>
-            <button
-              onClick={toggleLiveChat}
-              className="flex items-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-green-700 transition-colors animate-in slide-in-from-bottom-1 chat_button"
-              aria-label="Start live chat"
-            >
-              <MessageCircle size={20} />
-              <span className="font-medium">Chat With Us</span>
-            </button>
-          </>
-        )}
+    <>  
+    </>
+    // <div className="fixed bottom-8 left-4 sm:left-auto sm:right-6 sm:bottom-14 z-50">
+    //   <div className={`flex flex-col items-start sm:items-end gap-3 transition-all duration-300 ${isExpanded ? 'mb-16' : ''}`}>
+    //     {isExpanded && (
+    //       <>
+    //         <a
+    //           href="tel:+714475-7922"
+    //           className="flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors animate-in slide-in-from-bottom-2 phone_button"
+    //           aria-label="Call +714475-7922"
+    //         >
+    //           <Phone size={20} />
+    //           <span className="font-medium">+(714) 475-7922</span>
+    //         </a>
+    //         <button
+    //           onClick={toggleLiveChat}
+    //           className="flex items-center gap-2 bg-green-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-green-700 transition-colors animate-in slide-in-from-bottom-1 chat_button"
+    //           aria-label="Start live chat"
+    //         >
+    //           <MessageCircle size={20} />
+    //           <span className="font-medium">Chat With Us</span>
+    //         </button>
+    //       </>
+    //     )}
 
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="bg-[#f91942] text-white p-4 rounded-full shadow-lg hover:bg-[#e0173c] transition-colors"
-          aria-label={isExpanded ? "Close chat options" : "Open chat options"}
-        >
-          <MessageCircle size={24} />
-        </button>
-      </div>
-    </div>
+    //     <button
+    //       onClick={() => setIsExpanded(!isExpanded)}
+    //       className="bg-[#f91942] text-white p-4 rounded-full shadow-lg hover:bg-[#e0173c] transition-colors"
+    //       aria-label={isExpanded ? "Close chat options" : "Open chat options"}
+    //     >
+    //       <MessageCircle size={24} />
+    //     </button>
+    //   </div>
+    // </div>
   );
 }

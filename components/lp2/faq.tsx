@@ -168,7 +168,7 @@ export function FAQ() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+          <h2 className="text-4xl font-bold text-black mb-4">
             {displayedText || " "}
             {isTyping && (
               <span className="text-[#8b0000] animate-pulse">|</span>
@@ -214,7 +214,7 @@ export function FAQ() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA
         <div className="mt-16 text-center">
           <div className="inline-block bg-white border border-gray-200 rounded-2xl px-8 py-6 shadow-sm">
             <p className="text-gray-600 text-sm mb-4">
@@ -229,7 +229,7 @@ export function FAQ() {
               </svg>
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

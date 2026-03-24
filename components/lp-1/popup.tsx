@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 interface PopupProps {
   onClose: () => void;
 }
 
 export function Popup({ onClose }: PopupProps) {
-  const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,19 +19,8 @@ export function Popup({ onClose }: PopupProps) {
     message: string;
   }>({ type: null, message: "" });
 
-  useEffect(() => {
-    // Show popup after a short delay to demonstrate it
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -44,15 +32,14 @@ export function Popup({ onClose }: PopupProps) {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      // Prepare the request body
       const requestBody = {
-        name: formData.name, //for Name
-        email: formData.email, //for email
-        phone: formData.phone, //for Phone no
-        brief: formData.message, //for Message
-        domain: "www.christianworldpress.com", //domain,
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        brief: formData.message,
+        domain: "www.christianworldpress.com",
         tag: "Landing Page",
-        brand: "christianworldpress.com", //brand,
+        brand: "christianworldpress.com",
       };
 
       const response = await fetch("/api/customer", {
@@ -65,14 +52,12 @@ export function Popup({ onClose }: PopupProps) {
         throw new Error(`API request failed with status ${response.status}`);
       }
 
-      // Success
       setSubmitStatus({
         type: "success",
         message: "Thank you! Your message has been sent successfully.",
       });
       setFormData({ name: "", email: "", phone: "", message: "" });
 
-      // Close popup after successful submission
       setTimeout(() => {
         onClose();
       }, 2000);
@@ -80,21 +65,19 @@ export function Popup({ onClose }: PopupProps) {
       console.error("Error submitting form:", error);
       setSubmitStatus({
         type: "error",
-        message:
-          "Sorry, there was an error sending your message. Please try again later.",
+        message: "Sorry, there was an error sending your message. Please try again later.",
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  if (!isVisible) return null;
-
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-2">
       <div className="relative bg-background rounded-lg shadow-xl max-w-md w-full overflow-hidden border border-border">
-        {/* Close button */}
+        {/* type="button" prevents triggering form submit */}
         <button
+          type="button"
           onClick={onClose}
           className="absolute top-2 right-2 text-foreground hover:text-accent hover:bg-background p-1 rounded-full w-7 h-7 flex items-center justify-center z-10 cursor-pointer"
           aria-label="Close popup"
@@ -121,10 +104,7 @@ export function Popup({ onClose }: PopupProps) {
 
           <form onSubmit={handleSubmit} className="space-y-3">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-xs font-medium text-foreground mb-1"
-              >
+              <label htmlFor="name" className="block text-xs font-medium text-foreground mb-1">
                 Name
               </label>
               <input
@@ -140,10 +120,7 @@ export function Popup({ onClose }: PopupProps) {
             </div>
 
             <div>
-              <label
-                htmlFor="email"
-                className="block text-xs font-medium text-foreground mb-1"
-              >
+              <label htmlFor="email" className="block text-xs font-medium text-foreground mb-1">
                 Email
               </label>
               <input
@@ -157,11 +134,9 @@ export function Popup({ onClose }: PopupProps) {
                 required
               />
             </div>
+
             <div>
-              <label
-                htmlFor="phone"
-                className="block text-xs font-medium text-foreground mb-1"
-              >
+              <label htmlFor="phone" className="block text-xs font-medium text-foreground mb-1">
                 Phone
               </label>
               <input
@@ -176,10 +151,7 @@ export function Popup({ onClose }: PopupProps) {
             </div>
 
             <div>
-              <label
-                htmlFor="message"
-                className="block text-xs font-medium text-foreground mb-1"
-              >
+              <label htmlFor="message" className="block text-xs font-medium text-foreground mb-1">
                 Message
               </label>
               <textarea

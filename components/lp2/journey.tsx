@@ -1,4 +1,6 @@
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Popup } from "@/components/lp-1/popup";
 
 export function Journey() {
   const books = [
@@ -8,7 +10,12 @@ export function Journey() {
     "/newreleasebooks/adatewithdestiny.jpg",
     "/newreleasebooks/voiceoftheheart.jpg",
   ];
-
+  const [showPopup, setShowPopup] = useState(false);
+  const toggleLiveChat = () => {
+    if (typeof window !== 'undefined' && (window as any).LiveChatWidget) {
+      (window as any).LiveChatWidget.call('maximize');
+    }
+  };
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,10 +32,10 @@ Christian World Press was created to help authors get their work professionally 
              
             </div>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 pt-4">
-              <Button variant="outline" className="text-black border-black hover:bg-black hover:text-white rounded-sm uppercase font-semibold px-8 py-6 w-full sm:w-auto">
+              <Button onClick={toggleLiveChat} variant="outline" className="text-black border-black hover:bg-black hover:text-white rounded-sm uppercase font-semibold px-8 py-6 w-full sm:w-auto">
                 Live Chat
               </Button>
-              <Button className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold px-8 py-6 w-full sm:w-auto">
+              <Button onClick={() => setShowPopup(true)} className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold px-8 py-6 w-full sm:w-auto">
                 Get A Quote
               </Button>
             </div>
@@ -55,6 +62,7 @@ Christian World Press was created to help authors get their work professionally 
 
         </div>
       </div>
+     {showPopup && <Popup onClose={() => setShowPopup(false)} />}
     </section>
   );
 }

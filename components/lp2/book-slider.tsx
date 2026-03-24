@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "../ui/button";
+import { Popup } from "@/components/lp-1/popup";
 
 const books = [
   { title: "A Year of Positive Thinking", img: "/newreleasebooks/thebookofenoch.jpg" },
@@ -47,7 +48,12 @@ export function BookSlider() {
   const total = books.length;
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pausedRef = useRef(false);
-
+  const [showPopup, setShowPopup] = useState(false);
+  const toggleLiveChat = () => {
+    if (typeof window !== 'undefined' && (window as any).LiveChatWidget) {
+      (window as any).LiveChatWidget.call('maximize');
+    }
+  };
   const next = useCallback(() => setActiveIndex((i) => (i + 1) % total), [total]);
   const prev = useCallback(() => setActiveIndex((i) => (i - 1 + total) % total), [total]);
 
@@ -276,13 +282,14 @@ export function BookSlider() {
 
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 px-6">
-        <Button className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold tracking-widest px-12 py-6 text-sm w-full sm:w-auto transition-colors duration-200">
+        <Button  onClick={() => setShowPopup(true)} className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold tracking-widest px-12 py-6 text-sm w-full sm:w-auto transition-colors duration-200">
           Get A Quote
         </Button>
-        <Button variant="outline" className="text-black border-2 border-black hover:bg-black hover:text-white rounded-sm uppercase font-bold tracking-widest px-12 py-6 text-sm w-full sm:w-auto transition-colors duration-200">
+        <Button onClick={toggleLiveChat} variant="outline" className="text-black border-2 border-black hover:bg-black hover:text-white rounded-sm uppercase font-bold tracking-widest px-12 py-6 text-sm w-full sm:w-auto transition-colors duration-200">
           Live Chat
         </Button>
       </div>
+      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
     </section>
   );
 }
