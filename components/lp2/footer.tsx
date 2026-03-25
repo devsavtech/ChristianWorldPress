@@ -189,6 +189,10 @@ export function Footer() {
               </div>
             </div>
           </div>
+          {/** Image */}
+          <div className="w-1/2 md:w-1/3">
+            <img src="/img/dmca_premi_badge_2.webp" alt="Christian World Press" className="w-full h-auto" />
+          </div>
         </div>
       </div>
 
@@ -199,10 +203,10 @@ export function Footer() {
             <p className="text-[10px] sm:text-xs text-white/80">
               © {new Date().getFullYear()} Christian World Press. All rights reserved.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-2 sm:gap-3 md:gap-4 text-[10px] sm:text-xs text-white/80">
-              <span>Designed for faith-driven publishing</span>
-              <span className="text-[#e6b65c] hidden sm:inline">•</span>
-              <span>Trusted since 2021</span>
+<div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-2 sm:gap-3 md:gap-4 text-[10px] sm:text-xs text-white/80 pr-40 md:pr-48">             <p>
+  KD Publisher Group LLC is an independent publishing services provider and is not affiliated with,<br />
+  endorsed by, or sponsored by Amazon or Kindle Direct Publishing.
+</p>
             </div>
           </div>
         </div>
