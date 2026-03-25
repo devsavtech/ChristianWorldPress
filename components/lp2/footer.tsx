@@ -204,7 +204,7 @@ export function Footer() {
               © {new Date().getFullYear()} Christian World Press. All rights reserved.
             </p>
 <div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-2 sm:gap-3 md:gap-4 text-[10px] sm:text-xs text-white/80 pr-40 md:pr-48">             <p>
-  KD Publisher Group LLC is an independent publishing services provider and is not affiliated with,<br />
+  Christian World Press Group LLC is an independent publishing services provider and is not affiliated with,<br />
   endorsed by, or sponsored by Amazon or Kindle Direct Publishing.
 </p>
             </div>
