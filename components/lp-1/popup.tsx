@@ -3,10 +3,11 @@
 import { useState } from "react";
 
 interface PopupProps {
+  isOpen: boolean;
   onClose: () => void;
 }
 
-export function Popup({ onClose }: PopupProps) {
+export function Popup({ isOpen, onClose }: PopupProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,6 +19,8 @@ export function Popup({ onClose }: PopupProps) {
     type: "success" | "error" | null;
     message: string;
   }>({ type: null, message: "" });
+
+  if (!isOpen) return null;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -74,12 +77,18 @@ export function Popup({ onClose }: PopupProps) {
 
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-2">
-      <div className="relative bg-background rounded-lg shadow-xl max-w-md w-full overflow-hidden border border-border">
+      {/* Click outside to close */}
+      <div className="absolute inset-0" onClick={onClose} />
+      
+      <div className="relative bg-background rounded-lg shadow-xl max-w-md w-full overflow-hidden border border-border z-10">
         {/* type="button" prevents triggering form submit */}
         <button
           type="button"
-          onClick={onClose}
-          className="absolute top-2 right-2 text-foreground hover:text-accent hover:bg-background p-1 rounded-full w-7 h-7 flex items-center justify-center z-10 cursor-pointer"
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="absolute top-2 right-2 text-foreground hover:text-accent hover:bg-gray-100 p-1 rounded-full w-7 h-7 flex items-center justify-center z-20 cursor-pointer"
           aria-label="Close popup"
         >
           &times;

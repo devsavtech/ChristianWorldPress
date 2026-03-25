@@ -2,6 +2,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { Form } from "@/components/lp-1/form";
+import {Popup} from "@/components/lp-1/popup";
 import {
   Phone,
   Mail,
@@ -24,6 +26,7 @@ import {
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -31,6 +34,7 @@ export default function LandingPage() {
 
   return (
     <div>
+      <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
       {/* ── HERO SECTION ── */}
       <div 
         className="relative min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden"
@@ -157,7 +161,8 @@ export default function LandingPage() {
           </a>
           <button
             type="button"
-            className="bg-[#8B0000] hover:bg-[#6b0000] text-white  px-6 py-1 text-lg rounded shadow-lg"
+            onClick={() => setIsPopupOpen(true)}
+            className="bg-[#8B0000] hover:bg-[#6b0000] text-white  px-6 py-1 text-lg rounded shadow-lg transition-colors"
           >
             REQUEST QUOTE
           </button>
@@ -255,6 +260,7 @@ export default function LandingPage() {
           <PricingCard
             title="DEBUTANT"
             highlighted={false}
+            onSelect={() => setIsPopupOpen(true)}
             features={[
               "Typesetting",
               "Professional Formatting",
@@ -272,6 +278,7 @@ export default function LandingPage() {
           <PricingCard
             title="FIRESTARTER"
             highlighted={true}
+            onSelect={() => setIsPopupOpen(true)}
             features={[
               "Publishing (Top 2 Platforms)",
               "Amazon Publication",
@@ -289,6 +296,7 @@ export default function LandingPage() {
           <PricingCard
             title="BEST SELLER"
             highlighted={false}
+            onSelect={() => setIsPopupOpen(true)}
             features={[
               "Publishing (Top 4 Platforms)",
               "Amazon Publication",
@@ -335,6 +343,7 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-center mt-2">
             <button
               type="button"
+              onClick={() => setIsPopupOpen(true)}
               className="bg-[#8B0000] text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-md border-2 border-[#8B0000] hover:bg-[#6b0000] transition-all"
             >
               REQUEST A QUOTE
@@ -502,7 +511,8 @@ export default function LandingPage() {
           <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-center mt-2">
             <button
               type="button"
-              className="bg-[#8B0000] text-black font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-md border-2 border-[#8B0000] hover:bg-[#6b0000] transition-all"
+              onClick={() => setIsPopupOpen(true)}
+              className="bg-[#8B0000] text-white font-bold text-lg md:text-xl px-6 md:px-8 py-3 md:py-4 rounded-md border-2 border-[#8B0000] hover:bg-[#6b0000] transition-all"
             >
               REQUEST A QUOTE
             </button>
@@ -710,46 +720,8 @@ export default function LandingPage() {
           </div>
 
           {/* Contact form */}
-          <div className="flex-1 w-full max-w-xl">
-            <form className="bg-[#8B0000] rounded-[2rem] md:rounded-[48px] shadow-2xl p-8 md:p-10 flex flex-col gap-4 border border-[#a00000]">
-              <h3 className="text-2xl md:text-3xl font-extrabold text-white text-center mb-2">
-                GET STARTED TODAY
-              </h3>
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter Your Full Name"
-                required
-                className="bg-white w-full rounded-xl px-5 py-4 text-base border-none outline-none placeholder-gray-500 text-black focus:ring-2 focus:ring-black"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter Your Email"
-                required
-                className="bg-white w-full rounded-xl px-5 py-4 text-base border-none outline-none placeholder-gray-500 text-black focus:ring-2 focus:ring-black"
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                required
-                className="bg-white w-full rounded-xl px-5 py-4 text-base border-none outline-none placeholder-gray-500 text-black focus:ring-2 focus:ring-black"
-              />
-              <textarea
-                name="message"
-                placeholder="Tell us about your book..."
-                rows={3}
-                required
-                className="bg-white w-full rounded-xl px-5 py-4 text-base border-none outline-none placeholder-gray-500 text-black focus:ring-2 focus:ring-black resize-none"
-              />
-              <button
-                type="submit"
-                className="mt-4 bg-black text-white font-extrabold text-xl py-4 rounded-xl flex items-center justify-center gap-2 shadow-md hover:bg-gray-900 transition-colors w-full"
-              >
-                PUBLISH YOUR BOOK
-              </button>
-            </form>
+          <div className="flex-1 w-full max-w-xl bg-[#8B0000] rounded-[2rem] md:rounded-[48px] shadow-2xl overflow-hidden border border-[#a00000]">
+            <Form />
           </div>
         </div>
       </section>
@@ -787,10 +759,12 @@ function PricingCard({
   title,
   highlighted,
   features,
+  onSelect,
 }: {
   title: string;
   highlighted: boolean;
   features: string[];
+  onSelect?: () => void;
 }) {
   return (
     <div
@@ -828,6 +802,7 @@ function PricingCard({
       </ul>
       <button
         type="button"
+        onClick={onSelect}
         className={`mt-auto w-full py-4 rounded-xl font-bold uppercase tracking-wide transition-transform transform hover:scale-105 ${
           highlighted
             ? "bg-black text-white hover:bg-gray-900"
