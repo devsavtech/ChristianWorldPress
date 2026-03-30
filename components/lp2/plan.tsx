@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
 import { Popup } from "@/components/lp-1/popup";
 import { useState } from "react";
+import { ClassicButton } from "../ui/classicbutton";
+import { BookOpen, MessageCircle } from "lucide-react";
 export function Plan() {
   const { displayedText, isTyping, sectionRef } =
     useTypingAnimation("Build Your Publishing Plan with the Right Support");
@@ -21,8 +23,7 @@ export function Plan() {
   {/* Left Content */}
   <div>
     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-center lg:text-left">
-      {displayedText || " "}
-      {isTyping && <span className="animate-pulse">|</span>}
+     Build Your Publishing Plan with the Right Support
     </h2>
   </div>
 
@@ -34,19 +35,22 @@ export function Plan() {
     </p>
 
     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-      <Button 
+      <ClassicButton 
+        icon={MessageCircle}
         onClick={toggleLiveChat}
-        variant="outline"
-        className="chat_button text-white border-white hover:bg-white hover:text-black rounded-sm uppercase font-semibold px-8 py-6 w-full sm:w-auto"
+        variant="textOutline"
+        className="chat_button"
       >
         Live Chat
-      </Button>
+      </ClassicButton>
 
-      <Button 
+      <ClassicButton 
+        variant="primary"
+        icon={BookOpen}
         onClick={() => setShowPopup(true)}
-        className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold px-8 py-6 w-full sm:w-auto">
-        Get A Quote
-      </Button>
+        className="popup_button">
+        Publish Your Book
+      </ClassicButton>
     </div>
 
   </div>
@@ -54,7 +58,7 @@ export function Plan() {
 </div>
 
       </div>
-      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+      {showPopup && <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />}
     </section>
   );
 }

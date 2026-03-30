@@ -10,6 +10,7 @@ import { EventsSection } from "@/components/events-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
 import ChatButton from "@/components/chatbutton";
+import { FeaturedAuthorsSection } from "@/components/featured-authors-section";
 // import Brands from "@/components/brands";
 // import HeroBookPromo from "@/components/promotionbooks";
 // import BookPromo2 from "@/components/bookpromotion2";
@@ -210,6 +211,7 @@ export default function Home() {
         /> */}
         {/* <HeroBookPromo /> */}
         {/* <BookPromo2 /> */}
+        <FeaturedAuthorsSection />
         <DistributionSection />
         <FeaturedArticlesSection />
         <PartnersSection />

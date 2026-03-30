@@ -169,10 +169,11 @@ export function FAQ() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-black mb-4">
-            {displayedText || " "}
+            {/* {displayedText || " "}
             {isTyping && (
               <span className="text-[#8b0000] animate-pulse">|</span>
-            )}
+            )} */}
+            Frequently Asked Questions
           </h2>
           <p className="text-gray-500 max-w-xl mx-auto text-base leading-relaxed">
             Have questions about publishing your book? Here are clear answers to

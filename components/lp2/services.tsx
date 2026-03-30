@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronUp, BookOpen, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { Popup } from "@/components/lp-1/popup";
+import { ClassicButton } from "../ui/classicbutton";
 
 const services = [
   {
@@ -45,15 +46,16 @@ const services = [
 export function Services() {
   const [showAllServices, setShowAllServices] = useState(false);
   const displayServices = showAllServices ? services : services.slice(0, 6);
-  const [showPopup, setShowPopup] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const toggleLiveChat = () => {
     if (typeof window !== 'undefined' && (window as any).LiveChatWidget) {
       (window as any).LiveChatWidget.call('maximize');
     }
   };
   return (
-    <section className="py-20 bg-gray-50 text-center">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <section className="py-20 bg-gray-50 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-[#8b0000] mb-6">
           Everything You Need to Publish as a Christian Author
         </h2>
@@ -83,8 +85,8 @@ export function Services() {
                 {service.description}
               </p>
 
-              <button className="mt-auto w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-[#8b0000] hover:text-white hover:border-[#8b0000] transition-colors self-end group">
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              <button className="mt-auto w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:bg-[#8b0000] hover:text-white hover:border-[#8b0000] transition-colors self-end group" onClick={() => setIsPopupOpen(true)}>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform"  />
               </button>
             </div>
           ))}
@@ -104,21 +106,26 @@ export function Services() {
           </div>
         )}
         <div className="flex flex-wrap justify-center gap-6 mt-8">
-          <Button 
-            onClick={toggleLiveChat}
-            variant="outline"
-            className="chat_button text-black border-black hover:bg-black hover:text-white rounded-sm uppercase font-semibold px-8 py-4"
-          >
-            Live Chat
-          </Button>
-          <Button 
-            onClick={() => setShowPopup(true)}
-            className="bg-[#8b0000] hover:bg-[#6b0000] text-white rounded-sm uppercase font-bold px-8 py-4">
-            Get A Quote
-          </Button>
+       <ClassicButton
+              variant="outline"
+              onClick={toggleLiveChat}
+              icon={MessageCircle}
+              className="chat_button"
+            >
+              Live Chat
+            </ClassicButton>
+
+            <ClassicButton
+              variant="primary"
+              onClick={() => setIsPopupOpen(true)}
+              icon={BookOpen}
+              className="popup_button"
+            >
+              Publish Your Book
+            </ClassicButton>
         </div>
       </div>
-      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+      <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </section>
   );
 }

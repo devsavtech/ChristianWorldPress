@@ -79,22 +79,32 @@ export function Popup({ isOpen, onClose }: PopupProps) {
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-2">
       {/* Click outside to close */}
       <div className="absolute inset-0" onClick={onClose} />
-      
-      <div className="relative bg-background rounded-lg shadow-xl max-w-md w-full overflow-hidden border border-border z-10">
-        {/* type="button" prevents triggering form submit */}
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onClose();
-          }}
-          className="absolute top-2 right-2 text-foreground hover:text-accent hover:bg-gray-100 p-1 rounded-full w-7 h-7 flex items-center justify-center z-20 cursor-pointer"
-          aria-label="Close popup"
-        >
-          &times;
-        </button>
 
-        <div className="p-4">
+      <div className="relative bg-background rounded-lg shadow-xl max-w-4xl w-full overflow-hidden border border-border z-10 flex">
+        {/* LEFT SIDE IMAGE */}
+        <div className="w-1/2 hidden md:block">
+          <img
+            src="/lp2/Popup.png"
+            alt="Popup Image"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* RIGHT SIDE FORM */}
+        <div className="w-full md:w-1/2 p-6 relative flex flex-col">
+          {/* CLOSE BUTTON */}
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onClose();
+            }}
+            className="absolute top-3 right-3 text-white bg-red-600 hover:bg-red-700 p-2 rounded-full w-8 h-8 flex items-center justify-center z-20 cursor-pointer"
+            aria-label="Close popup"
+          >
+            &times;
+          </button>
+
           <h2 className="text-lg font-bold text-center mb-3 text-foreground font-serif">
             GET IN TOUCH
           </h2>
@@ -111,7 +121,7 @@ export function Popup({ isOpen, onClose }: PopupProps) {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-3 mt-2 flex-1">
             <div>
               <label htmlFor="name" className="block text-xs font-medium text-foreground mb-1">
                 Name
