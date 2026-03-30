@@ -1,8 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import Link from "next/link"
-import { Facebook, Instagram, Mail, ChevronRight, Linkedin, Phone } from "lucide-react"
+import { useEffect, useRef } from "react";
+import Link from "next/link";
+import {
+  Facebook,
+  Instagram,
+  Mail,
+  ChevronRight,
+  Linkedin,
+  Phone,
+} from "lucide-react";
 
 const footerLinks = {
   navigation: [
@@ -22,37 +29,62 @@ const footerLinks = {
     { label: "Terms of Service", href: "/terms-and-conditions" },
   ],
   social: [
-    { icon: Mail, label: "Email", href: "mailto:authorrelations@christianworldpress.com" },
-    { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/people/Christian-World-Press/61586607706132/" },
-    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/christian-world-press/" },
-    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/christianworldpress.official/" },
-    { icon: () => (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-      </svg>
-    ), label: "X", href: "https://x.com/christianpress_" },
+    {
+      icon: Mail,
+      label: "Email",
+      href: "mailto:authorrelations@christianworldpress.com",
+    },
+    {
+      icon: Facebook,
+      label: "Facebook",
+      href: "https://www.facebook.com/people/Christian-World-Press/61586607706132/",
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/company/christian-world-press/",
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/christianworldpress.official/",
+    },
+    {
+      icon: () => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-4 h-4 sm:w-5 sm:h-5"
+        >
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+      label: "X",
+      href: "https://x.com/christianpress_",
+    },
   ],
-}
+};
 
 export function Footer() {
-  const footerRef = useRef<HTMLElement>(null)
+  const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("opacity-100", "translate-y-0")
+          entry.target.classList.add("opacity-100", "translate-y-0");
         }
       },
       { threshold: 0.1 },
-    )
+    );
 
     if (footerRef.current) {
-      observer.observe(footerRef.current)
+      observer.observe(footerRef.current);
     }
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <footer
@@ -89,12 +121,13 @@ export function Footer() {
               </Link>
             </div>
             <p className="text-xs sm:text-sm text-white/80 leading-relaxed mb-4 sm:mb-5 md:mb-6 max-w-md sm:max-w-none">
-              We publish and distribute faith-centered books that reach believers worldwide.
+              We publish and distribute faith-centered books that reach
+              believers worldwide.
             </p>
             {/* Social Icons */}
             <div className="flex items-center gap-3 sm:gap-4 mt-auto">
               {footerLinks.social.map((social) => {
-                const Icon = social.icon
+                const Icon = social.icon;
                 return (
                   <a
                     key={social.label}
@@ -106,10 +139,9 @@ export function Footer() {
                   >
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </a>
-                )
+                );
               })}
             </div>
-            
           </div>
 
           {/* Navigation Links */}
@@ -134,7 +166,9 @@ export function Footer() {
 
           {/* Legal & Policies */}
           <div>
-            <h3 className="font-serif font-semibold text-white mb-3 sm:mb-4 uppercase text-xs sm:text-sm tracking-wide">Legal</h3>
+            <h3 className="font-serif font-semibold text-white mb-3 sm:mb-4 uppercase text-xs sm:text-sm tracking-wide">
+              Legal
+            </h3>
             <ul className="space-y-2 sm:space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
@@ -157,7 +191,9 @@ export function Footer() {
             </h3>
             <div className="space-y-3 sm:space-y-4">
               <div>
-                <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Email</p>
+                <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">
+                  Email
+                </p>
                 {/* <a
                   href="mailto:authorrelations@christianworldpress.com"
                   className="text-xs sm:text-sm text-white/80 hover:text-[#e6b65c] transition-colors duration-200 break-all"
@@ -172,18 +208,24 @@ export function Footer() {
                 </a>
               </div>
               <div>
-                <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Phone No.</p>
-                <Link href="tel:+ (714) 475-7922;" className="text-[9px] xl:text-[12px] font-semibold text-white/80 flex items-center gap-2 phone_button">
-                <Phone className="w-4 h-4" />
-                + (714) 475-7922
-              </Link>
+                <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">
+                  Phone No.
+                </p>
+                <Link
+                  href="tel:+ (714) 475-7922;"
+                  className="text-[9px] xl:text-[12px] font-semibold text-white/80 flex items-center gap-2 phone_button"
+                >
+                  <Phone className="w-4 h-4" />+ (714) 475-7922
+                </Link>
               </div>
               <div>
-                <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">Address</p>
+                <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">
+                  Address
+                </p>
                 <p className="text-xs sm:text-sm text-white/80">
-                13100 Wortham Center Dr, Suite 320 Houston, TX 77065 US
-                <br />
-                <br />
+                  13100 Wortham Center Dr, Suite 320 Houston, TX 77065 US
+                  <br />
+                  <br />
                   30 N Gould St Sheridan, WY 82801, US
                 </p>
               </div>
@@ -191,7 +233,11 @@ export function Footer() {
           </div>
           {/** Image */}
           <div className="w-1/2 md:w-1/3">
-            <img src="/img/dmca_premi_badge_2.webp" alt="Christian World Press" className="w-full h-auto" />
+            <img
+              src="/img/dmca_premi_badge_2.webp"
+              alt="Christian World Press"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </div>
@@ -200,17 +246,22 @@ export function Footer() {
       <div className="relative z-10 border-t border-white/10 bg-black/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 py-4 sm:py-5 md:py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4 text-center md:text-left">
-            <p className="text-[10px] sm:text-xs text-white/80">
-              © {new Date().getFullYear()} Christian World Press. All rights reserved.
+            {/* Copyright */}
+            <p className="text-[10px] sm:text-xs text-white/80 w-full md:w-auto text-center md:text-left">
+              © {new Date().getFullYear()} Christian World Press. All rights
+              reserved.
             </p>
-<div className="flex flex-col sm:flex-row items-center justify-center md:justify-end gap-2 sm:gap-3 md:gap-4 text-[10px] sm:text-xs text-white/80 pr-40 md:pr-48">             <p>
-  Christian World Press Group LLC is an independent publishing services provider and is not affiliated with,<br />
-  endorsed by, or sponsored by Amazon or Kindle Direct Publishing.
-</p>
+            {/* Disclaimer */}
+            <div className="w-full md:w-auto flex justify-center md:justify-end">
+              <p className="text-[10px] sm:text-xs text-white/80 text-center md:text-left max-w-md">
+                Christian World Press Group LLC is an independent publishing
+                services provider and is not affiliated with, endorsed by, or
+                sponsored by Amazon or Kindle Direct Publishing.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
