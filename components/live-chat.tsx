@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 declare global {
   interface Window {
@@ -19,7 +19,7 @@ export default function LiveChat() {
     window.__lc.integration_name = "manual_onboarding";
     window.__lc.product_name = "livechat";
 
-    (function(n: any, t: any, c: any) {
+    (function (n: any, t: any, c: any) {
       function i(n: any) {
         return e._h ? e._h.apply(null, n) : e._q.push(n);
       }
@@ -27,34 +27,44 @@ export default function LiveChat() {
         _q: [],
         _h: null,
         _v: "2.0",
-        on: function() {
+        on: function () {
           i(["on", c.call(arguments)]);
         },
-        once: function() {
+        once: function () {
           i(["once", c.call(arguments)]);
         },
-        off: function() {
+        off: function () {
           i(["off", c.call(arguments)]);
         },
-        get: function() {
-          if (!e._h) throw new Error("[LiveChatWidget] You can't use getters before load.");
+        get: function () {
+          if (!e._h)
+            throw new Error(
+              "[LiveChatWidget] You can't use getters before load.",
+            );
           return i(["get", c.call(arguments)]);
         },
-        call: function() {
+        call: function () {
           i(["call", c.call(arguments)]);
         },
-        init: function() {
+        init: function () {
           var n = t.createElement("script");
           n.async = !0;
           n.type = "text/javascript";
           n.src = "https://cdn.livechatinc.com/tracking.js";
           t.head.appendChild(n);
-        }
+        },
       };
       !n.__lc.asyncInit && e.init();
       n.LiveChatWidget = n.LiveChatWidget || e;
-    }(window, document, [].slice));
-
+    })(window, document, [].slice);
+    // Listen for new events
+    window.LiveChatWidget?.on("new_event", function (event: any) {
+      // Check if the event is a message from an agent
+      if (event.author.type === "agent" && event.type === "message") {
+        // Force the chat widget to open (maximize)
+        window.LiveChatWidget?.call("maximize");
+      }
+    });
     // Cleanup function
     return () => {
       // Optional: Remove LiveChat script on unmount if needed
@@ -63,9 +73,9 @@ export default function LiveChat() {
 
   const toggleLiveChat = () => {
     if (isLiveChatOpen) {
-      window.LiveChatWidget?.call('minimize');
+      window.LiveChatWidget?.call("minimize");
     } else {
-      window.LiveChatWidget?.call('maximize');
+      window.LiveChatWidget?.call("maximize");
     }
     setIsLiveChatOpen(!isLiveChatOpen);
   };
