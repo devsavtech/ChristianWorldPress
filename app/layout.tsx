@@ -1,23 +1,23 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Crimson_Text, Lato } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
-import ChatButton from "@/components/chatbutton"
-import LiveChat from "@/components/live-chat"
-import Script from "next/script"
+import type React from "react";
+import type { Metadata } from "next";
+import { Crimson_Text, Lato } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
+import ChatButton from "@/components/chatbutton";
+import LiveChat from "@/components/live-chat";
+import Script from "next/script";
 
 const crimsonText = Crimson_Text({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-serif",
-})
+});
 
 const lato = Lato({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-sans",
-})
+});
 
 export const metadata: Metadata = {
   title: "ChristianWorldPress | Trusted Christian Publishing & Distribution",
@@ -30,16 +30,26 @@ export const metadata: Metadata = {
     ],
     apple: "/favicon/apple-touch-icon.png",
     other: [
-      { rel: "icon", url: "/favicon/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { rel: "icon", url: "/favicon/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      {
+        rel: "icon",
+        url: "/favicon/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        rel: "icon",
+        url: "/favicon/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
     ],
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" className={`${crimsonText.variable} ${lato.variable}`}>
@@ -55,8 +65,22 @@ export default function RootLayout({
             })(window,document,'script','dataLayer','GTM-N8GZW322');`,
           }}
         />
+        <Script
+          id="gtm-script2"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "vwsmwdrxtq");`,
+          }}
+        />
       </head>
-      <body className="font-sans antialiased bg-background text-foreground" suppressHydrationWarning>
+      <body
+        className="font-sans antialiased bg-background text-foreground"
+        suppressHydrationWarning
+      >
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-N8GZW322"
@@ -65,11 +89,12 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
+
         <LiveChat />
         {children}
         {/* <ChatButton /> */}
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

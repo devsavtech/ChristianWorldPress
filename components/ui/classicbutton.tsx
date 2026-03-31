@@ -33,7 +33,7 @@ export function ClassicButton({ children, variant = "primary", onClick, icon: Ic
 
   return (
     <button
-      className={`relative inline-flex items-center gap-2.5 font-bold uppercase tracking-[0.14em] text-[12px] px-8 py-[14px] rounded-sm cursor-pointer select-none overflow-hidden ${className}`}
+      className={`relative inline-flex items-center gap-2.5 font-bold uppercase tracking-[0.14em] text-[10px]  px-8 py-[14px] rounded-sm cursor-pointer select-none overflow-hidden ${className}`}
       style={{
         ...(styles[variant] || styles.primary),
         fontFamily: "'Nunito', sans-serif",

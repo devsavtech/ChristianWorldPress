@@ -4,23 +4,23 @@ import { ShieldCheck, PenTool, Award, Globe } from "lucide-react";
 export function ExpertProcess() {
   const steps = [
     {
-      title: "Ensuring Client Satisfaction",
-      desc: "Unwavering commitment to quality, ensuring client satisfaction at every milestone.",
+      title: "Send Your Manuscript",
+      desc: "Send us your manuscript, ideas, and goals. We will make the right publishing plan.",
       icon: <ShieldCheck className="w-10 h-10" strokeWidth={1.5} />,
     },
     {
-      title: "Mastering Every Aspect",
-      desc: "Our decade-long experience in the publishing industry ensures trusted, high-level expertise.",
+      title: "Prepare Your Book",
+      desc: "We edit, format, and refine your manuscript so it is ready for publication and makes a strong first impression.",
       icon: <PenTool className="w-10 h-10" strokeWidth={1.5} />,
     },
     {
-      title: "Retain Rights & Royalties",
-      desc: "You maintain 100% ownership rights to your book and keep every cent of your royalties.",
+      title: "Approve Your Book",
+      desc: "Review your completed book, request final changes, and make sure everything looks exactly the way you want.",
       icon: <Award className="w-10 h-10" strokeWidth={1.5} />,
     },
     {
-      title: "Global Trust",
-      desc: "Trusted by bestselling authors and accomplished entrepreneurs across the globe.",
+      title: "Publish and Promote",
+      desc: "Once your book is published, we help you distribute it across major platforms and give you the tools to start reaching readers.",
       icon: <Globe className="w-10 h-10" strokeWidth={1.5} />,
     },
   ];
@@ -29,7 +29,7 @@ export function ExpertProcess() {
     <section className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl  lg:text-[2.6rem] font-black text-center mb-16 tracking-tight text-slate-900 ">
-          Expert Process to <span className="text-[#8B0000]">Publish Your Book</span>
+          Easy Process to  <span className="text-[#8B0000]">Publish Your Book</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
