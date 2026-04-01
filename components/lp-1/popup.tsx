@@ -106,7 +106,8 @@ export function Popup({ isOpen, onClose }: PopupProps) {
           </button>
 
           <h2 className="text-lg font-bold text-center mb-3 text-foreground font-serif">
-            GET IN TOUCH
+           Sign Up to get a FREE
+Manuscript Review
           </h2>
 
           {submitStatus.type && (
