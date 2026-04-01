@@ -7,14 +7,14 @@ export function TitlePublished() {
   const sectionRef = useRef<HTMLElement>(null)
   
   // Assuming your hook handles the suffix internally or you append it in the JSX
-  const titlesCount = useCountAnimation(1000, 2000, "+", sectionRef)
+  const titlesCount = useCountAnimation(6000, 2000, "+", sectionRef)
   const retailersCount = useCountAnimation(1000, 2500, "+", sectionRef)
   const countriesCount = useCountAnimation(600, 2000, "+", sectionRef)
 
   return (
     <section 
       ref={sectionRef} 
-      className="relative min-h-[200px] flex items-center justify-center overflow-hidden py-20"
+      className="relative min-h-[200px] flex items-center justify-center overflow-hidden "
     >
       {/* Dark Overlay Background */}
       <div
@@ -35,7 +35,7 @@ export function TitlePublished() {
               </div>
               <div className="w-8 h-[2px] bg-[#E31E24] mx-auto mb-4" />
               <p className="text-[10px] md:text-xs tracking-[0.2em] font-semibold text-white uppercase leading-relaxed">
-               Distribution Partners
+               Books Sold
               </p>
             </div>
           </div>

@@ -169,6 +169,24 @@ export default function LandingPage() {
                 </li>
               ))}
             </ul>
+             <div className="flex flex-row md:flex-row gap-3 md:gap-4 items-center mt-2">
+              <ClassicButton
+              variant="primary"
+              icon={BookOpen}
+              className="popup_button"
+              onClick={() => setIsPopupOpen(true)}
+            >
+              Publish Your Book
+            </ClassicButton>
+            <ClassicButton
+              onClick={toggleLiveChat}
+              variant="textOutline"
+              icon={MessageCircle}
+              className="chat_button"
+            >
+              Talk to Us
+            </ClassicButton>
+          </div>
           </div>
 
           {/* ── Center portrait (desktop only) ── */}
