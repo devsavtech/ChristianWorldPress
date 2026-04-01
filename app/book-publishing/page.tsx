@@ -23,7 +23,7 @@ export default function Lp2Page() {
     useEffect(() => {
       // Simulate loading completion
       const timer = setTimeout(() => {
-        setIsLoading(false);
+        setIsLoading(false);` `
       }, 1500);
       
       return () => clearTimeout(timer);

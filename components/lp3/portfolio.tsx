@@ -35,7 +35,7 @@ export function Portfolio() {
   };
 
   return (
-    <section className="bg-[#f5f5f5] py-20 relative overflow-hidden">
+    <section className="w-full bg-white flex flex-col items-center justify-center border-t border-gray-100 overflow-hidden py-15">
 
       {/* Header */}
       <div className="text-center mb-16 px-6">
@@ -49,11 +49,11 @@ export function Portfolio() {
           />
         </svg>
 
-        <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-gray-900 mb-5 leading-tight font-serif max-w-3xl mx-auto">
-          Books Published by Christian World Press
+        <h2 className="text-3xl md:text-4xl font-extrabold uppercase">
+          <span className="text-black">Books Published by</span><span className="text-[#8B0000]"> Christian World Press</span>
         </h2>
 
-        <p className="text-gray-500 text-sm md:text-[0.95rem] max-w-2xl mx-auto leading-relaxed">
+        <p className="max-w-3xl text-center text-lg text-gray-700 mb-10">
           Our portfolio reflects the work we’ve done for Christian authors from different backgrounds, ministries, and life experiences.
         </p>
       </div>

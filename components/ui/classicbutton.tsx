@@ -2,7 +2,24 @@
 
 import { useState } from "react";
 
-export function ClassicButton({ children, variant = "primary", onClick, icon: Icon, className = "" }) {
+// 1. We define exactly what props the button can take
+interface ClassicButtonProps {
+  children: React.ReactNode;
+  variant?: "primary" | "outline" | "textOutline" | "textblack";
+  onClick?: () => void;
+  icon?: any;
+  className?: string;
+  href?: string; // This tells TypeScript that href is a string and it's optional
+}
+
+export function ClassicButton({ 
+  children, 
+  variant = "primary", 
+  onClick, 
+  icon: Icon, 
+  className = "",
+  href 
+}: ClassicButtonProps) { // 2. Apply the interface here
   const [pressed, setPressed] = useState(false);
 
   const styles = {
@@ -29,15 +46,28 @@ export function ClassicButton({ children, variant = "primary", onClick, icon: Ic
       boxShadow: pressed ? "1px 1px 0 #ffffff" : "3px 3px 0 #ffffff",
       transform: pressed ? "translate(2px, 2px)" : "translate(0,0)",
     },
+    textblack: {
+      background: "white",
+      color: "#1a1a1a",
+      border: "2px solid #1a1a1a",
+      boxShadow: pressed ? "1px 1px 0 #1a1a1a" : "3px 3px 0 #1a1a1a",
+      transform: pressed ? "translate(2px, 2px)" : "translate(0,0)",
+    },
   };
 
+  // Switch between <a> and <button> based on presence of href
+  const Tag = href ? "a" : "button";
+
   return (
-    <button
-      className={`relative inline-flex items-center gap-2.5 font-bold uppercase tracking-[0.14em] text-[10px]  px-8 py-[14px] rounded-sm cursor-pointer select-none overflow-hidden ${className}`}
+    <Tag
+      // If there's an href, it's a link. If not, it's a regular button.
+      {...(href ? { href } : { type: "button" as const })}
+      className={`relative inline-flex items-center gap-2.5 font-bold uppercase tracking-[0.14em] text-[10px] px-8 py-[14px] rounded-sm cursor-pointer select-none overflow-hidden no-underline ${className}`}
       style={{
         ...(styles[variant] || styles.primary),
         fontFamily: "'Nunito', sans-serif",
         transition: "transform 0.12s ease, box-shadow 0.12s ease",
+        textDecoration: "none"
       }}
       onMouseDown={() => setPressed(true)}
       onMouseUp={() => setPressed(false)}
@@ -48,8 +78,7 @@ export function ClassicButton({ children, variant = "primary", onClick, icon: Ic
         <span
           className="absolute inset-0 pointer-events-none"
           style={{
-            background:
-              "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.2) 50%, transparent 65%)",
+            background: "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.2) 50%, transparent 65%)",
             animation: "shimmer 3s infinite",
           }}
         />
@@ -64,6 +93,6 @@ export function ClassicButton({ children, variant = "primary", onClick, icon: Ic
           100% { transform: translateX(130%); }
         }
       `}</style>
-    </button>
+    </Tag>
   );
 }

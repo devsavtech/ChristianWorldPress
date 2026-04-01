@@ -14,7 +14,7 @@ export function TitlePublished() {
   return (
     <section 
       ref={sectionRef} 
-      className="relative min-h-[400px] flex items-center justify-center overflow-hidden py-20"
+      className="relative min-h-[200px] flex items-center justify-center overflow-hidden py-20"
     >
       {/* Dark Overlay Background */}
       <div

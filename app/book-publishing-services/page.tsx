@@ -8,23 +8,10 @@ import { TitlePublished } from "@/components/lp3/titlepublished";
 import Testimonials2 from "@/components/lp3/testimonials";
 import { Portfolio } from "@/components/lp3/portfolio";
 import {
-  Phone,
   Mail,
-  MapPin,
-  ChevronDown,
-  ChevronUp,
-  Star,
   Check,
-  FileText,
-  Clock,
   BookOpen,
-  Send,
-  PenTool,
-  Edit3,
   Image as ImageIcon,
-  Calendar,
-  Users,
-  Award,
   Facebook,
   Linkedin,
   Instagram,
@@ -35,18 +22,7 @@ import { Services360 } from "@/components/lp3/Services360";
 import { ClassicButton } from "@/components/ui/classicbutton";
 
 const footerLinks = {
-  navigation: [
-    // { label: "Home", href: "/" },
-    // { label: "Featured Articles", href: "/#articles" },
-    // { label: "About Us", href: "/#about" },
-    // { label: "Featured Authors", href: "/#authors" },
-    // { label: "Best Sellers", href: "/#bestsellers" },
-    // { label: "New Releases", href: "/#new-releases" },
-    // { label: "Extended Distribution", href: "/#distribution" },
-    // { label: "Our Partners", href: "/#partners" },
-    // { label: "Events", href: "/#events" },
-    // { label: "Contact Us", href: "/#contact" },
-  ],
+  navigation: [],
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms of Service", href: "/terms-and-conditions" },
@@ -92,21 +68,59 @@ const footerLinks = {
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isPopupOpen, setIsPopupOpen] = useState(true);
-const toggleLiveChat = () => {
-  if (typeof window !== "undefined" && (window as any).LiveChatWidget) {
-    (window as any).LiveChatWidget.call("maximize");
-  }
-};
+  const toggleLiveChat = () => {
+    if (typeof window !== "undefined" && (window as any).LiveChatWidget) {
+      (window as any).LiveChatWidget.call("maximize");
+    }
+  };
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
   return (
     <div>
-     {isPopupOpen && <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />}
+      {isPopupOpen && (
+        <Popup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+      )}
+      {/* ── HERO SECTION ── */}
+      {/* ── STICKY NAVBAR ── */}
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <img
+              src="/logo/Chrisitan World Press Logo.png"
+              alt="AMZ Books Services"
+              className="h-12 md:h-16 object-contain"
+            />
+          </div>
+
+          {/* Nav Actions */}
+          <div className="flex items-center gap-3">
+            <ClassicButton
+              href="tel:+17144757922"
+              className="phone_button hidden md:flex" // Hidden on mobile to save space, or keep visible
+              variant="textblack"
+              icon={PhoneIcon}
+            >
+              (714) 475-7922
+            </ClassicButton>
+
+            <ClassicButton
+              icon={BookOpen}
+              variant="primary"
+              onClick={() => setIsPopupOpen(true)}
+              className="popup_button"
+            >
+              PUBLISH YOUR BOOK
+            </ClassicButton>
+          </div>
+        </div>
+      </nav>
+
       {/* ── HERO SECTION ── */}
       <div
-        className="relative min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden"
+        className="relative min-h-screen flex flex-col items-center justify-center bg-black overflow-hidden pt-20" // Added pt-20 to account for sticky nav height
         style={{ minHeight: "100vh" }}
       >
         {/* Background image */}
@@ -119,20 +133,11 @@ const toggleLiveChat = () => {
         />
 
         {/* Hero content row */}
-        <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-8 px-4 py-20 lg:py-12 relative z-10">
+        <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-stretch justify-between gap-8 px-4 py-12 lg:py-12 relative z-10">
           {/* ── Left column ── */}
-          <div className="flex flex-col justify-between flex-1 w-full lg:max-w-lg text-white">
-            {/* Logo */}
-            <div className="mb-6 flex justify-center lg:justify-start">
-              <img
-                src="/logo/Chrisitan World Press Logo.png"
-                alt="AMZ Books Services"
-                className="w-30 h-20 md:w-48  mb-6 object-contain"
-              />
-            </div>
-
+          <div className="flex flex-col justify-center flex-1 w-full lg:max-w-lg text-white">
             {/* Headline */}
-            <div className="mb-4 text-center lg:text-left">
+            <div className="mb-6 text-center lg:text-left">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-uppercase">
                 SOLUTIONS
                 <br />
@@ -148,10 +153,10 @@ const toggleLiveChat = () => {
             {/* Bullet points */}
             <ul className="mb-8 space-y-3">
               {[
-                "You Keep 100% Rights & Royalties ",
+                "You Keep 100% Rights & Royalties",
                 "Strategic Promotion & Expert Guidance",
-                "Unlimited Revisions & 24/7 Support ",
-                "Free Manuscript Evaluation ",
+                "Unlimited Revisions & 24/7 Support",
+                "Free Manuscript Evaluation",
               ].map((item) => (
                 <li
                   key={item}
@@ -164,31 +169,6 @@ const toggleLiveChat = () => {
                 </li>
               ))}
             </ul>
-
-            {/* Trust badges */}
-            <div className="mt-auto flex flex-col gap-4 items-center lg:items-start">
-              <div className="flex items-center gap-2 text-[#8B0000] text-lg font-bold">
-                Trusted By{" "}
-                <span className="text-white font-extrabold">600+</span> Authors
-                Worldwide
-              </div>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                <Image
-                  src="/lp3/image5.webp"
-                  alt="Ratings"
-                  width={120}
-                  height={24}
-                  className="object-contain"
-                />
-                <Image
-                  src="/lp3/image6.webp"
-                  alt="Awards"
-                  width={280}
-                  height={32}
-                  className="object-contain"
-                />
-              </div>
-            </div>
           </div>
 
           {/* ── Center portrait (desktop only) ── */}
@@ -204,12 +184,12 @@ const toggleLiveChat = () => {
           </div>
 
           {/* ── Right column – CTA card ── */}
-          <div className="flex-1 w-full max-w-md lg:max-w-lg flex flex-col items-center justify-center mt-8 lg:mt-0">
+          <div className="flex-1 w-full max-w-md lg:max-w-lg flex flex-col items-center justify-center">
             <div className="w-full bg-[#8B0000] rounded-2xl shadow-2xl p-6 md:p-8 flex flex-col gap-4 border border-[#a00000]">
               <h2 className="text-2xl md:text-3xl font-extrabold mb-2 leading-tight text-white text-center">
-                50% OFF ON BOOK
+                Sign Up to get a FREE
                 <br />
-                PUBLICATION SERVICE
+                Manuscript Review
               </h2>
               <p className="font-semibold text-base md:text-lg mb-4 text-white/90 text-center">
                 GET PUBLISHED FOR HALF THE PRICE AND SHARE YOUR STORY TODAY!
@@ -223,24 +203,6 @@ const toggleLiveChat = () => {
               </button>
             </div>
           </div>
-        </div>
-
-        {/* ── Fixed top-right nav ── */}
-        <div className="fixed top-6 right-6 z-20 flex items-center gap-3">
-          <a
-            href="tel:+17144757922"
-            className="bg-white hover:bg-gray-100 text-black font-bold px-5 py-3 text-lg rounded shadow-lg flex items-center gap-2 transition-colors"
-          >
-            <PhoneIcon />
-            (714) 475-7922
-          </a>
-          <button
-            type="button"
-            onClick={() => setIsPopupOpen(true)}
-            className="bg-[#8B0000] hover:bg-[#6b0000] text-white  px-6 py-1 text-lg rounded shadow-lg transition-colors popup_button"
-          >
-           PUBLISH YOUR BOOK
-          </button>
         </div>
       </div>
 
@@ -270,17 +232,17 @@ const toggleLiveChat = () => {
           <div className="flex-1 overflow-hidden relative w-full [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
             <div className="flex items-center gap-12 whitespace-nowrap w-max animate-marquee">
               {[
-                { src: "/lp3/image8.webp", alt: "Amazon Kindle" },
-                { src: "/lp3/image9.webp", alt: "Barnes & Noble" },
-                { src: "/lp3/image10.webp", alt: "Google Play Books" },
-                { src: "/lp3/image11.webp", alt: "Apple Books" },
-                { src: "/lp3/image12.webp", alt: "Bunindie" },
+                { src: "/lp3/image8.png", alt: "Amazon Kindle" },
+                { src: "/lp3/image9.png", alt: "Barnes & Noble" },
+                { src: "/lp3/image10.png", alt: "Google Play Books" },
+                { src: "/lp3/image11.png", alt: "Apple Books" },
+                { src: "/lp3/image12.png", alt: "Bunindie" },
                 // Duplicate for infinite scroll loop
-                { src: "/lp3/image8.webp", alt: "Amazon Kindle 2" },
-                { src: "/lp3/image9.webp", alt: "Barnes & Noble 2" },
-                { src: "/lp3/image10.webp", alt: "Google Play Books 2" },
-                { src: "/lp3/image11.webp", alt: "Apple Books 2" },
-                { src: "/lp3/image12.webp", alt: "Bunindie 2" },
+                { src: "/lp3/image8.png", alt: "Amazon Kindle 2" },
+                { src: "/lp3/image9.png", alt: "Barnes & Noble 2" },
+                { src: "/lp3/image10.png", alt: "Google Play Books 2" },
+                { src: "/lp3/image11.png", alt: "Apple Books 2" },
+                { src: "/lp3/image12.png", alt: "Bunindie 2" },
               ].map(({ src, alt }) => (
                 <Image
                   key={alt}
@@ -371,7 +333,7 @@ const toggleLiveChat = () => {
       </section>
 
       {/* ── CONNECT WITH EXPERT ── */}
-      <section className="w-full flex flex-col md:flex-row items-center justify-between py-12 md:py-16 px-6 md:px-20 bg-gradient-to-br from-[#444] via-[#555] to-[#222] border-y border-[#8B0000]/20 gap-8 md:gap-12">
+      <section className="w-full flex flex-col md:flex-row items-center justify-between py-12 md:py-16 px-6 md:px-20 gap-8 md:gap-12 bg-[#000000]">
         <div className="flex-1 flex flex-col gap-6 max-w-2xl">
           <h1 className="text-4xl font-black text-white leading-tight">
             CONNECT WITH OUR BOOK <br />
@@ -408,17 +370,17 @@ const toggleLiveChat = () => {
               Publish Your Book
             </ClassicButton>
             <ClassicButton
-              onClick={toggleLiveChat}
+              href="tel:+17144757922" // Replace with your actual number
               variant="textOutline"
-              icon={MessageCircle}
-              className="chat_button"
+              icon={PhoneIcon}
+              className="phone_button"
             >
-              Talk to Us
+              Call Now
             </ClassicButton>
           </div>
           <p className="text-white text-sm md:text-base">
             Or Start A{" "}
-            <span className="text-[#000000] font-bold">Live Chat</span> to
+            <span onClick={toggleLiveChat} className="text-[#e60000] font-bold cursor-pointer chat_button">Live Chat</span> to
             discuss your requirements
           </p>
         </div>
@@ -461,23 +423,23 @@ const toggleLiveChat = () => {
             eBook platforms, and online retailers, so your book has a real
             chance to be discovered, purchased, and shared.
           </p>
-           <div className="flex flex-row sm:flex-row gap-4 justify-center mt-18 px-6">
-          <ClassicButton
-            onClick={toggleLiveChat}
-            icon={MessageCircle}
-            variant="outline"
-            className="chat_button"
-          >
-            TALK TO US!
-          </ClassicButton>
-          <ClassicButton
-            variant="primary"
-            icon={BookOpen}
-            onClick={() => setIsPopupOpen(true)}
-            className="popup_button"
-          >
-            Publish Your Book
-          </ClassicButton>
+          <div className="flex flex-row sm:flex-row gap-4 justify-start mt-18 ">
+            <ClassicButton
+              onClick={toggleLiveChat}
+              icon={MessageCircle}
+              variant="outline"
+              className="chat_button"
+            >
+              TALK TO US!
+            </ClassicButton>
+            <ClassicButton
+              variant="primary"
+              icon={BookOpen}
+              onClick={() => setIsPopupOpen(true)}
+              className="popup_button"
+            >
+              Publish Your Book
+            </ClassicButton>
           </div>
         </div>
       </section>
@@ -486,7 +448,7 @@ const toggleLiveChat = () => {
       <Services360 />
 
       {/* ── PRINT-READY CTA ── */}
-      <section className="w-full flex flex-col md:flex-row items-center justify-between py-12 md:py-16 px-6 md:px-20 bg-gradient-to-br from-[#444] via-[#555] to-[#222] border-y border-[#8B0000]/20 gap-8 md:gap-12">
+      <section className="w-full flex flex-col md:flex-row items-center justify-between py-12 md:py-16 px-6 md:px-20 bg-[#000000] gap-8 md:gap-12">
         <div className="flex-1 flex flex-col gap-6 max-w-2xl">
           <h1 className="text-4xl font-black text-white leading-tight">
             FROM PRINT-READY FILES TO <br />
@@ -502,33 +464,33 @@ const toggleLiveChat = () => {
             sell.
           </p>
           <div className="flex flex-row md:flex-row gap-3 md:gap-4 items-center mt-2">
-          <ClassicButton
-        variant="primary"
-        icon={BookOpen}
-          onClick={() => setIsPopupOpen(true)}
-          className="popup_button"
-        >
-          Publish Your Book
-        </ClassicButton>
+            <ClassicButton
+              variant="primary"
+              icon={BookOpen}
+              onClick={() => setIsPopupOpen(true)}
+              className="popup_button"
+            >
+              Publish Your Book
+            </ClassicButton>
 
-        <ClassicButton
-          onClick={toggleLiveChat}
-          variant="textOutline"
-          icon={MessageCircle}
-          className="chat_button"
-        >
-         Talk to Us
-        </ClassicButton>
+            <ClassicButton
+              href="tel:+17144757922" // Replace with your actual number
+              variant="textOutline"
+              icon={PhoneIcon}
+              className="phone_button"
+            >
+              Call Now
+            </ClassicButton>
           </div>
           <p className="text-white text-sm md:text-base">
             Or Start A{" "}
-            <span className="text-[#000000] font-bold">Live Chat</span> to
+            <span onClick={toggleLiveChat} className="text-[#e60000] font-bold cursor-pointer chat_button">Live Chat</span> to
             discuss your requirements
           </p>
         </div>
         <div className="flex-1 flex justify-center items-center mt-8 md:mt-0 md:ml-8">
           <Image
-            src="/lp3/group3.png"
+            src="/lp3/image16.webp"
             alt="Books stack"
             width={540}
             height={340}
@@ -539,7 +501,7 @@ const toggleLiveChat = () => {
 
       {/* ── FAQ ── */}
       <section className="w-full flex flex-col items-center py-16 px-4 md:px-8 bg-gray-50">
-        <h2 className="text-3xl md:text-5xl text-black font-black text-center mb-10 leading-tight">
+        <h2 className="text-3xl md:text-4xl  lg:text-[2.6rem] font-black text-center mb-16 tracking-tight text-slate-900">
           FREQUENTLY <span className="text-[#8B0000]">ASKED QUESTIONS</span>
         </h2>
         <div className="w-full max-w-4xl mx-auto flex flex-col gap-4">
@@ -603,93 +565,107 @@ const toggleLiveChat = () => {
       </section>
 
       {/* ── CONTACT + FORM ── */}
-     <section className="w-full bg-[#fcfcfc] py-16 px-4 md:px-8 flex justify-center items-center">
-  <div className="max-w-7xl w-full flex flex-col md:flex-row gap-12 md:gap-20 items-center justify-between mx-auto">
-    
-    {/* Left Side: Text & Contact Info */}
-    <div className="flex-1 text-center md:text-left">
-      <h1 className="text-4xl md:text-5xl font-extrabold text-black leading-tight mb-2 italic">
-        PUBLISH ON AMAZON, KINDLE &amp; MORE.
-      </h1>
-      <h2 className="text-[#8B0000] text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">
-        NOW 50% DISCOUNT!
-      </h2>
-      <p className="text-lg text-gray-700 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
-        Turn your manuscript into a professionally published book on
-        Amazon Kindle, paperback, hardcover, and more. From formatting and
-        cover design to publishing and distribution, we handle the process
-        for you.
-      </p>
+      <section className="w-full bg-[#fcfcfc] py-16 px-4 md:px-8 flex justify-center items-center">
+        <div className="max-w-7xl w-full flex flex-col md:flex-row gap-12 md:gap-20 items-center justify-between mx-auto">
+          {/* Left Side: Text & Contact Info */}
+          <div className="flex-1 text-center md:text-left">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-black leading-tight mb-2 ">
+              PUBLISH ON AMAZON, KINDLE &amp; MORE.
+            </h1>
+            <h2 className="text-[#8B0000] text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">
+              FREE MANUSCRIPT REVIEW
+            </h2>
+            <p className="text-lg text-gray-700 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
+              Turn your manuscript into a professionally published book on
+              Amazon Kindle, paperback, hardcover, and more. From formatting and
+              cover design to publishing and distribution, we handle the process
+              for you.
+            </p>
 
-      {/* Contact Info Group */}
-      <div className="space-y-5 max-w-md mx-auto md:mx-0 mb-8">
-        <ContactRow
-          icon="phone"
-          text="+ (714) 475-7922"
-          href="tel:+17144757922"
-        />
-        <ContactRow
-          icon="email"
-          text="authorrelations@christianworldpress.com"
-          href="mailto:authorrelations@christianworldpress.com"
-        />
-        <ContactRow
-          icon="location"
-          text="13100 Wortham Center Dr, Suite 320 Houston, TX 77065 US"
-        />
-      </div>
-      {/* Refined Social Icons Section */}
-        <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Follow Our Press</p>
-        <div className="flex items-center justify-center md:justify-start gap-5">
-          {footerLinks.social.map((social) => {
-            const Icon = social.icon;
-            return (
-              <a
-                key={social.label}
-                href={social.href}
-                aria-label={social.label}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-black transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:shadow-lg"
-              >
-                <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
-              </a>
-            );
-          })}
+            {/* Contact Info Group */}
+            <div className="space-y-5 max-w-md mx-auto md:mx-0 mb-8">
+              <ContactRow
+                icon="phone"
+                text="+ (714) 475-7922"
+                href="tel:+17144757922"
+              />
+              <ContactRow
+                icon="email"
+                text="authorrelations@christianworldpress.com"
+                href="mailto:authorrelations@christianworldpress.com"
+              />
+              <ContactRow
+                icon="location"
+                text="13100 Wortham Center Dr, Suite 320 Houston, TX 77065 US"
+              />
+            </div>
+            {/* Refined Social Icons Section */}
+            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+              Follow Our Press
+            </p>
+            <div className="flex items-center justify-center md:justify-start gap-5">
+              {footerLinks.social.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-black transition-all duration-300 hover:bg-[#8B0000] hover:text-white hover:shadow-lg"
+                  >
+                    <Icon className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Side: Contact form */}
+          <div className="flex-1 w-full max-w-xl bg-[#8B0000] rounded-[2.5rem] shadow-[0_20px_50px_rgba(139,0,0,0.3)] overflow-hidden border border-[#a00000]">
+            <Form />
+          </div>
         </div>
-    </div>
-
-    {/* Right Side: Contact form */}
-    <div className="flex-1 w-full max-w-xl bg-[#8B0000] rounded-[2.5rem] shadow-[0_20px_50px_rgba(139,0,0,0.3)] overflow-hidden border border-[#a00000]">
-      <Form />
-    </div>
-    
-  </div>
-</section>
+      </section>
 
       {/* ── FOOTER ── */}
-    <footer className="w-full bg-[#111111] text-gray-500 py-6 mt-12 border-t border-white/5">
-  <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4">
-    
-    {/* Compact Top Row: Links & Copyright */}
-    <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 text-[11px] md:text-xs">
-      <div className="flex items-center gap-4 border-b md:border-b-0 md:border-r border-white/10 pb-2 md:pb-0 md:pr-6">
-        <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-        <Link href="/terms-and-conditions" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
-      </div>
-      
-      <p className="tracking-tight">
-        © 2026 <span className="text-gray-400 font-medium">Christian World Press</span>. All Rights Reserved.
-      </p>
-    </div>
+      <footer className="w-full bg-[#111111] text-gray-500 py-6 mt-12 border-t border-white/5">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-4">
+          {/* Compact Top Row: Links & Copyright */}
+          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6 text-[11px] md:text-xs">
+            <div className="flex items-center gap-4 border-b md:border-b-0 md:border-r border-white/10 pb-2 md:pb-0 md:pr-6">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-and-conditions"
+                className="hover:text-white transition-colors"
+              >
+                Terms &amp; Conditions
+              </Link>
+            </div>
 
-    {/* Ultra-Slim Disclaimer */}
-    <p className="text-[10px] leading-tight text-white text-center max-w-4xl italic">
-      Christian World Press Group LLC is an independent publishing services provider and is not affiliated with, endorsed by, or sponsored by Amazon or Kindle Direct Publishing.
-    </p>
-    
-  </div>
-</footer>
+            <p className="tracking-tight">
+              © 2026{" "}
+              <span className="text-gray-400 font-medium">
+                Christian World Press
+              </span>
+              . All Rights Reserved.
+            </p>
+          </div>
+
+          {/* Ultra-Slim Disclaimer */}
+          <p className="text-[10px] leading-tight text-white text-center max-w-4xl italic">
+            Christian World Press Group LLC is an independent publishing
+            services provider and is not affiliated with, endorsed by, or
+            sponsored by Amazon or Kindle Direct Publishing.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
@@ -805,7 +781,6 @@ function PhoneIcon({ className = "" }: { className?: string }) {
     </svg>
   );
 }
-
 
 function BookIcon() {
   return (
