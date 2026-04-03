@@ -810,7 +810,7 @@ export default function LandingPage() {
         <div className="max-w-7xl w-full flex flex-col md:flex-row gap-12 md:gap-20 items-center justify-between mx-auto">
           {/* Left Side: Text & Contact Info */}
           <div className="flex-1 text-center md:text-left">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-black leading-tight mb-2 ">
+            <h1 className="text-4xl md:text-5xl font-extrabold  text-black leading-tight mb-2 ">
               PUBLISH ON AMAZON, KINDLE &amp; MORE.
             </h1>
             <h2 className="text-[#8B0000] text-3xl md:text-4xl font-extrabold mb-6 tracking-tight">
@@ -824,7 +824,7 @@ export default function LandingPage() {
             </p>
 
             {/* Contact Info Group */}
-            <div className="space-y-5 max-w-md mx-auto md:mx-0 mb-8">
+            <div className="space-y-5  max-w-md mx-auto md:mx-0 mb-8">
               <ContactRow
                 icon="phone"
                 text="+ (714) 475-7922"
@@ -1007,7 +1007,7 @@ function ContactRow({
   href?: string;
 }) {
   const content = (
-    <div className="flex items-center text-lg md:text-xl font-bold text-black border-b border-[#8B0000]/20 pb-3 gap-3 transition-colors hover:border-[#8B0000]/50">
+    <div className="flex items-center justify-center md:justify-start text-lg md:text-xl font-bold text-black border-b border-[#8B0000]/20 pb-3 gap-3 transition-colors hover:border-[#8B0000]/50">
       <span className="text-[#8B0000] text-2xl flex-shrink-0">
         {icon === "phone" ? "📞" : icon === "email" ? "✉️" : "📍"}
       </span>
