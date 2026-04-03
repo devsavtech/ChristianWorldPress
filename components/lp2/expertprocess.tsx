@@ -4,6 +4,7 @@ import { motion } from "framer-motion"; // Install via: npm install framer-motio
 import { ClassicButton } from "../ui/classicbutton";
 import { BookOpen, MessageCircle } from "lucide-react";
 import { useState } from "react";
+import { Popup } from "../lp-1/popup";
 
 
 
@@ -123,6 +124,7 @@ export function ExpertProcess() {
                         </ClassicButton>
                       </div>
       </div>
+            {showPopup && <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />}
       
     </section>
   );

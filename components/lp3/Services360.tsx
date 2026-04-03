@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ClassicButton } from "../ui/classicbutton";
 import { BookOpen, MessageCircle } from "lucide-react";
 import { useState } from "react";
+import { Popup } from "../lp-1/popup";
 export function Services360() {
       const [showPopup, setShowPopup] = useState(false);
   
@@ -115,6 +116,8 @@ export function Services360() {
                         </ClassicButton>
                       </div>
       </div>
+            {showPopup && <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />}
+      
     </section>
   );
 }

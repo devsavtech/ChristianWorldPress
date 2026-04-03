@@ -106,9 +106,7 @@ export default function LandingPage() {
       (window as any).LiveChatWidget.call("maximize");
     }
   };
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
+
 
   return (
     <div>
