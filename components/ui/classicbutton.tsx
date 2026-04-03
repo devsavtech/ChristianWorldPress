@@ -27,31 +27,21 @@ export function ClassicButton({
       background: "#8b0000",
       color: "#fff",
       border: "2px solid #8b0000",
-      boxShadow: pressed
-        ? "1px 1px 0 #3a0000, 0 2px 8px rgba(139,0,0,0.18)"
-        : "5px 5px 0 #3a0000, 0 8px 28px rgba(139,0,0,0.3)",
-      transform: pressed ? "translate(4px, 4px)" : "translate(0,0)",
     },
     outline: {
       background: "transparent",
       color: "#1a1a1a",
       border: "2px solid #1a1a1a",
-      boxShadow: pressed ? "1px 1px 0 #1a1a1a" : "5px 5px 0 #1a1a1a",
-      transform: pressed ? "translate(4px, 4px)" : "translate(0,0)",
     },
     textOutline: {
       background: "transparent",
       color: "#ffffff",
       border: "2px solid #ffffff",
-      boxShadow: pressed ? "1px 1px 0 #ffffff" : "3px 3px 0 #ffffff",
-      transform: pressed ? "translate(2px, 2px)" : "translate(0,0)",
     },
     textblack: {
       background: "white",
       color: "#1a1a1a",
       border: "2px solid #1a1a1a",
-      boxShadow: pressed ? "1px 1px 0 #1a1a1a" : "3px 3px 0 #1a1a1a",
-      transform: pressed ? "translate(2px, 2px)" : "translate(0,0)",
     },
   };
 
@@ -62,7 +52,7 @@ export function ClassicButton({
     <Tag
       // If there's an href, it's a link. If not, it's a regular button.
       {...(href ? { href } : { type: "button" as const })}
-      className={`relative inline-flex items-center gap-2.5 font-bold uppercase tracking-[0.14em] text-[10px] px-8 py-[14px] rounded-sm cursor-pointer select-none overflow-hidden no-underline ${className}`}
+      className={`relative inline-flex items-center gap-2.5 font-bold uppercase  text-[10px] px-5 py-[10px] rounded-sm cursor-pointer select-none overflow-hidden no-underline ${className}`}
       style={{
         ...(styles[variant] || styles.primary),
         fontFamily: "'Nunito', sans-serif",
@@ -83,7 +73,7 @@ export function ClassicButton({
           }}
         />
       )}
-      {Icon && <Icon className="w-4 h-4 flex-shrink-0 relative z-10" />}
+      {Icon && <Icon className="w-3 h-3 flex-shrink-0 relative z-10" />}
       <span className="relative z-10">{children}</span>
 
       <style>{`

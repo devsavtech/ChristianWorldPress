@@ -442,11 +442,11 @@ export default function LandingPage() {
           </ul>
 
           {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center mt-4">
+          <div className="flex flex-row sm:flex-row gap-5 items-start sm:items-center mt-4">
             <ClassicButton
               variant="primary"
               icon={BookOpen}
-              className="w-full sm:w-auto h-14 px-8 text-lg hover:scale-105 transition-transform popup_button"
+              className=" popup_button"
               onClick={() => setIsPopupOpen(true)}
             >
               Publish Your Book
@@ -456,7 +456,7 @@ export default function LandingPage() {
               href="tel:+17144757922"
               variant="textOutline"
               icon={PhoneIcon}
-              className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 text-white hover:bg-white/10 phone_button"
+              className=" phone_button"
             >
               Call Now
             </ClassicButton>
@@ -590,12 +590,12 @@ export default function LandingPage() {
             We help you publish your book across more than 500 major bookstores, eBook platforms, and online retailers, so your book has a real chance to be discovered, purchased, and shared.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <div className="flex flex-row sm:flex-row gap-4 justify-center md:justify-start">
               <ClassicButton
                 variant="primary"
                 icon={BookOpen}
                 onClick={() => setIsPopupOpen(true)}
-                className="w-full sm:w-auto h-14 px-8 text-lg hover:scale-105 transition-transform popup_button"
+                className=" popup_button"
               >
                 Publish Your Book
               </ClassicButton>
@@ -604,7 +604,7 @@ export default function LandingPage() {
                 onClick={toggleLiveChat}
                 icon={MessageCircle}
                 variant="outline"
-                className="w-full sm:w-auto h-14 px-8 text-lg border-2 chat_button"
+                className=" chat_button"
               >
                 Talk To Us
               </ClassicButton>
@@ -653,11 +653,11 @@ export default function LandingPage() {
           </motion.p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center mt-2">
+          <div className="flex flex-row sm:flex-row gap-4 items-center mt-2">
             <ClassicButton
               variant="primary"
               icon={BookOpen}
-              className="w-full sm:w-auto h-14 px-8 text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_10px_20px_rgba(139,0,0,0.3)] popup_button"
+              className=" popup_button"
               onClick={() => setIsPopupOpen(true)}
             >
               Publish Your Book
@@ -667,7 +667,7 @@ export default function LandingPage() {
               href="tel:+17144757922"
               variant="textOutline"
               icon={PhoneIcon}
-              className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 text-white hover:bg-white/10 phone_button"
+              className=" phone_button"
             >
               Call Now
             </ClassicButton>
@@ -1043,45 +1043,6 @@ function PhoneIcon({ className = "" }: { className?: string }) {
       className={className}
     >
       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-    </svg>
-  );
-}
-
-function BookIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={56}
-      height={56}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-      <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-      <path d="M10 9H8" />
-      <path d="M16 13H8" />
-      <path d="M16 17H8" />
-    </svg>
-  );
-}
-
-function ChevronIcon() {
-  return (
-    <svg
-      stroke="currentColor"
-      fill="none"
-      strokeWidth={2}
-      viewBox="0 0 24 24"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      height="1em"
-      width="1em"
-    >
-      <polyline points="6 9 12 15 18 9" />
     </svg>
   );
 }
