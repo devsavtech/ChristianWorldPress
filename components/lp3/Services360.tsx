@@ -10,7 +10,7 @@ export function Services360() {
       icon: <PenTool className="w-10 h-10" />,
     },
     {
-      title: "Book Editing, Formatting & Cove",
+      title: "Book Editing, Formatting & Cover",
       desc: "Strengthen your book with professional editing that improves clarity, flow, structure, and readability without changing your voice.",
       icon: <Check className="w-10 h-10" />,
     },
