@@ -129,18 +129,16 @@ export default function LandingPage() {
           </div>
 
           {/* Nav Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <ClassicButton
               href="tel:+17144757922"
-              className="phone_button hidden md:flex " // Hidden on mobile to save space, or keep visible
+              className="phone_button hidden " // Hidden on mobile to save space, or keep visible
               variant="textblack"
-              icon={PhoneIcon}
             >
               (714) 475-7922
             </ClassicButton>
 
             <ClassicButton
-              icon={BookOpen}
               variant="primary"
               onClick={() => setIsPopupOpen(true)}
               className="popup_button"
