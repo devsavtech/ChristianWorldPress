@@ -105,7 +105,7 @@ export function Popup({ isOpen, onClose }: PopupProps) {
             &times;
           </button>
 
-          <h2 className="text-lg font-bold text-center mb-3 text-foreground font-serif">
+          <h2 className="text-md  font-bold text-center mb-3 text-foreground font-serif">
            Sign Up to get a FREE
 Manuscript Review
           </h2>

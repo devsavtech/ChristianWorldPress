@@ -1,8 +1,21 @@
 "use client";
 import { ShieldCheck, PenTool, Award, Globe } from "lucide-react";
 import { motion } from "framer-motion"; // Install via: npm install framer-motion
+import { ClassicButton } from "../ui/classicbutton";
+import { BookOpen, MessageCircle } from "lucide-react";
+import { useState } from "react";
+
+
+
 
 export function ExpertProcess() {
+    const [showPopup, setShowPopup] = useState(false);
+  
+  const toggleLiveChat = () => {
+    if (typeof window !== "undefined" && (window as any).LiveChatWidget) {
+      (window as any).LiveChatWidget.call("maximize");
+    }
+  };
   const steps = [
     {
       title: "Send Your Manuscript",
@@ -83,11 +96,34 @@ export function ExpertProcess() {
                 <div className="mt-8 w-12 h-1 bg-slate-100 rounded-full overflow-hidden">
                   <div className="w-0 h-full bg-[#8B0000] group-hover:w-full transition-all duration-500" />
                 </div>
+                  
               </div>
+              
             </motion.div>
           ))}
         </div>
+            {/* CTA Buttons */}
+                      <div className="flex flex-row sm:flex-row gap-4 justify-center mt-10 px-6">
+                        <ClassicButton
+                        variant="primary"
+                        icon={BookOpen}
+                          onClick={() => setShowPopup(true)}
+                          className="popup_button"
+                        >
+                          Publish Your Book
+                        </ClassicButton>
+                
+                        <ClassicButton
+                          onClick={toggleLiveChat}
+                          variant="outline"
+                          icon={MessageCircle}
+                          className="chat_button"
+                        >
+                         Talk to Us
+                        </ClassicButton>
+                      </div>
       </div>
+      
     </section>
   );
 }

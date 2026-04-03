@@ -1,8 +1,17 @@
 "use client";
 import { PenTool, Check, Image as ImageIcon } from "lucide-react";
 import { motion } from "framer-motion";
-
+import { ClassicButton } from "../ui/classicbutton";
+import { BookOpen, MessageCircle } from "lucide-react";
+import { useState } from "react";
 export function Services360() {
+      const [showPopup, setShowPopup] = useState(false);
+  
+  const toggleLiveChat = () => {
+    if (typeof window !== "undefined" && (window as any).LiveChatWidget) {
+      (window as any).LiveChatWidget.call("maximize");
+    }
+  };
   const services = [
     {
       title: "BOOK WRITING",
@@ -86,6 +95,25 @@ export function Services360() {
             </motion.div>
           ))}
         </div>
+               <div className="flex flex-row sm:flex-row gap-4 justify-center mt-10 px-6">
+                        <ClassicButton
+                        variant="primary"
+                        icon={BookOpen}
+                          onClick={() => setShowPopup(true)}
+                          className="popup_button"
+                        >
+                          Publish Your Book
+                        </ClassicButton>
+                
+                        <ClassicButton
+                          onClick={toggleLiveChat}
+                          variant="outline"
+                          icon={MessageCircle}
+                          className="chat_button"
+                        >
+                         Talk to Us
+                        </ClassicButton>
+                      </div>
       </div>
     </section>
   );
