@@ -582,7 +582,6 @@ export default function LandingPage() {
                   whileInView={{ pathLength: 1 }}
                   transition={{ delay: 0.8, duration: 1 }}
                 >
-                  <path d="M0 5 Q 50 0, 100 5 T 200 5" fill="none" stroke="currentColor" strokeWidth="4" />
                 </motion.svg>
               </span> BOOK PLATFORMS WORLDWIDE
             </h2>
@@ -743,7 +742,6 @@ export default function LandingPage() {
         <h2 className="text-4xl  font-black text-slate-900 tracking-tight uppercase">
           FREQUENTLY <span className="text-[#8B0000]">ASKED QUESTIONS</span>
         </h2>
-        <div className="w-24 h-1.5 bg-[#8B0000] mx-auto mt-6 rounded-full" />
       </motion.div>
 
       <div className="w-full max-w-4xl mx-auto flex flex-col gap-5">

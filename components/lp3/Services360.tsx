@@ -34,7 +34,6 @@ export function Services360() {
         >
           <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
             FROM IDEA TO PUBLISHED BOOK : <span className="text-[#8B0000] relative">
-              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 338 12" fill="none"><path d="M1 9.5C57.6667 3.83333 186.2 -4.7 337 9.5" stroke="#8B0000" strokeWidth="3"/></svg>
               360° DEGREE
             </span><br />
             PUBLISHING SERVICES

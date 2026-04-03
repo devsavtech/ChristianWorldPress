@@ -45,18 +45,8 @@ export function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <svg width="80" height="16" viewBox="0 0 80 16" fill="none" className="mb-6 inline-block">
-                <path
-                  d="M2 8 Q10 2 18 8 Q26 14 34 8 Q42 2 50 8 Q58 14 66 8 Q74 2 78 8"
-                  stroke="#8b0000"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  fill="none"
-                />
-              </svg>
               <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
                 BOOKS PUBLISHED BY  <span className="text-[#8B0000] relative">CHRISTIAN WORLD PRESS
-                   <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 338 12" fill="none"><path d="M1 9.5C57.6667 3.83333 186.2 -4.7 337 9.5" stroke="#8B0000" strokeWidth="3"/></svg>
                 </span>
               </h2>
               <p className="max-w-2xl mx-auto mt-6 text-lg text-slate-600 font-medium">
