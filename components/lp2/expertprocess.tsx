@@ -1,63 +1,91 @@
 "use client";
 import { ShieldCheck, PenTool, Award, Globe } from "lucide-react";
+import { motion } from "framer-motion"; // Install via: npm install framer-motion
 
 export function ExpertProcess() {
   const steps = [
     {
       title: "Send Your Manuscript",
       desc: "Send us your manuscript, ideas, and goals. We will make the right publishing plan.",
-      icon: <ShieldCheck className="w-10 h-10" strokeWidth={1.5} />,
+      icon: <ShieldCheck className="w-10 h-10" />,
     },
     {
       title: "Prepare Your Book",
       desc: "We edit, format, and refine your manuscript so it is ready for publication and makes a strong first impression.",
-      icon: <PenTool className="w-10 h-10" strokeWidth={1.5} />,
+      icon: <PenTool className="w-10 h-10" />,
     },
     {
       title: "Approve Your Book",
       desc: "Review your completed book, request final changes, and make sure everything looks exactly the way you want.",
-      icon: <Award className="w-10 h-10" strokeWidth={1.5} />,
+      icon: <Award className="w-10 h-10" />,
     },
     {
       title: "Publish and Promote",
       desc: "Once your book is published, we help you distribute it across major platforms and give you the tools to start reaching readers.",
-      icon: <Globe className="w-10 h-10" strokeWidth={1.5} />,
+      icon: <Globe className="w-10 h-10" />,
     },
   ];
 
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl  lg:text-[2.6rem] font-black text-center mb-16 tracking-tight text-slate-900 ">
-          Easy Process to  <span className="text-[#8B0000]">Publish Your Book</span>
-        </h2>
+        {/* Header Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+            EASY PROCESS TO <span className="text-[#8B0000] relative">
+              PUBLISH YOUR BOOK
+              <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 338 12" fill="none"><path d="M1 9.5C57.6667 3.83333 186.2 -4.7 337 9.5" stroke="#8B0000" strokeWidth="3"/></svg>
+            </span>
+          </h2>
+          <p className="mt-6 text-slate-500 text-lg">Your journey from draft to bestseller in four simple steps.</p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+          
+          {/* Connecting Line (Desktop Only) */}
+          <div className="hidden lg:block absolute top-1/3 left-0 w-full h-[2px] border-t-2 border-dashed border-slate-200 -z-0" />
+
           {steps.map((step, idx) => (
-            <div
+            <motion.div
               key={idx}
-              className="group relative bg-white p-10 border-t-4 border-[#8B0000] rounded-xl shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.2 }}
+              whileHover={{ y: -10 }}
+              className="group relative z-10"
             >
-              {/* Icon with subtle background circle */}
-              <div className="w-20 h-20 mb-6 rounded-full bg-red-50 text-[#8B0000] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#8B0000] group-hover:text-white">
-                {step.icon}
-              </div>
+              <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center h-full">
+                
+                {/* Step Number Badge */}
+                <span className="absolute top-4 right-6 text-6xl font-black text-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 select-none">
+                  0{idx + 1}
+                </span>
 
-              {/* Title with improved spacing */}
-              <h3 className="text-xl font-bold mb-4 text-slate-800 leading-snug uppercase tracking-tight h-14 flex items-center justify-center">
-                {step.title}
-              </h3>
+                {/* Icon Container */}
+                <div className="w-20 h-20 mb-8 rounded-2xl bg-slate-50 text-[#8B0000] flex items-center justify-center transition-all duration-500 group-hover:bg-[#8B0000] group-hover:text-white group-hover:rotate-[10deg] shadow-inner">
+                  {step.icon}
+                </div>
 
-              {/* Description with text-wrap: balance equivalent */}
-              <p className="text-slate-500 text-sm leading-relaxed max-w-[240px]">
-                {step.desc}
-              </p>
-              
-              {/* Subtle hover indicator */}
-              <div className="absolute bottom-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                 <div className="w-8 h-1 bg-[#8B0000] rounded-full" />
+                {/* Content */}
+                <h3 className="text-lg font-bold mb-4 text-slate-800 uppercase tracking-wider">
+                  {step.title}
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  {step.desc}
+                </p>
+
+                {/* Interactive Bottom Bar */}
+                <div className="mt-8 w-12 h-1 bg-slate-100 rounded-full overflow-hidden">
+                  <div className="w-0 h-full bg-[#8B0000] group-hover:w-full transition-all duration-500" />
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

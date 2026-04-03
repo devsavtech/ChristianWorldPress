@@ -11,6 +11,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { ClassicButton } from "../ui/classicbutton";
 import { BookOpen, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 const books = [
   { title: "A Year of Positive Thinking", img: "/newreleasebooks/thebookofenoch.jpg" },
@@ -35,28 +36,34 @@ export function Portfolio() {
   };
 
   return (
-    <section className="w-full bg-white flex flex-col items-center justify-center border-t border-gray-100 overflow-hidden py-15">
+    <section className="w-full bg-[#fdfdfd] py-15 border-t border-gray-100 overflow-hidden">
 
       {/* Header */}
-      <div className="text-center mb-16 px-6">
-        <svg width="80" height="16" viewBox="0 0 80 16" fill="none" className="mb-5 inline-block">
-          <path
-            d="M2 8 Q10 2 18 8 Q26 14 34 8 Q42 2 50 8 Q58 14 66 8 Q74 2 78 8"
-            stroke="#8b0000"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            fill="none"
-          />
-        </svg>
-
-        <h2 className="text-3xl md:text-4xl font-extrabold uppercase">
-          <span className="text-black">Books Published by</span><span className="text-[#8B0000]"> Christian World Press</span>
-        </h2>
-
-        <p className="max-w-3xl text-center text-lg text-gray-700 mb-10">
-          Our portfolio reflects the work we’ve done for Christian authors from different backgrounds, ministries, and life experiences.
-        </p>
-      </div>
+          <div className="container max-w-7xl mx-auto px-6 text-center mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <svg width="80" height="16" viewBox="0 0 80 16" fill="none" className="mb-6 inline-block">
+                <path
+                  d="M2 8 Q10 2 18 8 Q26 14 34 8 Q42 2 50 8 Q58 14 66 8 Q74 2 78 8"
+                  stroke="#8b0000"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </svg>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+                BOOKS PUBLISHED BY  <span className="text-[#8B0000] relative">CHRISTIAN WORLD PRESS
+                   <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 338 12" fill="none"><path d="M1 9.5C57.6667 3.83333 186.2 -4.7 337 9.5" stroke="#8B0000" strokeWidth="3"/></svg>
+                </span>
+              </h2>
+              <p className="max-w-2xl mx-auto mt-6 text-lg text-slate-600 font-medium">
+              Our portfolio reflects the work we’ve done for Christian authors from different backgrounds,ministries, and life experiences.
+              </p>
+            </motion.div>
+          </div>
 
       {/* Slider */}
       <div className="relative flex items-center justify-center px-4">

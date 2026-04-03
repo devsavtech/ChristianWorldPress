@@ -7,6 +7,8 @@ import { Popup } from "@/components/lp-1/popup";
 import { TitlePublished } from "@/components/lp3/titlepublished";
 import Testimonials2 from "@/components/lp3/testimonials";
 import { Portfolio } from "@/components/lp3/portfolio";
+import { motion, AnimatePresence } from "framer-motion"; // Added for life
+
 import {
   Mail,
   Check,
@@ -16,11 +18,42 @@ import {
   Linkedin,
   Instagram,
   MessageCircle,
+  Globe,
+  CheckCircle,
+  ChevronDown,
 } from "lucide-react";
 import { ExpertProcess } from "@/components/lp2/expertprocess";
 import { Services360 } from "@/components/lp3/Services360";
 import { ClassicButton } from "@/components/ui/classicbutton";
 
+const features = [
+    "Genre-specific publishing",
+    "Book pricing discussion",
+    "Publishing platform selection",
+    "Quick turnaround time",
+  ];
+  const faqs = [
+    {
+      q: "What are the steps involved in the book publishing process?",
+      a: "Our comprehensive process includes manuscript evaluation, professional editing, custom cover design, formatting for print and digital platforms, and widespread global distribution.",
+    },
+    {
+      q: "Do you offer both traditional and self-publishing options?",
+      a: "We specialize in premium self-publishing solutions that give you the quality of traditional publishing while allowing you to retain 100% of your rights and royalties.",
+    },
+    {
+      q: "Can you assist with book cover design, editing, and formatting?",
+      a: "Absolutely! Our 360-degree services cover every aspect of book creation. Our team of expert editors and award-winning designers ensure your book meets the highest industry standards.",
+    },
+    {
+      q: "How is book distribution handled and made available to retailers?",
+      a: "We distribute your book globally through major channels including Amazon, Barnes & Noble, Apple Books, and Ingram, making it available to thousands of retailers, bookstores, and libraries worldwide.",
+    },
+    {
+      q: "What royalty and payment structures are offered for published authors?",
+      a: "You keep 100% of the net royalties from your book sales. Once your book is published, all earnings go directly to you without any hidden fees or percentage cuts from our side.",
+    },
+  ]
 const footerLinks = {
   navigation: [],
   legal: [
@@ -99,7 +132,7 @@ export default function LandingPage() {
           <div className="flex items-center gap-3">
             <ClassicButton
               href="tel:+17144757922"
-              className="phone_button hidden md:flex" // Hidden on mobile to save space, or keep visible
+              className="phone_button hidden md:flex " // Hidden on mobile to save space, or keep visible
               variant="textblack"
               icon={PhoneIcon}
             >
@@ -138,12 +171,12 @@ export default function LandingPage() {
           <div className="flex flex-col justify-center flex-1 w-full lg:max-w-lg text-white">
             {/* Headline */}
             <div className="mb-6 text-center lg:text-left">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-uppercase">
-                SOLUTIONS
+              <h1 className="text-4xl md:text-5xl lg:text-4xl font-extrabold leading-tight text-uppercase">
+                PROFESSIONAL
                 <br />
-                FOR BOOK
+                 BOOK PUBLISHING
                 <br />
-                <span className="text-[#8B0000]">PUBLISHING</span>
+                <span className="text-[#8B0000]">SERVICES</span>
               </h1>
               <p className="mt-4 text-lg md:text-xl font-semibold">
                 Turn Your Manuscript into a Published Book That Sells
@@ -169,24 +202,24 @@ export default function LandingPage() {
                 </li>
               ))}
             </ul>
-             <div className="flex flex-row md:flex-row gap-3 md:gap-4 items-center mt-2">
+            <div className="flex flex-row md:flex-row gap-3 md:gap-4 items-center mt-2">
               <ClassicButton
-              variant="primary"
-              icon={BookOpen}
-              className="popup_button"
-              onClick={() => setIsPopupOpen(true)}
-            >
-              Publish Your Book
-            </ClassicButton>
-            <ClassicButton
-              onClick={toggleLiveChat}
-              variant="textOutline"
-              icon={MessageCircle}
-              className="chat_button"
-            >
-              Talk to Us
-            </ClassicButton>
-          </div>
+                variant="primary"
+                icon={BookOpen}
+                className="popup_button"
+                onClick={() => setIsPopupOpen(true)}
+              >
+                Publish Your Book
+              </ClassicButton>
+              <ClassicButton
+                onClick={toggleLiveChat}
+                variant="textOutline"
+                icon={MessageCircle}
+                className="chat_button"
+              >
+                Talk to Us
+              </ClassicButton>
+            </div>
           </div>
 
           {/* ── Center portrait (desktop only) ── */}
@@ -241,9 +274,8 @@ export default function LandingPage() {
         <div className="max-w-7xl w-full flex flex-col md:flex-row items-center gap-6 md:gap-12 mx-auto">
           <div className="flex flex-col items-center md:items-end w-full md:w-auto md:min-w-[200px] shrink-0">
             <span className="text-2xl md:text-3xl font-extrabold leading-tight text-black text-center md:text-right">
-              BOOK <span className="text-[#8B0000]">PUBLISHING</span>
+              Distribution <span className="text-[#8B0000]">Platforms</span>
               <br className="hidden md:block" />
-              <span className="md:hidden"> </span>PARTNERS
             </span>
           </div>
           <div className="hidden md:block h-16 w-1 bg-gradient-to-b from-[#8B0000] to-[#8B0000]/60 rounded-full" />
@@ -276,14 +308,21 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <Testimonials2 />
+      <RevealSection>
+        <Testimonials2 />
+      </RevealSection>
 
+        <RevealSection bg="bg-white">
+        <TitlePublished />
+      </RevealSection>
       {/* ── PRICING PACKAGES ── */}
       <section className="w-full py-12 bg-[#fcfcfc]">
         <div className="max-w-4xl mx-auto text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold uppercase">
-            <span className="text-black">Affordable </span>
-            <span className="text-[#8B0000]">Book Publishing Packages</span>
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight uppercase">
+            <span className="text-black ">Affordable </span>
+            <span className="text-[#8B0000] ">Book Publishing Packages
+            </span>
+            
           </h2>
           <h3 className="text-2xl md:text-3xl font-bold uppercase mt-2 text-black">
             For Your Author Journey!
@@ -351,236 +390,426 @@ export default function LandingPage() {
       </section>
 
       {/* ── CONNECT WITH EXPERT ── */}
-      <section className="w-full flex flex-col md:flex-row items-center justify-between py-12 md:py-16 px-6 md:px-20 gap-8 md:gap-12 bg-[#000000]">
-        <div className="flex-1 flex flex-col gap-6 max-w-2xl">
-          <h1 className="text-4xl font-black text-white leading-tight">
-            CONNECT WITH OUR BOOK <br />
-            <span style={{ color: "#8B0000" }}>PUBLISHING EXPERTS</span>
-          </h1>
-          <p className="text-base md:text-lg text-gray-200">
-            Most writers do not struggle because they lack talent. They struggle
-            because they try to figure out publishing alone. One wrong decision
-            on formatting, pricing, platform selection, or marketing can bury a
-            good book before it ever has a chance.
-          </p>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
-            {[
-              "Genre-specific publishing",
-              "Book pricing discussion",
-              "Publishing platform selection",
-              "Quick turnaround time",
-            ].map((item) => (
-              <li
+  <section className="relative w-full bg-[#000000] py-20 md:py-28 px-6 md:px-20 overflow-hidden">
+      {/* Background "Expert" Glow */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#8B0000]/10 blur-[120px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 relative z-10">
+        
+        {/* Left Side: Content */}
+        <div className="flex-1 flex flex-col gap-8 max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-4xl font-black text-white leading-tight">
+              CONNECT WITH OUR BOOK <br />
+              <span className="text-[#8B0000] drop-shadow-[0_0_15px_rgba(139,0,0,0.3)]">
+                PUBLISHING EXPERTS
+              </span>
+            </h1>
+          </motion.div>
+
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-lg md:text-xl text-gray-300 leading-relaxed font-medium"
+          >
+            Most writers do not struggle because they lack talent. They struggle because they try to figure out publishing alone. One wrong decision on formatting, pricing, platform selection, or marketing can bury a good book before it ever has a chance.
+          </motion.p>
+
+          {/* Animated Checklist */}
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {features.map((item, idx) => (
+              <motion.li
                 key={item}
-                className="flex items-center gap-2 text-white text-base md:text-lg"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4 + idx * 0.1 }}
+                className="flex items-center gap-3 text-white text-base md:text-lg group"
               >
-                <span className="text-[#8B0000]">✔</span> {item}
-              </li>
+                <div className="bg-[#8B0000]/20 p-1 rounded-full group-hover:bg-[#8B0000] transition-colors duration-300">
+                  <CheckCircle className="w-5 h-5 text-[#8B0000] group-hover:text-white" />
+                </div>
+                <span className="font-medium">{item}</span>
+              </motion.li>
             ))}
           </ul>
-          <div className="flex flex-row md:flex-row gap-3 md:gap-4 items-center mt-2">
+
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center mt-4">
             <ClassicButton
               variant="primary"
               icon={BookOpen}
-              className="popup_button"
+              className="w-full sm:w-auto h-14 px-8 text-lg hover:scale-105 transition-transform popup_button"
               onClick={() => setIsPopupOpen(true)}
             >
               Publish Your Book
             </ClassicButton>
+            
             <ClassicButton
-              href="tel:+17144757922" // Replace with your actual number
+              href="tel:+17144757922"
               variant="textOutline"
               icon={PhoneIcon}
-              className="phone_button"
+              className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 text-white hover:bg-white/10 phone_button"
             >
               Call Now
             </ClassicButton>
           </div>
-          <p className="text-white text-sm md:text-base">
-            Or Start A{" "}
-            <span onClick={toggleLiveChat} className="text-[#e60000] font-bold cursor-pointer chat_button">Live Chat</span> to
-            discuss your requirements
-          </p>
-        </div>
-        <div className="flex-1 flex justify-center items-center mt-8 md:mt-0 md:ml-8">
-          <Image
-            src="/lp3/group1.png"
-            alt="Publishing agent"
-            width={540}
-            height={340}
-            className="object-cover"
-          />
-        </div>
-      </section>
 
-      <Portfolio />
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="text-gray-400 text-base"
+          >
+            Or start a{" "}
+            <span
+              onClick={toggleLiveChat}
+              className="text-[#ff1a1a] font-bold cursor-pointer hover:underline decoration-2 underline-offset-4 transition-all"
+            >
+              Live Chat
+            </span>{" "}
+            to discuss your requirements instantly.
+          </motion.p>
+        </div>
 
-      <TitlePublished />
+        {/* Right Side: Visual Image */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
+          whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="flex-1 flex justify-center items-center relative"
+        >
+          {/* Decorative Ring */}
+          <div className="absolute inset-0 border-2 border-[#8B0000]/20 rounded-full scale-110 animate-[spin_20s_linear_infinite] pointer-events-none" />
+          
+          <motion.div
+            whileHover={{ y: -10, rotateY: 10 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="relative z-10"
+          >
+            <Image
+              src="/lp3/group1.png"
+              alt="Publishing agent"
+              width={540}
+              height={440}
+              className="object-contain drop-shadow-[0_0_30px_rgba(139,0,0,0.2)]"
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+      <RevealSection bg="bg-white">
+        <Portfolio />
+      </RevealSection>
 
       {/* ── 4-STEP PROCESS ── */}
-      <ExpertProcess />
+      <RevealSection bg="bg-white">
+        <ExpertProcess />
+      </RevealSection>
 
       {/* ── 500 PLATFORMS ── */}
-      <section className="w-full bg-[#fafafa] py-16 px-4 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
-        <div className="shrink-0 w-full max-w-md md:max-w-sm lg:max-w-lg">
-          <Image
-            src="/lp3/group2.png"
-            alt="Books"
-            width={500}
-            height={600}
-            className="w-full h-auto object-contain drop-shadow-xl"
-          />
-        </div>
+   <section className="relative w-full bg-[#fafafa] py-20 md:py-28 px-6 overflow-hidden">
+      {/* Decorative Background Element */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-[#8B0000]/5 -skew-x-12 translate-x-1/2 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-24 relative z-10">
+        
+        {/* Left Side: Animated Image */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50, rotate: -2 }}
+          whileInView={{ opacity: 1, x: 0, rotate: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="shrink-0 w-full max-w-md lg:max-w-xl relative group"
+        >
+          {/* Subtle Glow behind books */}
+          <div className="absolute inset-0 bg-[#8B0000]/10 blur-[100px] rounded-full scale-75 group-hover:scale-90 transition-transform duration-1000" />
+          
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Image
+              src="/lp3/group2.png"
+              alt="Books distribution network"
+              width={600}
+              height={700}
+              className="w-full h-auto object-contain drop-shadow-[0_25px_25px_rgba(0,0,0,0.15)] relative z-10"
+              priority
+            />
+          </motion.div>
+
+          {/* Floating Badge */}
+          <motion.div 
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            transition={{ delay: 0.5, type: "spring" }}
+            className="absolute -bottom-4 -right-4 md:right-0 bg-white shadow-xl p-4 rounded-2xl flex items-center gap-3 z-20 border border-gray-100"
+          >
+            <div className="bg-[#8B0000] p-2 rounded-lg">
+              <Globe className="text-white w-5 h-5" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Global Reach</span>
+              <span className="text-sm font-black text-black">500+ Platforms</span>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Side: Content */}
         <div className="flex-1 max-w-2xl text-center md:text-left">
-          <h2 className="text-4xl text-black font-extrabold leading-tight mb-4">
-            REACH <span className="text-[#8B0000]">OVER 500</span> BOOK
-            PLATFORMS WORLDWIDE
-          </h2>
-          <p className="text-lg md:text-xl text-[#222] mb-6">
-            We help you publish your book across more than 500 major bookstores,
-            eBook platforms, and online retailers, so your book has a real
-            chance to be discovered, purchased, and shared.
-          </p>
-          <div className="flex flex-row sm:flex-row gap-4 justify-start mt-18 ">
-            <ClassicButton
-              onClick={toggleLiveChat}
-              icon={MessageCircle}
-              variant="outline"
-              className="chat_button"
-            >
-              TALK TO US!
-            </ClassicButton>
-            <ClassicButton
-              variant="primary"
-              icon={BookOpen}
-              onClick={() => setIsPopupOpen(true)}
-              className="popup_button"
-            >
-              Publish Your Book
-            </ClassicButton>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-4xl lg:text-5xl text-black font-black leading-[1.1] mb-6">
+              REACH <span className="relative inline-block">
+                <span className="text-[#8B0000]">OVER 500</span>
+                <motion.svg 
+                  viewBox="0 0 200 8" 
+                  className="absolute -bottom-2 left-0 w-full h-2 text-[#8B0000]/30"
+                  initial={{ pathLength: 0 }}
+                  whileInView={{ pathLength: 1 }}
+                  transition={{ delay: 0.8, duration: 1 }}
+                >
+                  <path d="M0 5 Q 50 0, 100 5 T 200 5" fill="none" stroke="currentColor" strokeWidth="4" />
+                </motion.svg>
+              </span> BOOK PLATFORMS WORLDWIDE
+            </h2>
+            
+            <p className="text-lg md:text-xl text-gray-700 font-medium mb-10 leading-relaxed">
+            We help you publish your book across more than 500 major bookstores, eBook platforms, and online retailers, so your book has a real chance to be discovered, purchased, and shared.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <ClassicButton
+                variant="primary"
+                icon={BookOpen}
+                onClick={() => setIsPopupOpen(true)}
+                className="w-full sm:w-auto h-14 px-8 text-lg hover:scale-105 transition-transform popup_button"
+              >
+                Publish Your Book
+              </ClassicButton>
+              
+              <ClassicButton
+                onClick={toggleLiveChat}
+                icon={MessageCircle}
+                variant="outline"
+                className="w-full sm:w-auto h-14 px-8 text-lg border-2 chat_button"
+              >
+                Talk To Us
+              </ClassicButton>
+            </div>
+          </motion.div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* ── 360° SERVICES ── */}
-      <Services360 />
+      <RevealSection bg="bg-white">
+        <Services360 />
+      </RevealSection>
 
       {/* ── PRINT-READY CTA ── */}
-      <section className="w-full flex flex-col md:flex-row items-center justify-between py-12 md:py-16 px-6 md:px-20 bg-[#000000] gap-8 md:gap-12">
-        <div className="flex-1 flex flex-col gap-6 max-w-2xl">
-          <h1 className="text-4xl font-black text-white leading-tight">
-            FROM PRINT-READY FILES TO <br />
-            <span style={{ color: "#8B0000" }}>
-              HOLDING YOUR FINISHED BOOK!
-            </span>
-          </h1>
-          <p className="text-base md:text-lg text-gray-200">
-            Most authors never make it past a finished manuscript. They get
-            stuck trying to figure out formatting, printing, publishing, and
-            what to do next. We take you from print-ready files to a
-            professionally published book you can actually hold, share, and
-            sell.
-          </p>
-          <div className="flex flex-row md:flex-row gap-3 md:gap-4 items-center mt-2">
+  <section className="relative w-full bg-[#000000] py-20 md:py-32 px-6 md:px-20 overflow-hidden">
+      {/* Dynamic Background Light - Simulating a "Press" or "Studio" light */}
+      <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#8B0000]/10 blur-[150px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 relative z-10">
+        
+        {/* Left Side: Content */}
+        <div className="flex-1 flex flex-col gap-8 max-w-2xl text-center md:text-left items-center md:items-start">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="text-4xl font-black text-white leading-tight">
+              FROM PRINT-READY FILES TO <br />
+              <span className="text-[#8B0000] inline-block mt-2">
+                HOLDING YOUR FINISHED BOOK!
+              </span>
+            </h1>
+          </motion.div>
+
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-lg md:text-xl text-gray-300 leading-relaxed font-medium"
+          >
+            Most authors never make it past a finished manuscript. They get stuck trying to figure out formatting, printing, publishing, and what to do next. We take you from print-ready files to a professionally published book you can actually hold, share, and sell.
+          </motion.p>
+
+          {/* Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 items-center mt-2">
             <ClassicButton
               variant="primary"
               icon={BookOpen}
+              className="w-full sm:w-auto h-14 px-8 text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_10px_20px_rgba(139,0,0,0.3)] popup_button"
               onClick={() => setIsPopupOpen(true)}
-              className="popup_button"
             >
               Publish Your Book
             </ClassicButton>
-
+            
             <ClassicButton
-              href="tel:+17144757922" // Replace with your actual number
+              href="tel:+17144757922"
               variant="textOutline"
               icon={PhoneIcon}
-              className="phone_button"
+              className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 text-white hover:bg-white/10 phone_button"
             >
               Call Now
             </ClassicButton>
           </div>
-          <p className="text-white text-sm md:text-base">
-            Or Start A{" "}
-            <span onClick={toggleLiveChat} className="text-[#e60000] font-bold cursor-pointer chat_button">Live Chat</span> to
-            discuss your requirements
-          </p>
-        </div>
-        <div className="flex-1 flex justify-center items-center mt-8 md:mt-0 md:ml-8">
-          <Image
-            src="/lp3/image16.webp"
-            alt="Books stack"
-            width={540}
-            height={340}
-            className="object-cover"
-          />
-        </div>
-      </section>
 
+          <motion.p 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-gray-400 text-base"
+          >
+            Or start a{" "}
+            <span
+              onClick={toggleLiveChat}
+              className="text-[#ff1a1a] font-bold cursor-pointer hover:text-white transition-colors underline underline-offset-4"
+            >
+              Live Chat
+            </span>{" "}
+            to discuss your requirements
+          </motion.p>
+        </div>
+
+        {/* Right Side: Animated Book Stack */}
+        <motion.div 
+          initial={{ opacity: 0, x: 40, rotateY: -15 }}
+          whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} // Smooth "Out-Expo" curve
+          className="flex-1 flex justify-center items-center perspective-1000"
+        >
+          <motion.div
+            whileHover={{ scale: 1.05, rotateY: 5 }}
+            className="relative"
+          >
+            {/* The "Glow" behind the book stack */}
+            <div className="absolute inset-0 bg-[#8B0000]/20 blur-3xl scale-90 rounded-full" />
+            
+            <Image
+              src="/lp3/image16.webp"
+              alt="Books stack"
+              width={540}
+              height={340}
+              className="relative z-10 object-contain drop-shadow-[0_35px_35px_rgba(0,0,0,0.6)]"
+              priority
+            />
+            
+            {/* Glossy Overlay for "Alive" effect */}
+            <motion.div 
+               animate={{ opacity: [0.1, 0.3, 0.1], x: [-10, 10, -10] }}
+               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+               className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent z-20 pointer-events-none"
+            />
+          </motion.div>
+        </motion.div>
+      </div>
+
+      <style jsx>{`
+        .perspective-1000 {
+          perspective: 1000px;
+        }
+      `}</style>
+    </section>
       {/* ── FAQ ── */}
-      <section className="w-full flex flex-col items-center py-16 px-4 md:px-8 bg-gray-50">
-        <h2 className="text-3xl md:text-4xl  lg:text-[2.6rem] font-black text-center mb-16 tracking-tight text-slate-900">
+     <section className="w-full flex flex-col items-center py-24 px-6 md:px-8 bg-[#f9fafb] overflow-hidden">
+      {/* Animated Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl  font-black text-slate-900 tracking-tight uppercase">
           FREQUENTLY <span className="text-[#8B0000]">ASKED QUESTIONS</span>
         </h2>
-        <div className="w-full max-w-4xl mx-auto flex flex-col gap-4">
-          {[
-            {
-              q: "What are the steps involved in the book publishing process?",
-              a: "Our comprehensive process includes manuscript evaluation, professional editing, custom cover design, formatting for print and digital platforms, and widespread global distribution.",
-            },
-            {
-              q: "Do you offer both traditional and self-publishing options?",
-              a: "We specialize in premium self-publishing solutions that give you the quality of traditional publishing while allowing you to retain 100% of your rights and royalties.",
-            },
-            {
-              q: "Can you assist with book cover design, editing, and formatting?",
-              a: "Absolutely! Our 360-degree services cover every aspect of book creation. Our team of expert editors and award-winning designers ensure your book meets the highest industry standards.",
-            },
-            {
-              q: "How is book distribution handled and made available to retailers?",
-              a: "We distribute your book globally through major channels including Amazon, Barnes & Noble, Apple Books, and Ingram, making it available to thousands of retailers, bookstores, and libraries worldwide.",
-            },
-            {
-              q: "What royalty and payment structures are offered for published authors?",
-              a: "You keep 100% of the net royalties from your book sales. Once your book is published, all earnings go directly to you without any hidden fees or percentage cuts from our side.",
-            },
-          ].map((faq, index) => (
-            <div
+        <div className="w-24 h-1.5 bg-[#8B0000] mx-auto mt-6 rounded-full" />
+      </motion.div>
+
+      <div className="w-full max-w-4xl mx-auto flex flex-col gap-5">
+        {faqs.map((faq, index) => {
+          const isOpen = openFaq === index;
+
+          return (
+            <motion.div
               key={index}
-              className={`rounded-2xl shadow-sm border bg-white w-full overflow-hidden transition-all duration-300 ${openFaq === index ? "border-[#8B0000]" : "border-gray-200 hover:border-gray-300"}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              layout
+              className={`group rounded-2xl transition-all duration-500 border-2 ${
+                isOpen 
+                ? "bg-white border-[#8B0000] shadow-[0_20px_40px_-15px_rgba(139,0,0,0.1)] scale-[1.02]" 
+                : "bg-white/50 border-gray-100 hover:border-gray-300 shadow-sm"
+              }`}
             >
               <button
                 type="button"
-                onClick={() => toggleFaq(index)}
-                className="w-full flex justify-between items-center px-6 md:px-10 py-6 text-lg md:text-xl font-bold text-left text-[#1A1A1A] transition-colors focus:outline-none"
-                aria-expanded={openFaq === index}
+                onClick={() => setOpenFaq(isOpen ? null : index)}
+                className="w-full flex justify-between items-center px-6 md:px-10 py-7 text-left focus:outline-none"
               >
-                <span className="pr-4">{faq.q}</span>
-                <span
-                  className={`flex-shrink-0 text-2xl transition-transform duration-300 ${
-                    openFaq === index
-                      ? "rotate-180 text-[#8B0000]"
-                      : "text-gray-400"
-                  }`}
-                >
-                  <ChevronIcon />
+                <span className={`text-lg md:text-xl font-bold transition-colors duration-300 ${isOpen ? "text-[#8B0000]" : "text-slate-800"}`}>
+                  {faq.q}
                 </span>
-              </button>
-              <div
-                className={`transition-all duration-300 ease-in-out ${
-                  openFaq === index
-                    ? "max-h-[500px] opacity-100 pb-6 px-6 md:px-10"
-                    : "max-h-0 opacity-0 px-6 md:px-10 overflow-hidden"
-                }`}
-              >
-                <div className="text-gray-600 text-base md:text-lg border-t border-gray-100 pt-4 mt-2">
-                  {faq.a}
+                
+                <div className={`p-2 rounded-full transition-all duration-500 ${isOpen ? "bg-[#8B0000] text-white rotate-180" : "bg-gray-100 text-gray-400 group-hover:bg-gray-200"}`}>
+                  <ChevronDown className="w-6 h-6" />
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+              </button>
+
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
+                  >
+                    <div className="px-6 md:px-10 pb-8">
+                      <div className="h-px bg-gray-100 w-full mb-6" />
+                      <p className="text-gray-600 text-lg md:text-xl leading-relaxed font-medium">
+                        {faq.a}
+                      </p>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          );
+        })}
+      </div>
+      
+      {/* Optional: Add a "Still have questions?" sub-cta */}
+      <motion.p 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="mt-12 text-gray-500 font-medium"
+      >
+        Still have questions? <span className="text-[#8B0000] font-bold cursor-pointer hover:underline">Contact our support team</span>
+      </motion.p>
+    </section>
 
       {/* ── CONTACT + FORM ── */}
       <section className="w-full bg-[#fcfcfc] py-16 px-4 md:px-8 flex justify-center items-center">
@@ -689,6 +918,25 @@ export default function LandingPage() {
 }
 
 // ─────────────────────────────────────────
+// HELPERS FOR "ALIVE" FEEL
+// ─────────────────────────────────────────
+
+function RevealSection({ children, bg, dark = false }: { children: React.ReactNode, bg: string, dark?: boolean }) {
+  return (
+    <motion.section 
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.8 }}
+      className={`w-full ${bg} ${dark ? 'text-white' : 'text-slate-900'}`}
+    >
+      {children}
+    </motion.section>
+  );
+}
+
+
+// ─────────────────────────────────────────
 // Sub-components
 // ─────────────────────────────────────────
 
@@ -753,6 +1001,7 @@ function PricingCard({
     </div>
   );
 }
+
 
 function ContactRow({
   icon,

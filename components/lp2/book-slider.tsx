@@ -89,7 +89,7 @@ export function BookSlider() {
           />
         </svg>
         <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-bold text-gray-900 mb-5 leading-tight font-serif max-w-3xl mx-auto">
-          Books Published by Christian World Press
+          BOOKS PUBLISHED BY CHRISTIAN WORLD PRESS
         </h2>
         <p className="text-gray-500 text-sm md:text-[0.95rem] max-w-2xl mx-auto leading-relaxed">
           Our portfolio reflects the work we’ve done for Christian authors from different backgrounds, ministries, and life experiences. Each book represents a message of faith, encouragement, and purpose brought to life. 
