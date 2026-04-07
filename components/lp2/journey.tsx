@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Popup } from "@/components/lp-1/popup";
+import { Popup } from "@/components/global/popup";
 
 export function Journey() {
   const books = [

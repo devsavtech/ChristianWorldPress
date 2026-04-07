@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { ClassicButton } from "@/components/ui/classicbutton";
 import { BookOpen, MessageCircle } from "lucide-react";
-import { Popup } from "../lp-1/popup";
+import { Popup } from "../global/popup";
 export default function Testimonials2() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const toggleLiveChat = () => {

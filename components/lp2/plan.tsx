@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useTypingAnimation } from "@/hooks/useTypingAnimation";
-import { Popup } from "@/components/lp-1/popup";
+import { Popup } from "@/components/global/popup";
 import { useState } from "react";
 export function Plan() {
   const { displayedText, isTyping, sectionRef } =

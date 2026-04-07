@@ -6,7 +6,7 @@ import Link from "next/link"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules'; // Import Autoplay module
 import { motion } from "framer-motion";
-import { Popup } from "./popup"; // Import the popup component
+import { Popup } from "../global/popup"; // Import the popup component
 
 
 // Import Swiper styles
@@ -130,6 +130,9 @@ export function HeroSection() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const route = typeof window !== "undefined" ? window.location.href : "";
+
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -143,7 +146,8 @@ export function HeroSection() {
         brief: formData.message, //for Message
         domain: "www.christianworldpress.com",//domain,
         tag : "Landing Page",
-        brand: "christianworldpress.com"//brand,
+        brand: "christianworldpress.com",//brand,
+        route: route,
       }
 
       const response = await fetch("/api/customer", {
@@ -353,7 +357,7 @@ export function HeroSection() {
           </div>
           
         </div>
-        {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+      {showPopup && <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />}
       </section>
     );
   }
@@ -592,7 +596,7 @@ export function HeroSection() {
         </div>
         
       </div>
-      {showPopup && <Popup onClose={() => setShowPopup(false)} />}
+      {showPopup && <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />}
     </section>
   )
 }

@@ -29,6 +29,8 @@ export function Popup({ isOpen, onClose }: PopupProps) {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const route = typeof window !== "undefined" ? window.location.href : "";
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -43,6 +45,7 @@ export function Popup({ isOpen, onClose }: PopupProps) {
         domain: "www.christianworldpress.com",
         tag: "Landing Page",
         brand: "christianworldpress.com",
+        route: route,
       };
 
       const response = await fetch("/api/customer", {

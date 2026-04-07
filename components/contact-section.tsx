@@ -44,7 +44,7 @@ export function ContactSection() {
 
       // Format the brief message with route information
       const brief = `${formData.message}`;
-
+      const route = typeof window !== "undefined" ? window.location.href : "";
       console.log(brief);
       // Prepare the request body according to the API specification
       const requestBody = {
@@ -54,6 +54,7 @@ export function ContactSection() {
         brief: brief,
         domain: "www.christianworldpress.com", //domain,
         brand: "christianworldpress.com", //brand,
+        route: route,
       };
 
       // Make the API request

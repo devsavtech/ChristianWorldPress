@@ -4,7 +4,6 @@ import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { useCountAnimation } from "@/hooks/useCountAnimation"
 import Link from "next/link"
-import { Popup } from "./popup"
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -31,6 +30,8 @@ export function HeroSection() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
+  const route = typeof window !== "undefined" ? window.location.href : "";
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
@@ -45,6 +46,7 @@ export function HeroSection() {
         domain: "www.christianworldpress.com",
         tag: "Landing Page",
         brand: "christianworldpress.com",
+        route: route,
       }
 
       const response = await fetch("/api/customer", {

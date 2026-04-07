@@ -12,7 +12,7 @@ import { Testimonials } from "@/components/lp2/testimonials";
 import { FAQ } from "@/components/lp2/faq";
 import { Footer } from "@/components/lp2/footer";
 import { BookSlider } from "@/components/lp2/book-slider";
-import { Popup } from "@/components/lp-1/popup";
+import { Popup } from "@/components/global/popup";
 import { useState, useEffect } from "react";
 import ChatButton from "@/components/chatbutton";
 

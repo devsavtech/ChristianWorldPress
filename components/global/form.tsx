@@ -33,20 +33,16 @@ export function Form() {
     setSubmitStatus({ type: null, message: "" })
 
     try {
-      // Get domain and brand dynamically from the current window location
-      const domain = typeof window !== "undefined" ? window.location.hostname : ""
-      const brand = typeof window !== "undefined" ? window.location.hostname : ""
-
-      // Format the brief message with route information
+      const route = typeof window !== "undefined" ? window.location.href : ""
       const brief = `${formData.message}`
 
-      console.log(brief)
-      // Prepare the request body according to the API specification
+      console.log(route)
       const requestBody = {
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
         brief: brief,
+        route,
         domain: "www.christianworldpress.com",//domain,
         brand: "christianworldpress.com"//brand,
       }

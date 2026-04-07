@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-import { Form } from "@/components/lp-1/form";
-import { Popup } from "@/components/lp-1/popup";
+import { Form } from "@/components/global/form";
+import { Popup } from "@/components/global/popup";
 import { TitlePublished } from "@/components/lp3/titlepublished";
 import Testimonials2 from "@/components/lp3/testimonials";
 import { Portfolio } from "@/components/lp3/portfolio";

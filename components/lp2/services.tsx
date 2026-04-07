@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import { Popup } from "@/components/lp-1/popup";
+import { Popup } from "@/components/global/popup";
 
 const services = [
   {

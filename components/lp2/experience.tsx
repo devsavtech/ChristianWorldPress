@@ -26,6 +26,9 @@ export function Experience() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const route = typeof window !== "undefined" ? window.location.href : "";
+
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -39,6 +42,7 @@ export function Experience() {
         domain: "www.christianworldpress.com",
         tag: "Landing Page",
         brand: "christianworldpress.com",
+        route: route,
       };
 
       const response = await fetch("/api/customer", {

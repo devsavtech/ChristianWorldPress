@@ -3,10 +3,10 @@
 import { HeroSection } from '@/components/lp-1/herosection'
 import BookSection from '@/components/bestsellingbooks'
 import FAQ from '@/components/lp-1/faq'
-import { Form } from "@/components/lp-1/form";
+import { Form } from "@/components/global/form";
 import Brands from "@/components/brands";
 import { DistributionSection } from "@/components/distribution-section";
-import { Popup } from "@/components/lp-1/popup";
+import { Popup } from "@/components/global/popup";
 import { PartnersSection } from "@/components/partners-section";
 import { Navbar } from "@/components/lp-1/navbar";
 import { Footer } from "@/components/lp-1/footer";

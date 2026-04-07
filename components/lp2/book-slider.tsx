@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "../ui/button";
-import { Popup } from "@/components/lp-1/popup";
+import { Popup } from "@/components/global/popup";
 
 const books = [
   { title: "A Year of Positive Thinking", img: "/newreleasebooks/thebookofenoch.jpg" },

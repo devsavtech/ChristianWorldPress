@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
-import { Popup } from "@/components/lp-1/popup";
+import { Popup } from "@/components/global/popup";
 
 export function Hero() {
   const [formData, setFormData] = useState({
@@ -27,6 +27,9 @@ export function Hero() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const route = typeof window !== "undefined" ? window.location.href : "";
+
+  // Handle form submission
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -40,6 +43,7 @@ export function Hero() {
         domain: "www.christianworldpress.com",
         tag: "Landing Page",
         brand: "christianworldpress.com",
+        route: route,
       };
 
       const response = await fetch("/api/customer", {
