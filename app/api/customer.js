@@ -5,7 +5,7 @@ export default async function handler(req, res) {
       const requestBody = req.body; // the body from frontend
 
       const response = await fetch(
-        "https://savtrack.savtechglobal.com/api/customer",
+        "https://crm.deskpickle.com/api/customer",
         {
           method: "POST",
           headers: {

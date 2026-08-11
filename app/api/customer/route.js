@@ -4,7 +4,7 @@ export async function POST(req) {
     const requestBody = await req.json();
 
     const response = await fetch(
-      "https://savtrack.savtechglobal.com/api/customer",
+      "https://crm.deskpickle.com/api/customer",
       {
         method: "POST",
         headers: {

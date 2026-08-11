@@ -48,7 +48,7 @@ export function Form() {
       }
 
       // Make the API request
-      // const response = await fetch("https://savtrack.savtechglobal.com/api/customer", {
+      // const response = await fetch("https://crm.deskpickle.com/api/customer", {
       //   method: "POST",
       //   headers: {
       //     "Content-Type": "application/json",
