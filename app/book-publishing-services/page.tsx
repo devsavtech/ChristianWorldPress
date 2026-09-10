@@ -131,12 +131,12 @@ export default function LandingPage() {
           {/* Nav Actions */}
           <div className="flex items-center gap-3">
             <ClassicButton
-              href="tel:+17144757922"
+              href="tel:+19453378235"
               className="phone_button hidden md:flex " // Hidden on mobile to save space, or keep visible
               variant="textblack"
               icon={PhoneIcon}
             >
-              (714) 475-7922
+              (945) 337-8235
             </ClassicButton>
 
             <ClassicButton
@@ -308,7 +308,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <RevealSection>
+      <RevealSection bg="bg-default">
         <Testimonials2 />
       </RevealSection>
 
@@ -453,7 +453,7 @@ export default function LandingPage() {
             </ClassicButton>
             
             <ClassicButton
-              href="tel:+17144757922"
+              href="tel:+19453378235"
               variant="textOutline"
               icon={PhoneIcon}
               className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 text-white hover:bg-white/10 phone_button"
@@ -664,7 +664,7 @@ export default function LandingPage() {
             </ClassicButton>
             
             <ClassicButton
-              href="tel:+17144757922"
+              href="tel:+19453378235"
               variant="textOutline"
               icon={PhoneIcon}
               className="w-full sm:w-auto h-14 px-8 text-lg border-white/20 text-white hover:bg-white/10 phone_button"
@@ -831,8 +831,8 @@ export default function LandingPage() {
             <div className="space-y-5 max-w-md mx-auto md:mx-0 mb-8">
               <ContactRow
                 icon="phone"
-                text="+ (714) 475-7922"
-                href="tel:+17144757922"
+                text="(945) 337-8235"
+                href="tel:+19453378235"
               />
               <ContactRow
                 icon="email"

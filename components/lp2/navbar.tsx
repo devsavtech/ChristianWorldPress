@@ -23,9 +23,9 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4 md:gap-6">
-             <Link href="tel:+ (714) 475-7922;" className="text-white text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
+             <Link href="tel:+19453378235" className="text-white text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
                           <Phone className="w-4 h-4" />
-                          + (714) 475-7922
+                          (945) 337-8235
                         </Link>
             <Button   onClick={toggleLiveChat}  variant="outline" className="chat_button text-white border-white hover:bg-white hover:text-white rounded-none uppercase text-xs tracking-wider px-4 md:px-6">
               Live Chat

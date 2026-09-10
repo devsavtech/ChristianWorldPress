@@ -20,12 +20,12 @@ export default function ChatButton() {
     //     {isExpanded && (
     //       <>
     //         <a
-    //           href="tel:+714475-7922"
+    //           href="tel:+19453378235"
     //           className="flex items-center gap-2 bg-blue-600 text-white px-4 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors animate-in slide-in-from-bottom-2 phone_button"
-    //           aria-label="Call +714475-7922"
+    //           aria-label="Call (945) 337-8235"
     //         >
     //           <Phone size={20} />
-    //           <span className="font-medium">+(714) 475-7922</span>
+    //           <span className="font-medium">(945) 337-8235</span>
     //         </a>
     //         <button
     //           onClick={toggleLiveChat}

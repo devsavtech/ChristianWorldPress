@@ -212,10 +212,21 @@ export function Footer() {
                   Phone No.
                 </p>
                 <Link
-                  href="tel:+ (714) 475-7922;"
+                  href="tel:+19453378235"
                   className="text-[9px] xl:text-[12px] font-semibold text-white/80 flex items-center gap-2 phone_button"
                 >
-                  <Phone className="w-4 h-4" />+ (714) 475-7922
+                  <Phone className="w-4 h-4" />(945) 337-8235
+                </Link>
+              </div>
+              <div>
+                <p className="text-[10px] sm:text-xs text-[#e6b65c] uppercase tracking-widest font-semibold mb-1">
+                  Phone No.
+                </p>
+                <Link
+                  href="tel:+15734643909"
+                  className="text-[9px] xl:text-[12px] font-semibold text-white/80 flex items-center gap-2 phone_button"
+                >
+                  <Phone className="w-4 h-4" />573 464 3909
                 </Link>
               </div>
               <div>

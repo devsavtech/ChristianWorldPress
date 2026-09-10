@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Facebook, Mail, Linkedin , Instagram, Phone} from "lucide-react";
+import { ChevronRight, Facebook, Mail, Linkedin, Instagram, Phone } from "lucide-react";
 
 const footerLinks = {
   legal: [
@@ -13,11 +13,13 @@ const footerLinks = {
     { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/people/Christian-World-Press/61586607706132/" },
     { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/christian-world-press/" },
     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/christianworldpress.official/" },
-    { icon: () => (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-      </svg>
-    ), label: "X", href: "https://x.com/christianpress_" },
+    {
+      icon: () => (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4 sm:w-5 sm:h-5">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ), label: "X", href: "https://x.com/christianpress_"
+    },
   ],
 };
 
@@ -29,9 +31,9 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <div className="mb-4">
-              <img 
-                src="/logo/Chrisitan World Press Logo.png" 
-                alt="Christian World Press Logo" 
+              <img
+                src="/logo/Chrisitan World Press Logo.png"
+                alt="Christian World Press Logo"
                 className="h-12 w-auto mb-3"
               />
             </div>
@@ -55,8 +57,8 @@ export function Footer() {
                 )
               })}
             </div>
-            </div>
-          
+          </div>
+
           {/* Quick Links */}
           <div>
             <h3 className="font-serif font-semibold text-foreground mb-3 sm:mb-4 uppercase text-xs sm:text-sm tracking-wide">Quick Links</h3>
@@ -117,7 +119,7 @@ export function Footer() {
               </li>
             </ul>
           </div>
-          
+
           {/* Legal & Policies */}
           <div>
             <h3 className="font-serif font-semibold text-foreground mb-3 sm:mb-4 uppercase text-xs sm:text-sm tracking-wide">Legal</h3>
@@ -135,7 +137,7 @@ export function Footer() {
               ))}
             </ul>
           </div>
-          
+
           {/* Contact & Hours */}
           <div>
             <h3 className="font-serif font-semibold text-foreground mb-3 sm:mb-4 uppercase text-xs sm:text-sm tracking-wide">
@@ -153,10 +155,17 @@ export function Footer() {
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-accent uppercase tracking-widest font-semibold mb-1 ">Phone No.</p>
-                <Link href="tel:+ (714) 475-7922;" className="text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
-                <Phone className="w-4 h-4" />
-                + (714) 475-7922
-              </Link>
+                <Link href="tel:+19453378235" className="text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
+                  <Phone className="w-4 h-4" />
+                  (945) 337-8235
+                </Link>
+              </div>
+              <div>
+                <p className="text-[10px] sm:text-xs text-accent uppercase tracking-widest font-semibold mb-1 ">Phone No.</p>
+                <Link href="tel:+15734643909" className="text-[9px] xl:text-[12px] font-semibold text-foreground/70 flex items-center gap-2 phone_button">
+                  <Phone className="w-4 h-4" />
+                  (573) 464-3909
+                </Link>
               </div>
               <div>
                 <p className="text-[10px] sm:text-xs text-accent uppercase tracking-widest font-semibold mb-1">Address</p>
@@ -169,7 +178,7 @@ export function Footer() {
             </div>
           </div>
         </div>
-        
+
         <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} Christian World Press. All rights reserved.
